@@ -155,6 +155,7 @@ main {
   font-size: 1.4rem;
   cursor: pointer;
   padding: 4px;
+  margin-left: auto;
 }
 
 /* ============================================
