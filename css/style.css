@@ -583,12 +583,73 @@ body.lang-de span[lang="en"], body.lang-de a[lang="en"] { display: none; }
 body.lang-de .feature-row div[lang="de"] { display: block; }
 body.lang-de .feature-row div[lang="en"] { display: none; }
 
+/* Showcase text p tags need block display */
+.showcase-text p[lang="de"] { display: none; }
+.showcase-text p[lang="en"] { display: block; }
+
+body.lang-de .showcase-text p[lang="de"] { display: block; }
+body.lang-de .showcase-text p[lang="en"] { display: none; }
+
 /* Fix: pill CTA links need inline-block */
 a.cta-button.pill[lang="en"] { display: inline-block; }
 a.cta-button.pill[lang="de"] { display: none; }
 
 body.lang-de a.cta-button.pill[lang="de"] { display: inline-block; }
 body.lang-de a.cta-button.pill[lang="en"] { display: none; }
+
+/* ============================================
+   SCREENSHOTS SHOWCASE
+   ============================================ */
+.showcase-feature {
+  padding: 80px 0;
+}
+
+.showcase-feature:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.showcase-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.showcase-grid--reverse .showcase-text {
+  order: 2;
+}
+
+.showcase-grid--reverse .showcase-phone {
+  order: 1;
+}
+
+.showcase-text h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.showcase-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 420px;
+}
+
+.showcase-phone {
+  display: flex;
+  justify-content: center;
+}
+
+.showcase-phone img {
+  width: 280px;
+  filter:
+    drop-shadow(0 0 1px rgba(255, 255, 255, 0.15))
+    drop-shadow(0 0 20px rgba(255, 255, 255, 0.06))
+    drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
+}
 
 /* ============================================
    RESPONSIVE
@@ -641,6 +702,37 @@ body.lang-de a.cta-button.pill[lang="en"] { display: none; }
   .legal-page h1,
   .support-page h1 {
     font-size: 1.8rem;
+  }
+
+  .showcase-feature {
+    padding: 48px 0;
+  }
+
+  .showcase-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+  }
+
+  .showcase-grid--reverse .showcase-text {
+    order: 1;
+  }
+
+  .showcase-grid--reverse .showcase-phone {
+    order: 2;
+  }
+
+  .showcase-text h2 {
+    font-size: 1.6rem;
+  }
+
+  .showcase-text p {
+    font-size: 1rem;
+    max-width: none;
+  }
+
+  .showcase-phone img {
+    width: 240px;
   }
 }
 
