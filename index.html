@@ -3,41 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MusicDrops — Never Miss another Drop</title>
-  <meta name="description" content="Track new music releases from your favourite artists. Get notified when new albums, singles, and EPs drop.">
-  <meta property="og:title" content="MusicDrops — Never Miss another Drop">
-  <meta property="og:description" content="Track new music releases from your favourite artists. Get notified when new albums, singles, and EPs drop.">
+  <title>MusicDrops &mdash; Never miss another drop</title>
+  <meta name="description" content="A quiet, obsessive release tracker for people who care when the music lands. Follow your favourite artists and get notified the moment a new album, single, or EP drops.">
+  <meta name="theme-color" content="#07070b">
+  <meta property="og:title" content="MusicDrops &mdash; Never miss another drop">
+  <meta property="og:description" content="A quiet, obsessive release tracker for people who care when the music lands.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://musicdrops.app">
   <meta property="og:image" content="https://musicdrops.app/images/og-icon.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="1200">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="MusicDrops — Never Miss another Drop">
-  <meta name="twitter:description" content="Track new music releases from your favourite artists. Get notified when new albums, singles, and EPs drop.">
+  <meta name="twitter:title" content="MusicDrops &mdash; Never miss another drop">
+  <meta name="twitter:description" content="A quiet, obsessive release tracker for people who care when the music lands.">
   <meta name="twitter:image" content="https://musicdrops.app/images/og-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png">
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-  <link rel="stylesheet" href="css/style.css?v=5">
+  <link rel="stylesheet" href="css/style.css?v=13">
 </head>
 <body>
 
+  <!-- ============================================ HEADER ============================================ -->
   <header class="site-header">
-    <div class="container">
+    <div class="container site-header__inner">
       <a href="/" class="site-logo">
         <img src="images/app-icon.png" alt="MusicDrops icon">
-        MusicDrops
+        <span>Music<em>Drops</em></span>
       </a>
-      <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
       <nav>
         <ul class="nav-links">
-          <li><a href="#screenshots"><span lang="en">Features</span><span lang="de">Funktionen</span></a></li>
+          <li><a href="#showcase"><span lang="en">The app</span><span lang="de">Die App</span></a></li>
+          <li><a href="#features"><span lang="en">Features</span><span lang="de">Funktionen</span></a></li>
           <li><a href="/support"><span lang="en">Support</span><span lang="de">Hilfe</span></a></li>
           <li>
-            <div class="lang-toggle">
-              <button data-lang="en" class="active">EN</button>
-              <button data-lang="de">DE</button>
+            <div class="lang-toggle" role="group" aria-label="Language">
+              <button data-lang="en" class="active" type="button">EN</button>
+              <button data-lang="de" type="button">DE</button>
             </div>
           </li>
         </ul>
@@ -46,8 +51,9 @@
   </header>
 
   <main>
-    <!-- Hero with artwork marquee -->
-    <section class="hero">
+
+    <!-- ============================================ HERO ============================================ -->
+    <section class="hero" id="top">
       <!-- Artwork marquee background -->
       <div class="marquee-wrap" aria-hidden="true">
         <div class="marquee-row marquee-left">
@@ -71,103 +77,314 @@
           </div>
         </div>
       </div>
+
+      <!-- Warm radial glow -->
+      <div class="hero-glow" aria-hidden="true"></div>
       <!-- Gradient scrim -->
-      <div class="hero-scrim"></div>
+      <div class="hero-scrim" aria-hidden="true"></div>
+
       <!-- Content -->
       <div class="hero-content">
         <div class="container">
-          <img src="images/app-icon.png" alt="MusicDrops" class="hero-icon">
-          <div lang="en">
-            <h1>Never Miss<br>another Drop</h1>
-            <p>Follow your favourite artists and get notified the moment new albums, singles, and EPs drop.</p>
+          <div class="hero-icon-wrap">
+            <img src="images/app-icon.png" alt="MusicDrops" class="hero-icon">
+            <div class="hero-icon-glow" aria-hidden="true"></div>
           </div>
-          <div lang="de">
-            <h1>Verpasse keine neue<br>Ver&ouml;ffentlichung</h1>
-            <p>Folge deinen Lieblingsk&uuml;nstlern und erhalte sofort eine Benachrichtigung, wenn neue Alben, Singles und EPs erscheinen.</p>
-          </div>
-          <span class="coming-soon-badge" lang="en">Launching April 2026</span>
-          <span class="coming-soon-badge" lang="de">Ab April 2026</span>
+
+          <h1 class="hero-title" lang="en">
+            Never miss<br>another <em>drop.</em>
+          </h1>
+          <h1 class="hero-title" lang="de">
+            Verpasse keine<br>neue <em>Ver&ouml;ffentlichung.</em>
+          </h1>
+
+          <p class="hero-lede" lang="en">Follow your favourite artists &mdash; the moment a new album, single, or EP lands, your phone knows.</p>
+          <p class="hero-lede" lang="de">Folge deinen Lieblingsk&uuml;nstlern &mdash; sobald ein Album, eine Single oder EP erscheint, wei&szlig; es dein iPhone.</p>
+
+          <span class="launch-chip">
+            <span class="pulse" aria-hidden="true"></span>
+            <span lang="en">Launching April 2026</span>
+            <span lang="de">Ab April 2026</span>
+          </span>
         </div>
       </div>
     </section>
 
-    <!-- Screenshots Showcase -->
-    <section class="showcase" id="screenshots">
+    <!-- ============================================ MARQUEE TEXT TICKER ============================================ -->
+    <section class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span class="ticker-item"><em>New&nbsp;Album</em> Tomorrow</span><span class="ticker-dot">&bull;</span>
+        <span class="ticker-item"><em>Early&nbsp;Track</em> Just&nbsp;dropped</span><span class="ticker-dot">&bull;</span>
+        <span class="ticker-item"><em>Single</em> Dropped&nbsp;today</span><span class="ticker-dot">&bull;</span>
+        <span class="ticker-item"><em>EP</em> In&nbsp;7&nbsp;days</span><span class="ticker-dot">&bull;</span>
+        <span class="ticker-item"><em>Album</em> In&nbsp;2&nbsp;weeks</span><span class="ticker-dot">&bull;</span>
+        <span class="ticker-item"><em>Compilation</em> Just&nbsp;dropped</span><span class="ticker-dot">&bull;</span>
+        <span class="ticker-item"><em>New&nbsp;Album</em> Tomorrow</span><span class="ticker-dot">&bull;</span>
+        <span class="ticker-item"><em>Early&nbsp;Track</em> Just&nbsp;dropped</span><span class="ticker-dot">&bull;</span>
+        <span class="ticker-item"><em>Single</em> Dropped&nbsp;today</span><span class="ticker-dot">&bull;</span>
+        <span class="ticker-item"><em>EP</em> In&nbsp;7&nbsp;days</span><span class="ticker-dot">&bull;</span>
+        <span class="ticker-item"><em>Album</em> In&nbsp;2&nbsp;weeks</span><span class="ticker-dot">&bull;</span>
+        <span class="ticker-item"><em>Compilation</em> Just&nbsp;dropped</span><span class="ticker-dot">&bull;</span>
+      </div>
+    </section>
 
-      <div class="showcase-feature">
+    <!-- ============================================ MANIFESTO ============================================ -->
+    <section class="manifesto reveal" aria-label="Manifesto">
+      <div class="container manifesto__inner">
+        <p class="eyebrow" lang="en">Made for listeners</p>
+        <p class="eyebrow" lang="de">F&uuml;r ech&shy;te H&ouml;rer</p>
+        <h2 class="manifesto__title" lang="en">
+          Streaming services forgot something obvious. <em>You actually want to know</em> when the music you love comes out.
+        </h2>
+        <h2 class="manifesto__title" lang="de">
+          Streamingdienste haben etwas Offensichtliches vergessen. <em>Du willst einfach wissen</em>, wann die Musik erscheint, die du liebst.
+        </h2>
+        <p class="manifesto__body" lang="en">
+          MusicDrops is a single, quiet app that watches the catalogue for you. Follow an artist once &mdash; MusicDrops takes it from there. No feed. No algorithm. No shuffle. Just the next drop, on the day it drops.
+        </p>
+        <p class="manifesto__body" lang="de">
+          MusicDrops ist eine einzige, leise App, die den Katalog f&uuml;r dich im Blick beh&auml;lt. Folge einmal &mdash; den Rest macht MusicDrops. Kein Feed. Kein Algorithmus. Kein Shuffle. Nur der n&auml;chste Drop, am Tag des Releases.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================ SHOWCASE ============================================ -->
+    <section class="showcase" id="showcase">
+
+      <!-- Block 1 — Timeline -->
+      <article class="showcase-feature reveal" data-accent="warm">
         <div class="container showcase-grid">
           <div class="showcase-text">
-            <h2 lang="en">Discover what&rsquo;s next</h2>
-            <h2 lang="de">Entdecke, was kommt</h2>
-            <p lang="en">Browse trending artists, see who&rsquo;s dropping new music, and follow the ones you love &mdash; all in one place.</p>
-            <p lang="de">Durchst&ouml;bere angesagte K&uuml;nstler, sieh wer neue Musik ver&ouml;ffentlicht, und folge deinen Favoriten &mdash; alles an einem Ort.</p>
+            <span class="showcase-num">01</span>
+            <p class="eyebrow" lang="en">The Drops timeline</p>
+            <p class="eyebrow" lang="de">Die Drops-Timeline</p>
+            <h2 lang="en">Every release your artists put out &mdash; <em>in the order it matters.</em></h2>
+            <h2 lang="de">Alle Ver&ouml;ffentlichungen deiner K&uuml;nstler &mdash; <em>in der Reihenfolge, die z&auml;hlt.</em></h2>
+            <p class="showcase-body" lang="en">A clean, chronological feed of everything forthcoming and recently dropped. Tomorrow, this week, next month. One scroll and you&rsquo;re caught up.</p>
+            <p class="showcase-body" lang="de">Ein klarer, chronologischer Feed mit allem, was kommt und gerade erschienen ist. Morgen, diese Woche, n&auml;chster Monat. Einmal scrollen, und du bist auf dem Stand.</p>
+            <ul class="showcase-list">
+              <li lang="en"><span class="bullet"></span>Grouped by tomorrow, this week, and beyond</li>
+              <li lang="de"><span class="bullet"></span>Gruppiert nach morgen, diese Woche und dar&uuml;ber hinaus</li>
+              <li lang="en"><span class="bullet"></span>Countdown on every upcoming release &mdash; &ldquo;in 3 days&rdquo;</li>
+              <li lang="de"><span class="bullet"></span>Countdown f&uuml;r jede kommende Ver&ouml;ffentlichung &mdash; &bdquo;in 3 Tagen&ldquo;</li>
+              <li lang="en"><span class="bullet"></span>Album, EP, single, compilation &mdash; all tagged</li>
+              <li lang="de"><span class="bullet"></span>Album, EP, Single, Compilation &mdash; alles markiert</li>
+            </ul>
           </div>
           <div class="showcase-phone">
+            <div class="phone-halo" aria-hidden="true"></div>
+            <img src="images/screenshots/timeline.png" alt="Drops timeline screenshot" loading="lazy">
+          </div>
+        </div>
+      </article>
+
+      <!-- Block 2 — Search -->
+      <article class="showcase-feature reveal" data-accent="cool">
+        <div class="container showcase-grid showcase-grid--reverse">
+          <div class="showcase-text">
+            <span class="showcase-num">02</span>
+            <p class="eyebrow" lang="en">Discover &amp; follow</p>
+            <p class="eyebrow" lang="de">Entdecken &amp; folgen</p>
+            <h2 lang="en">Search the entire catalogue. <em>Trending artists, already cued up.</em></h2>
+            <h2 lang="de">Durchsuche den gesamten Katalog. <em>Angesagte K&uuml;nstler, schon bereit.</em></h2>
+            <p class="showcase-body" lang="en">Zara Larsson. Bad Bunny. The Killers. Type their name, or pick from the trending list &mdash; they&rsquo;re followed the moment you tap. Unfollow with a single gesture.</p>
+            <p class="showcase-body" lang="de">Zara Larsson. Bad Bunny. The Killers. Tippe den Namen oder w&auml;hle aus der Trending-Liste &mdash; gefolgt mit einem Tippen. Entfolgen genauso einfach.</p>
+            <ul class="showcase-list">
+              <li lang="en"><span class="bullet"></span>Curated trending artists to jump-start your library</li>
+              <li lang="de"><span class="bullet"></span>Kuratierte Trending-Liste f&uuml;r den Start</li>
+              <li lang="en"><span class="bullet"></span>Trending upcoming &mdash; see what&rsquo;s about to drop</li>
+              <li lang="de"><span class="bullet"></span>Trending Upcoming &mdash; was in K&uuml;rze erscheint</li>
+              <li lang="en"><span class="bullet"></span>Instant search across the Apple Music catalogue</li>
+              <li lang="de"><span class="bullet"></span>Sofortsuche im gesamten Apple Music Katalog</li>
+            </ul>
+          </div>
+          <div class="showcase-phone">
+            <div class="phone-halo" aria-hidden="true"></div>
             <img src="images/screenshots/search.png" alt="Search and discover artists" loading="lazy">
           </div>
         </div>
-      </div>
+      </article>
 
-      <div class="showcase-feature">
-        <div class="container showcase-grid showcase-grid--reverse">
-          <div class="showcase-text">
-            <h2 lang="en">Your personal drops timeline</h2>
-            <h2 lang="de">Deine pers&ouml;nliche Drops-Timeline</h2>
-            <p lang="en">See upcoming and recent releases from artists you follow, organised by date. Never miss another drop.</p>
-            <p lang="de">Sieh kommende und aktuelle Ver&ouml;ffentlichungen der K&uuml;nstler, denen du folgst &mdash; nach Datum sortiert.</p>
-          </div>
-          <div class="showcase-phone">
-            <img src="images/screenshots/timeline.png" alt="Drops timeline" loading="lazy">
-          </div>
-        </div>
-      </div>
-
-      <div class="showcase-feature">
+      <!-- Block 3 — Artist Detail -->
+      <article class="showcase-feature reveal" data-accent="warm">
         <div class="container showcase-grid">
           <div class="showcase-text">
-            <h2 lang="en">Explore full discographies</h2>
-            <h2 lang="de">Entdecke vollst&auml;ndige Diskografien</h2>
-            <p lang="en">Dive into any artist&rsquo;s complete catalogue &mdash; albums, EPs, singles, and compilations &mdash; all beautifully laid out.</p>
-            <p lang="de">Tauche ein in den kompletten Katalog eines K&uuml;nstlers &mdash; Alben, EPs, Singles und Compilations &mdash; &uuml;bersichtlich dargestellt.</p>
+            <span class="showcase-num">03</span>
+            <p class="eyebrow" lang="en">The full picture</p>
+            <p class="eyebrow" lang="de">Das ganze Bild</p>
+            <h2 lang="en">Every album, every EP, every single. <em>The discography, in one beautiful page.</em></h2>
+            <h2 lang="de">Jedes Album, jede EP, jede Single. <em>Die komplette Diskografie auf einer Seite.</em></h2>
+            <p class="showcase-body" lang="en">Tap into any artist to see everything they&rsquo;ve ever put out. Latest drop up top, full discography beneath, guest appearances included.</p>
+            <p class="showcase-body" lang="de">Tippe auf einen K&uuml;nstler und sieh alles, was je erschienen ist. Neuester Drop oben, komplette Diskografie darunter, Gastauftritte inklusive.</p>
+            <ul class="showcase-list">
+              <li lang="en"><span class="bullet"></span>Official releases &amp; features on other artists&rsquo; records</li>
+              <li lang="de"><span class="bullet"></span>Offizielle Releases &amp; Gastauftritte</li>
+              <li lang="en"><span class="bullet"></span>One tap to follow, one tap to unfollow</li>
+              <li lang="de"><span class="bullet"></span>Folgen oder Entfolgen mit einem Tippen</li>
+              <li lang="en"><span class="bullet"></span>Sorted by type &mdash; albums, EPs, singles, compilations</li>
+              <li lang="de"><span class="bullet"></span>Sortiert nach Typ &mdash; Alben, EPs, Singles, Compilations</li>
+            </ul>
           </div>
           <div class="showcase-phone">
+            <div class="phone-halo" aria-hidden="true"></div>
             <img src="images/screenshots/artist_detail.png" alt="Artist detail view" loading="lazy">
           </div>
         </div>
-      </div>
+      </article>
 
-      <div class="showcase-feature">
+      <!-- Block 4 — Release Detail -->
+      <article class="showcase-feature reveal" data-accent="cool">
         <div class="container showcase-grid showcase-grid--reverse">
           <div class="showcase-text">
-            <h2 lang="en">Every detail at a glance</h2>
-            <h2 lang="de">Alle Details auf einen Blick</h2>
-            <p lang="en">Track listings, release dates, ratings, reviews, and direct links to Apple Music &mdash; everything you need in one view.</p>
-            <p lang="de">Tracklisten, Ver&ouml;ffentlichungsdaten, Bewertungen, Reviews und Links zu Apple Music &mdash; alles in einer Ansicht.</p>
+            <span class="showcase-num">04</span>
+            <p class="eyebrow" lang="en">Every detail</p>
+            <p class="eyebrow" lang="de">Alle Details</p>
+            <h2 lang="en">Tracklist, ratings, reviews &mdash; <em>and a link straight to play.</em></h2>
+            <h2 lang="de">Tracklist, Bewertungen, Reviews &mdash; <em>und ein Link direkt zum Abspielen.</em></h2>
+            <p class="showcase-body" lang="en">Beneath each release: a full tracklist, a star rating summarised from iTunes reviews, genre, duration, and direct links to Apple Music and the iTunes Store.</p>
+            <p class="showcase-body" lang="de">Unter jedem Release: vollst&auml;ndige Tracklist, Sternebewertung aus iTunes-Rezensionen, Genre, Laufzeit und Direktlinks zu Apple Music und dem iTunes Store.</p>
+            <ul class="showcase-list">
+              <li lang="en"><span class="bullet"></span>Ratings aggregated across iTunes countries you choose</li>
+              <li lang="de"><span class="bullet"></span>Bewertungen aus den iTunes-Stores deiner Wahl</li>
+              <li lang="en"><span class="bullet"></span>Non-English reviews, auto-translated in one tap</li>
+              <li lang="de"><span class="bullet"></span>Fremdsprachige Reviews mit einem Tippen &uuml;bersetzt</li>
+              <li lang="en"><span class="bullet"></span>One tap to open in Apple Music or iTunes Store</li>
+              <li lang="de"><span class="bullet"></span>Ein Tippen f&uuml;hrt zu Apple Music oder iTunes</li>
+            </ul>
           </div>
           <div class="showcase-phone">
+            <div class="phone-halo" aria-hidden="true"></div>
             <img src="images/screenshots/release_detail.png" alt="Release detail view" loading="lazy">
           </div>
         </div>
-      </div>
+      </article>
 
     </section>
+
+    <!-- ============================================ FEATURES GRID ============================================ -->
+    <section class="features" id="features">
+      <div class="container">
+        <div class="features__head reveal">
+          <p class="eyebrow" lang="en">Built for collectors</p>
+          <p class="eyebrow" lang="de">F&uuml;r Sammler gebaut</p>
+          <h2 class="section-title" lang="en">Small app. <em>Big obsession.</em></h2>
+          <h2 class="section-title" lang="de">Kleine App. <em>Gro&szlig;e Leidenschaft.</em></h2>
+          <p class="section-lede" lang="en">Every detail considered. Every corner polished. This is an app built by someone who was tired of missing drops, too.</p>
+          <p class="section-lede" lang="de">Jedes Detail durchdacht. Jede Ecke geschliffen. Eine App von jemandem, der selbst zu oft Drops verpasst hat.</p>
+        </div>
+
+        <ul class="features-grid">
+          <li class="feat reveal">
+            <span class="feat-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7v4l-2 3v1h18v-1l-2-3V9a7 7 0 0 0-7-7Zm-2 19a2 2 0 1 0 4 0Z"/></svg>
+            </span>
+            <h3 lang="en">Midnight drop alerts</h3>
+            <h3 lang="de">Mitternachts-Drop-Alarm</h3>
+            <p lang="en">Get notified the moment a new album from an artist you follow goes live &mdash; right at release o&rsquo;clock.</p>
+            <p lang="de">Benachrichtigung genau in dem Moment, in dem ein neues Album erscheint &mdash; Punkt Mitternacht.</p>
+          </li>
+
+          <li class="feat reveal">
+            <span class="feat-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 2 4 14h6l-1 8 9-12h-6Z"/></svg>
+            </span>
+            <h3 lang="en">Early track drops</h3>
+            <h3 lang="de">Fr&uuml;he Track-Drops</h3>
+            <p lang="en">Many upcoming albums release a single each week. MusicDrops catches those advance tracks the moment they&rsquo;re playable.</p>
+            <p lang="de">Viele kommende Alben ver&ouml;ffentlichen vorab Singles. MusicDrops f&auml;ngt sie ab, sobald sie spielbar sind.</p>
+          </li>
+
+          <li class="feat reveal">
+            <span class="feat-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M19.35 10.04A7.49 7.49 0 0 0 12 4a7.5 7.5 0 0 0-6.98 4.79A5.5 5.5 0 0 0 6.5 20h13a4.5 4.5 0 0 0 .35-8.96Zm-3.6 1.23-4.5 4.5a1 1 0 0 1-1.42 0l-2.25-2.25a1 1 0 1 1 1.42-1.42l1.54 1.54 3.79-3.79a1 1 0 1 1 1.42 1.42Z"/></svg>
+            </span>
+            <h3 lang="en">Your library travels with you</h3>
+            <h3 lang="de">Deine Bibliothek zieht mit</h3>
+            <p lang="en">Followed artists and alerts sync via iCloud. Switch phones or restore a device &mdash; everything is already there.</p>
+            <p lang="de">Gefolgte K&uuml;nstler und Alarme synchronisieren per iCloud. Neues iPhone oder Wiederherstellung &mdash; alles ist schon da.</p>
+          </li>
+
+          <li class="feat reveal">
+            <span class="feat-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>
+            </span>
+            <h3 lang="en">Full discographies</h3>
+            <h3 lang="de">Vollst&auml;ndige Diskografien</h3>
+            <p lang="en">Not just the hits. Every EP, every single, every compilation, every guest verse. The whole record.</p>
+            <p lang="de">Nicht nur die Hits. Jede EP, Single, Compilation, jeder Gastauftritt. Die komplette Sammlung.</p>
+          </li>
+
+          <li class="feat reveal">
+            <span class="feat-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 12a3 3 0 0 1 3-3c2 0 3 1.5 4.5 4S16 17 18 17a3 3 0 0 0 0-6c-2 0-2.5 1.5-4.5 4S10 19 8 19a3 3 0 0 1-2-7Z"/></svg>
+            </span>
+            <h3 lang="en">Follow without limits</h3>
+            <h3 lang="de">Grenzenlos folgen</h3>
+            <p lang="en">Start free with 10 artists. Upgrade to track unlimited &mdash; as a monthly subscription, or once with Lifetime.</p>
+            <p lang="de">Kostenlos mit 10 K&uuml;nstlern starten. Upgrade f&uuml;r unbegrenzt &mdash; als Abo oder einmalig mit Lifetime.</p>
+          </li>
+
+          <li class="feat reveal">
+            <span class="feat-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 1a4 4 0 0 0-4 4v5H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2h-2V5a4 4 0 0 0-4-4Zm-2 9V5a2 2 0 1 1 4 0v5Z"/></svg>
+            </span>
+            <h3 lang="en">Local-first &amp; private</h3>
+            <h3 lang="de">Lokal &amp; privat</h3>
+            <p lang="en">No account. No server. Your follows live on your device. Delete the app and every trace goes with it.</p>
+            <p lang="de">Kein Konto. Kein Server. Deine Abos bleiben auf deinem Ger&auml;t. L&ouml;sch die App, l&ouml;sch alles.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================ FINAL CTA ============================================ -->
+    <section class="final-cta">
+      <div class="cta-backdrop" aria-hidden="true"></div>
+      <div class="container final-cta__inner">
+        <img src="images/app-icon.png" alt="" class="final-cta__icon">
+        <h2 lang="en">The next drop is already on its way.</h2>
+        <h2 lang="de">Der n&auml;chste Drop ist schon unterwegs.</h2>
+        <p lang="en">MusicDrops is arriving on iPhone in April 2026. Add it to your library the moment it drops.</p>
+        <p lang="de">MusicDrops kommt im April 2026 aufs iPhone. Lade sie dir, sobald sie erscheint.</p>
+        <div class="final-cta__badges">
+          <span class="launch-chip launch-chip--lg">
+            <span class="pulse" aria-hidden="true"></span>
+            <span lang="en">Coming to the App Store &middot; April 2026</span>
+            <span lang="de">Demn&auml;chst im App Store &middot; April 2026</span>
+          </span>
+        </div>
+        <p class="final-cta__micro" lang="en">Built in Hamburg, Germany &mdash; for the whole world&rsquo;s drop dates.</p>
+        <p class="final-cta__micro" lang="de">Gebaut in Hamburg, Deutschland &mdash; f&uuml;r Releasedaten &uuml;berall.</p>
+      </div>
+    </section>
+
   </main>
 
+  <!-- ============================================ FOOTER ============================================ -->
   <footer class="site-footer">
-    <div class="container">
-      <div class="footer-content">
-        <ul class="footer-links">
-          <li><a href="/privacy"><span lang="en">Privacy Policy</span><span lang="de">Datenschutz</span></a></li>
-          <li><a href="/terms"><span lang="en">Terms of Service</span><span lang="de">Nutzungsbedingungen</span></a></li>
-          <li><a href="/impressum"><span lang="en">Legal Notice (Impressum)</span><span lang="de">Impressum</span></a></li>
-          <li><a href="/support">Support</a></li>
-        </ul>
+    <div class="container site-footer__inner">
+      <div class="footer-brand">
+        <img src="images/app-icon.png" alt="MusicDrops">
+        <div>
+          <strong>Music<em>Drops</em></strong>
+          <span lang="en">A release tracker for people who care.</span>
+          <span lang="de">Ein Release-Tracker f&uuml;r echte Fans.</span>
+        </div>
+      </div>
+      <ul class="footer-links">
+        <li><a href="/"><span lang="en">Home</span><span lang="de">Start</span></a></li>
+        <li><a href="/support">Support</a></li>
+        <li><a href="/privacy"><span lang="en">Privacy</span><span lang="de">Datenschutz</span></a></li>
+        <li><a href="/terms"><span lang="en">Terms</span><span lang="de">Nutzungsbedingungen</span></a></li>
+        <li><a href="/impressum"><span lang="en">Legal Notice</span><span lang="de">Impressum</span></a></li>
+      </ul>
+      <div class="footer-fine">
         <p class="footer-copy">&copy; 2026 MusicDrops. <span lang="en">All rights reserved.</span><span lang="de">Alle Rechte vorbehalten.</span></p>
-        <p class="footer-copy"><span lang="en">Apple, Apple Music, iTunes, and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. MusicDrops is not affiliated with or endorsed by Apple Inc.</span><span lang="de">Apple, Apple Music, iTunes und das Apple-Logo sind Marken der Apple Inc., eingetragen in den USA und anderen L&auml;ndern. MusicDrops ist nicht mit Apple Inc. verbunden oder von Apple Inc. unterst&uuml;tzt.</span></p>
+        <p class="footer-copy footer-copy--tiny"><span lang="en">Apple, Apple Music, iTunes, iPhone, iCloud, Apple ID, App Store, and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. MusicDrops is not affiliated with or endorsed by Apple Inc.</span><span lang="de">Apple, Apple Music, iTunes, iPhone, iCloud, Apple ID, App Store und das Apple-Logo sind Marken der Apple Inc., eingetragen in den USA und anderen L&auml;ndern. MusicDrops ist nicht mit Apple Inc. verbunden oder von Apple Inc. unterst&uuml;tzt.</span></p>
       </div>
     </div>
   </footer>
 
-  <script src="js/lang.js"></script>
+  <script src="js/lang.js?v=10"></script>
 </body>
 </html>

@@ -8,25 +8,28 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png">
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-  <link rel="stylesheet" href="/css/style.css?v=5">
+  <meta name="theme-color" content="#07070b">
+  <link rel="stylesheet" href="/css/style.css?v=13">
 </head>
 <body>
 
   <header class="site-header">
-    <div class="container">
+    <div class="container site-header__inner">
       <a href="/" class="site-logo">
         <img src="/images/app-icon.png" alt="MusicDrops icon">
-        MusicDrops
+        <span>Music<em>Drops</em></span>
       </a>
-      <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
       <nav>
         <ul class="nav-links">
-          <li><a href="/"><span lang="en">Home</span><span lang="de">Startseite</span></a></li>
+          <li><a href="/"><span lang="en">Home</span><span lang="de">Start</span></a></li>
           <li><a href="/support">Support</a></li>
           <li>
-            <div class="lang-toggle">
-              <button data-lang="en" class="active">EN</button>
-              <button data-lang="de">DE</button>
+            <div class="lang-toggle" role="group" aria-label="Language">
+              <button data-lang="en" class="active" type="button">EN</button>
+              <button data-lang="de" type="button">DE</button>
             </div>
           </li>
         </ul>
@@ -40,7 +43,7 @@
       <!-- English -->
       <div lang="en">
         <h1>Privacy Policy</h1>
-        <p class="last-updated">Last updated: March 26, 2026</p>
+        <p class="last-updated">Last updated: April 16, 2026</p>
 
         <h2>1. Controller</h2>
         <p>The controller responsible for data processing in connection with MusicDrops is:</p>
@@ -49,12 +52,12 @@
           J&uuml;tlandring 2<br>
           22419 Hamburg<br>
           Germany<br>
-          Email: <a href="mailto:feedback@musicdrops.app">feedback@musicdrops.app</a><br>
+          Email: <a href="mailto:hello@musicdrops.app">hello@musicdrops.app</a><br>
           Phone: <a href="tel:+447933902919">+44 7933 902919</a>
         </p>
 
         <h2>2. Overview</h2>
-        <p>MusicDrops is designed with your privacy in mind. We do not collect, store, or transmit any personal data to our own servers. The app does not require user accounts. Everything stays on your device.</p>
+        <p>MusicDrops is designed with your privacy in mind. We do not collect, store, or transmit any personal data to our own servers. The app does not require user accounts. Your data stays on your device (with optional iCloud sync &mdash; see Section&nbsp;5).</p>
 
         <h2>3. Data We Do Not Collect</h2>
         <p>We want to be clear about what we do <strong>not</strong> do:</p>
@@ -128,7 +131,7 @@
         </ul>
         <p>You also have the <strong>right to withdraw consent</strong> at any time (Art. 7(3) GDPR) where processing is based on consent. The withdrawal does not affect the lawfulness of processing carried out prior to the withdrawal.</p>
         <p>Since MusicDrops does not collect or store any personal data on our servers, these rights are satisfied by design. All locally stored data can be deleted at any time by uninstalling the app. For data processed by Apple&rsquo;s services, please contact Apple directly or refer to their privacy policy.</p>
-        <p>To exercise any of these rights or if you have questions, please contact us at <a href="mailto:feedback@musicdrops.app">feedback@musicdrops.app</a>.</p>
+        <p>To exercise any of these rights or if you have questions, please contact us at <a href="mailto:hello@musicdrops.app">hello@musicdrops.app</a>.</p>
 
         <h2>9. Right to Lodge a Complaint</h2>
         <p>You have the right to lodge a complaint with a data protection supervisory authority (Art. 77 GDPR). The competent supervisory authority for us is:</p>
@@ -165,13 +168,13 @@
 
         <h2>14. Contact</h2>
         <p>If you have questions about this Privacy Policy, please contact us at:</p>
-        <p><a href="mailto:feedback@musicdrops.app">feedback@musicdrops.app</a></p>
+        <p><a href="mailto:hello@musicdrops.app">hello@musicdrops.app</a></p>
       </div>
 
       <!-- German -->
       <div lang="de">
         <h1>Datenschutzerkl&auml;rung</h1>
-        <p class="last-updated">Zuletzt aktualisiert: 26. M&auml;rz 2026</p>
+        <p class="last-updated">Zuletzt aktualisiert: 16. April 2026</p>
 
         <h2>1. Verantwortlicher</h2>
         <p>Verantwortlich f&uuml;r die Datenverarbeitung im Zusammenhang mit MusicDrops ist:</p>
@@ -180,12 +183,12 @@
           J&uuml;tlandring 2<br>
           22419 Hamburg<br>
           Deutschland<br>
-          E-Mail: <a href="mailto:feedback@musicdrops.app">feedback@musicdrops.app</a><br>
+          E-Mail: <a href="mailto:hello@musicdrops.app">hello@musicdrops.app</a><br>
           Telefon: <a href="tel:+447933902919">+44 7933 902919</a>
         </p>
 
         <h2>2. &Uuml;bersicht</h2>
-        <p>MusicDrops wurde mit Blick auf Ihre Privatsph&auml;re entwickelt. Wir erheben, speichern oder &uuml;bermitteln keine personenbezogenen Daten an eigene Server. Die App erfordert keine Benutzerkonten. Alles bleibt auf Ihrem Ger&auml;t.</p>
+        <p>MusicDrops wurde mit Blick auf Ihre Privatsph&auml;re entwickelt. Wir erheben, speichern oder &uuml;bermitteln keine personenbezogenen Daten an eigene Server. Die App erfordert keine Benutzerkonten. Ihre Daten bleiben auf Ihrem Ger&auml;t (mit optionaler iCloud-Synchronisierung &mdash; siehe Abschnitt&nbsp;5).</p>
 
         <h2>3. Daten, die wir nicht erheben</h2>
         <p>Wir m&ouml;chten klarstellen, was wir <strong>nicht</strong> tun:</p>
@@ -259,7 +262,7 @@
         </ul>
         <p>Sie haben au&szlig;erdem das <strong>Recht, eine erteilte Einwilligung jederzeit zu widerrufen</strong> (Art. 7 Abs. 3 DSGVO), sofern die Verarbeitung auf einer Einwilligung beruht. Der Widerruf ber&uuml;hrt nicht die Rechtm&auml;&szlig;igkeit der bis dahin auf Grundlage der Einwilligung erfolgten Verarbeitung.</p>
         <p>Da MusicDrops keine personenbezogenen Daten auf unseren Servern erhebt oder speichert, werden diese Rechte konstruktionsbedingt erf&uuml;llt. Alle lokal gespeicherten Daten k&ouml;nnen jederzeit durch Deinstallation der App gel&ouml;scht werden. F&uuml;r Daten, die von Apple-Diensten verarbeitet werden, wenden Sie sich bitte direkt an Apple oder lesen Sie deren Datenschutzrichtlinie.</p>
-        <p>Um eines dieser Rechte auszu&uuml;ben oder bei Fragen kontaktieren Sie uns unter <a href="mailto:feedback@musicdrops.app">feedback@musicdrops.app</a>.</p>
+        <p>Um eines dieser Rechte auszu&uuml;ben oder bei Fragen kontaktieren Sie uns unter <a href="mailto:hello@musicdrops.app">hello@musicdrops.app</a>.</p>
 
         <h2>9. Beschwerderecht</h2>
         <p>Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbeh&ouml;rde zu beschweren (Art. 77 DSGVO). Die f&uuml;r uns zust&auml;ndige Aufsichtsbeh&ouml;rde ist:</p>
@@ -296,27 +299,36 @@
 
         <h2>14. Kontakt</h2>
         <p>Wenn Sie Fragen zu dieser Datenschutzerkl&auml;rung haben, kontaktieren Sie uns unter:</p>
-        <p><a href="mailto:feedback@musicdrops.app">feedback@musicdrops.app</a></p>
+        <p><a href="mailto:hello@musicdrops.app">hello@musicdrops.app</a></p>
       </div>
 
     </div>
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <div class="footer-content">
-        <ul class="footer-links">
-          <li><a href="/privacy"><span lang="en">Privacy Policy</span><span lang="de">Datenschutz</span></a></li>
-          <li><a href="/terms"><span lang="en">Terms of Service</span><span lang="de">Nutzungsbedingungen</span></a></li>
-          <li><a href="/impressum"><span lang="en">Legal Notice (Impressum)</span><span lang="de">Impressum</span></a></li>
-          <li><a href="/support">Support</a></li>
-        </ul>
+    <div class="container site-footer__inner">
+      <div class="footer-brand">
+        <img src="/images/app-icon.png" alt="MusicDrops">
+        <div>
+          <strong>Music<em>Drops</em></strong>
+          <span lang="en">A release tracker for people who care.</span>
+          <span lang="de">Ein Release-Tracker f&uuml;r echte Fans.</span>
+        </div>
+      </div>
+      <ul class="footer-links">
+        <li><a href="/"><span lang="en">Home</span><span lang="de">Start</span></a></li>
+        <li><a href="/support">Support</a></li>
+        <li><a href="/privacy"><span lang="en">Privacy</span><span lang="de">Datenschutz</span></a></li>
+        <li><a href="/terms"><span lang="en">Terms</span><span lang="de">Nutzungsbedingungen</span></a></li>
+        <li><a href="/impressum"><span lang="en">Legal Notice</span><span lang="de">Impressum</span></a></li>
+      </ul>
+      <div class="footer-fine">
         <p class="footer-copy">&copy; 2026 MusicDrops. <span lang="en">All rights reserved.</span><span lang="de">Alle Rechte vorbehalten.</span></p>
-        <p class="footer-copy"><span lang="en">Apple, Apple Music, iTunes, and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. MusicDrops is not affiliated with or endorsed by Apple Inc.</span><span lang="de">Apple, Apple Music, iTunes und das Apple-Logo sind Marken der Apple Inc., eingetragen in den USA und anderen L&auml;ndern. MusicDrops ist nicht mit Apple Inc. verbunden oder von Apple Inc. unterst&uuml;tzt.</span></p>
+        <p class="footer-copy footer-copy--tiny"><span lang="en">Apple, Apple Music, iTunes, iPhone, iCloud, Apple ID, App Store, and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. MusicDrops is not affiliated with or endorsed by Apple Inc.</span><span lang="de">Apple, Apple Music, iTunes, iPhone, iCloud, Apple ID, App Store und das Apple-Logo sind Marken der Apple Inc., eingetragen in den USA und anderen L&auml;ndern. MusicDrops ist nicht mit Apple Inc. verbunden oder von Apple Inc. unterst&uuml;tzt.</span></p>
       </div>
     </div>
   </footer>
 
-  <script src="/js/lang.js"></script>
+  <script src="/js/lang.js?v=10"></script>
 </body>
 </html>

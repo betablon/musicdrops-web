@@ -8,25 +8,28 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png">
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-  <link rel="stylesheet" href="/css/style.css?v=5">
+  <meta name="theme-color" content="#07070b">
+  <link rel="stylesheet" href="/css/style.css?v=13">
 </head>
 <body>
 
   <header class="site-header">
-    <div class="container">
+    <div class="container site-header__inner">
       <a href="/" class="site-logo">
         <img src="/images/app-icon.png" alt="MusicDrops icon">
-        MusicDrops
+        <span>Music<em>Drops</em></span>
       </a>
-      <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
       <nav>
         <ul class="nav-links">
-          <li><a href="/"><span lang="en">Home</span><span lang="de">Startseite</span></a></li>
+          <li><a href="/"><span lang="en">Home</span><span lang="de">Start</span></a></li>
           <li><a href="/support">Support</a></li>
           <li>
-            <div class="lang-toggle">
-              <button data-lang="en" class="active">EN</button>
-              <button data-lang="de">DE</button>
+            <div class="lang-toggle" role="group" aria-label="Language">
+              <button data-lang="en" class="active" type="button">EN</button>
+              <button data-lang="de" type="button">DE</button>
             </div>
           </li>
         </ul>
@@ -40,7 +43,7 @@
       <!-- English -->
       <div lang="en">
         <h1>Terms of Service</h1>
-        <p class="last-updated">Last updated: March 26, 2026</p>
+        <p class="last-updated">Last updated: April 16, 2026</p>
 
         <h2>1. Acceptance of Terms</h2>
         <p>By downloading, installing, or using MusicDrops (&ldquo;the App&rdquo;), you agree to be bound by these Terms of Service (&ldquo;Terms&rdquo;). If you do not agree to these Terms, do not use the App.</p>
@@ -94,7 +97,7 @@
 
         <h2>8. Intellectual Property</h2>
         <p>The App and its original content, features, and functionality are owned by the developer and are protected by copyright and other intellectual property laws. Artist information, album artwork, and music metadata are provided by Apple Music and remain the property of their respective owners.</p>
-        <p>Apple, Apple Music, iTunes, and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. MusicDrops is not affiliated with or endorsed by Apple Inc.</p>
+        <p>Apple, Apple Music, iTunes, iPhone, iCloud, Apple ID, App Store, and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. MusicDrops is not affiliated with or endorsed by Apple Inc.</p>
 
         <h2>9. Third-Party Services</h2>
         <p>The App relies on Apple Music API for content and Apple&rsquo;s infrastructure for notifications and payments. We are not responsible for the availability, accuracy, or content provided by these services. Changes to Apple&rsquo;s services may affect App functionality.</p>
@@ -138,13 +141,13 @@
 
         <h2>17. Contact</h2>
         <p>If you have questions about these Terms, please contact us at:</p>
-        <p><a href="mailto:feedback@musicdrops.app">feedback@musicdrops.app</a></p>
+        <p><a href="mailto:hello@musicdrops.app">hello@musicdrops.app</a></p>
       </div>
 
       <!-- German -->
       <div lang="de">
         <h1>Nutzungsbedingungen</h1>
-        <p class="last-updated">Zuletzt aktualisiert: 26. M&auml;rz 2026</p>
+        <p class="last-updated">Zuletzt aktualisiert: 16. April 2026</p>
 
         <h2>1. Annahme der Bedingungen</h2>
         <p>Durch das Herunterladen, Installieren oder Nutzen von MusicDrops (&bdquo;die App&ldquo;) erkl&auml;ren Sie sich mit diesen Nutzungsbedingungen (&bdquo;Bedingungen&ldquo;) einverstanden. Wenn Sie diesen Bedingungen nicht zustimmen, nutzen Sie die App nicht.</p>
@@ -198,7 +201,7 @@
 
         <h2>8. Geistiges Eigentum</h2>
         <p>Die App und ihre urspr&uuml;nglichen Inhalte, Funktionen und Funktionalit&auml;ten sind Eigentum des Entwicklers und durch Urheber- und andere Rechte des geistigen Eigentums gesch&uuml;tzt. K&uuml;nstlerinformationen, Album-Artwork und Musik-Metadaten werden von Apple Music bereitgestellt und bleiben Eigentum ihrer jeweiligen Inhaber.</p>
-        <p>Apple, Apple Music, iTunes und das Apple-Logo sind Marken der Apple Inc., eingetragen in den USA und anderen L&auml;ndern. MusicDrops ist nicht mit Apple Inc. verbunden oder von Apple Inc. unterst&uuml;tzt.</p>
+        <p>Apple, Apple Music, iTunes, iPhone, iCloud, Apple ID, App Store und das Apple-Logo sind Marken der Apple Inc., eingetragen in den USA und anderen L&auml;ndern. MusicDrops ist nicht mit Apple Inc. verbunden oder von Apple Inc. unterst&uuml;tzt.</p>
 
         <h2>9. Drittanbieterdienste</h2>
         <p>Die App ist auf die Apple Music API f&uuml;r Inhalte und Apples Infrastruktur f&uuml;r Benachrichtigungen und Zahlungen angewiesen. Wir sind nicht verantwortlich f&uuml;r die Verf&uuml;gbarkeit, Genauigkeit oder Inhalte, die von diesen Diensten bereitgestellt werden. &Auml;nderungen an Apples Diensten k&ouml;nnen die App-Funktionalit&auml;t beeinflussen.</p>
@@ -242,27 +245,36 @@
 
         <h2>17. Kontakt</h2>
         <p>Wenn Sie Fragen zu diesen Bedingungen haben, kontaktieren Sie uns unter:</p>
-        <p><a href="mailto:feedback@musicdrops.app">feedback@musicdrops.app</a></p>
+        <p><a href="mailto:hello@musicdrops.app">hello@musicdrops.app</a></p>
       </div>
 
     </div>
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <div class="footer-content">
-        <ul class="footer-links">
-          <li><a href="/privacy"><span lang="en">Privacy Policy</span><span lang="de">Datenschutz</span></a></li>
-          <li><a href="/terms"><span lang="en">Terms of Service</span><span lang="de">Nutzungsbedingungen</span></a></li>
-          <li><a href="/impressum"><span lang="en">Legal Notice (Impressum)</span><span lang="de">Impressum</span></a></li>
-          <li><a href="/support">Support</a></li>
-        </ul>
+    <div class="container site-footer__inner">
+      <div class="footer-brand">
+        <img src="/images/app-icon.png" alt="MusicDrops">
+        <div>
+          <strong>Music<em>Drops</em></strong>
+          <span lang="en">A release tracker for people who care.</span>
+          <span lang="de">Ein Release-Tracker f&uuml;r echte Fans.</span>
+        </div>
+      </div>
+      <ul class="footer-links">
+        <li><a href="/"><span lang="en">Home</span><span lang="de">Start</span></a></li>
+        <li><a href="/support">Support</a></li>
+        <li><a href="/privacy"><span lang="en">Privacy</span><span lang="de">Datenschutz</span></a></li>
+        <li><a href="/terms"><span lang="en">Terms</span><span lang="de">Nutzungsbedingungen</span></a></li>
+        <li><a href="/impressum"><span lang="en">Legal Notice</span><span lang="de">Impressum</span></a></li>
+      </ul>
+      <div class="footer-fine">
         <p class="footer-copy">&copy; 2026 MusicDrops. <span lang="en">All rights reserved.</span><span lang="de">Alle Rechte vorbehalten.</span></p>
-        <p class="footer-copy"><span lang="en">Apple, Apple Music, iTunes, and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. MusicDrops is not affiliated with or endorsed by Apple Inc.</span><span lang="de">Apple, Apple Music, iTunes und das Apple-Logo sind Marken der Apple Inc., eingetragen in den USA und anderen L&auml;ndern. MusicDrops ist nicht mit Apple Inc. verbunden oder von Apple Inc. unterst&uuml;tzt.</span></p>
+        <p class="footer-copy footer-copy--tiny"><span lang="en">Apple, Apple Music, iTunes, iPhone, iCloud, Apple ID, App Store, and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. MusicDrops is not affiliated with or endorsed by Apple Inc.</span><span lang="de">Apple, Apple Music, iTunes, iPhone, iCloud, Apple ID, App Store und das Apple-Logo sind Marken der Apple Inc., eingetragen in den USA und anderen L&auml;ndern. MusicDrops ist nicht mit Apple Inc. verbunden oder von Apple Inc. unterst&uuml;tzt.</span></p>
       </div>
     </div>
   </footer>
 
-  <script src="/js/lang.js"></script>
+  <script src="/js/lang.js?v=10"></script>
 </body>
 </html>

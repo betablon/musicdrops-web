@@ -3,30 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Support — MusicDrops</title>
-  <meta name="description" content="MusicDrops Support — Get help with the app.">
+  <title>Support &mdash; MusicDrops</title>
+  <meta name="description" content="MusicDrops Support — Get help with the app. Email, FAQ, and subscription management.">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png">
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-  <link rel="stylesheet" href="/css/style.css?v=5">
+  <meta name="theme-color" content="#07070b">
+  <link rel="stylesheet" href="/css/style.css?v=13">
 </head>
 <body>
 
   <header class="site-header">
-    <div class="container">
+    <div class="container site-header__inner">
       <a href="/" class="site-logo">
         <img src="/images/app-icon.png" alt="MusicDrops icon">
-        MusicDrops
+        <span>Music<em>Drops</em></span>
       </a>
-      <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
       <nav>
         <ul class="nav-links">
-          <li><a href="/"><span lang="en">Home</span><span lang="de">Startseite</span></a></li>
+          <li><a href="/"><span lang="en">Home</span><span lang="de">Start</span></a></li>
           <li><a href="/support">Support</a></li>
           <li>
-            <div class="lang-toggle">
-              <button data-lang="en" class="active">EN</button>
-              <button data-lang="de">DE</button>
+            <div class="lang-toggle" role="group" aria-label="Language">
+              <button data-lang="en" class="active" type="button">EN</button>
+              <button data-lang="de" type="button">DE</button>
             </div>
           </li>
         </ul>
@@ -35,126 +38,235 @@
   </header>
 
   <main class="support-page">
-    <div class="container">
 
-      <div lang="en">
-        <h1>Support</h1>
-        <p>Need help with MusicDrops? Find answers below or get in touch.</p>
+    <!-- ============================================ HERO ============================================ -->
+    <section class="support-hero">
+      <div class="support-hero__glow" aria-hidden="true"></div>
+      <div class="container">
+        <p class="eyebrow" lang="en">Help &amp; guidance</p>
+        <p class="eyebrow" lang="de">Hilfe &amp; Anleitung</p>
+
+        <h1 class="support-hero__title" lang="en">How can we <em>help?</em></h1>
+        <h1 class="support-hero__title" lang="de">Wie k&ouml;nnen wir <em>helfen?</em></h1>
+
+        <p class="support-hero__lede" lang="en">No bots. No ticket queues. One small app, one inbox, and answers to the questions that come up most.</p>
+        <p class="support-hero__lede" lang="de">Keine Bots. Keine Ticket-Warteschlangen. Eine kleine App, ein Postfach &mdash; und Antworten auf die Fragen, die am h&auml;ufigsten kommen.</p>
+
+        <nav class="support-jump" aria-label="Jump to section">
+          <a href="#faq" class="support-jump__chip">
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm1 17h-2v-2h2Zm2.07-7.75-.9.92A3.43 3.43 0 0 0 13 15h-2v-.5a4.06 4.06 0 0 1 1.17-2.83l1.24-1.26A1.94 1.94 0 0 0 14 9a2 2 0 0 0-4 0H8a4 4 0 0 1 8 0 3.21 3.21 0 0 1-.93 2.25Z"/></svg>
+            <span lang="en">Read the FAQ</span>
+            <span lang="de">FAQ lesen</span>
+          </a>
+          <a href="#subscription" class="support-jump__chip">
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M21 7h-2V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2v2a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2Zm-4 12H7v-2h10a2 2 0 0 0 2-2V9h2v10ZM5 15V5h12v10Z"/></svg>
+            <span lang="en">Manage subscription</span>
+            <span lang="de">Abo verwalten</span>
+          </a>
+          <a href="#contact" class="support-jump__chip">
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2Zm0 2v.01L12 11l8-4.99V6H4Zm0 2.2V18h16V8.2l-8 5-8-5Z"/></svg>
+            <span lang="en">Send a note</span>
+            <span lang="de">Schreib uns</span>
+          </a>
+        </nav>
       </div>
-      <div lang="de">
-        <h1>Hilfe</h1>
-        <p>Ben&ouml;tigst du Hilfe mit MusicDrops? Finde Antworten unten oder kontaktiere uns.</p>
-      </div>
-      
-      <br/>
+    </section>
 
-      <!-- Contact -->
-      <div class="support-card">
-        <h2 lang="en">Contact Us</h2>
-        <h2 lang="de">Kontakt</h2>
-        <p lang="en">For questions, bug reports, or feature requests, email us at:</p>
-        <p lang="de">F&uuml;r Fragen, Fehlermeldungen oder Funktionswünsche schreibe uns an:</p>
-        <p><a href="mailto:feedback@musicdrops.app">feedback@musicdrops.app</a></p>
-      </div>
-
-      <!-- FAQ -->
-      <div class="support-card">
-        <h2 lang="en">Frequently Asked Questions</h2>
-        <h2 lang="de">H&auml;ufig gestellte Fragen</h2>
-
-        <div lang="en">
-          <div class="faq-item">
-            <h3>How do I follow an artist?</h3>
-            <p>Tap the search icon, type the artist name, and tap the follow button next to their name. The app searches the Apple Music catalogue.</p>
-          </div>
-
-          <div class="faq-item">
-            <h3>Why am I not receiving notifications?</h3>
-            <p>Make sure notifications are enabled for MusicDrops in your iPhone Settings &gt; Notifications. Also ensure Background App Refresh is enabled in Settings &gt; General &gt; Background App Refresh.</p>
-          </div>
-
-          <div class="faq-item">
-            <h3>How many artists can I follow for free?</h3>
-            <p>The free tier lets you follow up to 10 artists. Upgrade to a subscription or lifetime purchase for unlimited follows.</p>
-          </div>
-
-          <div class="faq-item">
-            <h3>How do I cancel my subscription?</h3>
-            <p>Subscriptions are managed through Apple. Go to Settings &gt; Apple ID &gt; Subscriptions on your iPhone to manage or cancel.</p>
-          </div>
-
-          <div class="faq-item">
-            <h3>How do I delete my data?</h3>
-            <p>All data is stored locally on your device. Simply delete the app to remove all data. No data is stored on any server.</p>
-          </div>
-
-          <div class="faq-item">
-            <h3>Does MusicDrops work without Apple Music?</h3>
-            <p>Yes. MusicDrops uses the Apple Music API to find artists and releases, but you don&rsquo;t need an Apple Music subscription. You can open releases in the iTunes Store to purchase them.</p>
-          </div>
+    <!-- ============================================ FAQ ============================================ -->
+    <section class="support-block support-faq" id="faq">
+      <div class="container support-block__grid">
+        <div class="support-block__label">
+          <span class="support-block__num">01</span>
+          <p class="eyebrow" lang="en">Frequently asked</p>
+          <p class="eyebrow" lang="de">H&auml;ufig gefragt</p>
         </div>
+        <div class="support-block__body">
+          <h2 lang="en">Quick answers. <em>Straight up.</em></h2>
+          <h2 lang="de">Schnelle Antworten. <em>Ohne Umschweife.</em></h2>
 
-        <div lang="de">
-          <div class="faq-item">
-            <h3>Wie folge ich einem K&uuml;nstler?</h3>
-            <p>Tippe auf das Suchsymbol, gib den K&uuml;nstlernamen ein und tippe auf den Folgen-Button neben dem Namen. Die App durchsucht den Apple Music Katalog.</p>
-          </div>
+          <ol class="faq-list reveal" lang="en">
+            <li>
+              <div class="faq-meta"><span class="faq-num">01</span></div>
+              <div class="faq-body">
+                <h3>How do I follow an artist?</h3>
+                <p>Tap the search icon, type the artist name, and tap the follow button next to their name. The app searches the Apple Music catalogue.</p>
+              </div>
+            </li>
+            <li>
+              <div class="faq-meta"><span class="faq-num">02</span></div>
+              <div class="faq-body">
+                <h3>Why am I not receiving notifications?</h3>
+                <p>Make sure notifications are enabled for MusicDrops in your iPhone Settings &rsaquo; Notifications. Also ensure Background App Refresh is enabled in Settings &rsaquo; General &rsaquo; Background App Refresh.</p>
+              </div>
+            </li>
+            <li>
+              <div class="faq-meta"><span class="faq-num">03</span></div>
+              <div class="faq-body">
+                <h3>How many artists can I follow for free?</h3>
+                <p>The free tier lets you follow up to 10 artists. Upgrade to a subscription or lifetime purchase for unlimited follows.</p>
+              </div>
+            </li>
+            <li>
+              <div class="faq-meta"><span class="faq-num">04</span></div>
+              <div class="faq-body">
+                <h3>How do I cancel my subscription?</h3>
+                <p>Subscriptions are managed through Apple. Go to Settings &rsaquo; Apple ID &rsaquo; Subscriptions on your iPhone to manage or cancel.</p>
+              </div>
+            </li>
+            <li>
+              <div class="faq-meta"><span class="faq-num">05</span></div>
+              <div class="faq-body">
+                <h3>How do I delete my data?</h3>
+                <p>All data is stored locally on your device. Simply delete the app to remove all data. No data is stored on any server.</p>
+              </div>
+            </li>
+            <li>
+              <div class="faq-meta"><span class="faq-num">06</span></div>
+              <div class="faq-body">
+                <h3>Does MusicDrops work without Apple Music?</h3>
+                <p>Yes. MusicDrops uses the Apple Music API to find artists and releases, but you don&rsquo;t need an Apple Music subscription. You can open releases in the iTunes Store to purchase them.</p>
+              </div>
+            </li>
+          </ol>
 
-          <div class="faq-item">
-            <h3>Warum erhalte ich keine Benachrichtigungen?</h3>
-            <p>Stelle sicher, dass Benachrichtigungen f&uuml;r MusicDrops in den iPhone-Einstellungen &gt; Mitteilungen aktiviert sind. Stelle au&szlig;erdem sicher, dass die Hintergrundaktualisierung unter Einstellungen &gt; Allgemein &gt; Hintergrundaktualisierung aktiviert ist.</p>
-          </div>
-
-          <div class="faq-item">
-            <h3>Wie vielen K&uuml;nstlern kann ich kostenlos folgen?</h3>
-            <p>Die kostenlose Version erlaubt es, bis zu 10 K&uuml;nstlern zu folgen. F&uuml;r unbegrenztes Folgen gibt es Abonnements oder den einmaligen Lifetime-Kauf.</p>
-          </div>
-
-          <div class="faq-item">
-            <h3>Wie k&uuml;ndige ich mein Abonnement?</h3>
-            <p>Abonnements werden &uuml;ber Apple verwaltet. Gehe zu Einstellungen &gt; Apple-ID &gt; Abonnements auf deinem iPhone, um es zu verwalten oder zu k&uuml;ndigen.</p>
-          </div>
-
-          <div class="faq-item">
-            <h3>Wie l&ouml;sche ich meine Daten?</h3>
-            <p>Alle Daten werden lokal auf deinem Ger&auml;t gespeichert. L&ouml;sche einfach die App, um alle Daten zu entfernen. Es werden keine Daten auf Servern gespeichert.</p>
-          </div>
-
-          <div class="faq-item">
-            <h3>Funktioniert MusicDrops ohne Apple Music?</h3>
-            <p>Ja. MusicDrops nutzt die Apple Music API, um K&uuml;nstler und Ver&ouml;ffentlichungen zu finden, aber du brauchst kein Apple Music Abonnement. Du kannst Ver&ouml;ffentlichungen im iTunes Store &ouml;ffnen und kaufen.</p>
-          </div>
+          <ol class="faq-list reveal" lang="de">
+            <li>
+              <div class="faq-meta"><span class="faq-num">01</span></div>
+              <div class="faq-body">
+                <h3>Wie folge ich einem K&uuml;nstler?</h3>
+                <p>Tippe auf das Suchsymbol, gib den K&uuml;nstlernamen ein und tippe auf den Folgen-Button neben dem Namen. Die App durchsucht den Apple Music Katalog.</p>
+              </div>
+            </li>
+            <li>
+              <div class="faq-meta"><span class="faq-num">02</span></div>
+              <div class="faq-body">
+                <h3>Warum erhalte ich keine Benachrichtigungen?</h3>
+                <p>Stelle sicher, dass Benachrichtigungen f&uuml;r MusicDrops in den iPhone-Einstellungen &rsaquo; Mitteilungen aktiviert sind. Stelle au&szlig;erdem sicher, dass die Hintergrundaktualisierung unter Einstellungen &rsaquo; Allgemein &rsaquo; Hintergrundaktualisierung aktiviert ist.</p>
+              </div>
+            </li>
+            <li>
+              <div class="faq-meta"><span class="faq-num">03</span></div>
+              <div class="faq-body">
+                <h3>Wie vielen K&uuml;nstlern kann ich kostenlos folgen?</h3>
+                <p>Die kostenlose Version erlaubt es, bis zu 10 K&uuml;nstlern zu folgen. F&uuml;r unbegrenztes Folgen gibt es Abonnements oder den einmaligen Lifetime-Kauf.</p>
+              </div>
+            </li>
+            <li>
+              <div class="faq-meta"><span class="faq-num">04</span></div>
+              <div class="faq-body">
+                <h3>Wie k&uuml;ndige ich mein Abonnement?</h3>
+                <p>Abonnements werden &uuml;ber Apple verwaltet. Gehe zu Einstellungen &rsaquo; Apple-ID &rsaquo; Abonnements auf deinem iPhone, um es zu verwalten oder zu k&uuml;ndigen.</p>
+              </div>
+            </li>
+            <li>
+              <div class="faq-meta"><span class="faq-num">05</span></div>
+              <div class="faq-body">
+                <h3>Wie l&ouml;sche ich meine Daten?</h3>
+                <p>Alle Daten werden lokal auf deinem Ger&auml;t gespeichert. L&ouml;sche einfach die App, um alle Daten zu entfernen. Es werden keine Daten auf Servern gespeichert.</p>
+              </div>
+            </li>
+            <li>
+              <div class="faq-meta"><span class="faq-num">06</span></div>
+              <div class="faq-body">
+                <h3>Funktioniert MusicDrops ohne Apple Music?</h3>
+                <p>Ja. MusicDrops nutzt die Apple Music API, um K&uuml;nstler und Ver&ouml;ffentlichungen zu finden, aber du brauchst kein Apple Music Abonnement. Du kannst Ver&ouml;ffentlichungen im iTunes Store &ouml;ffnen und kaufen.</p>
+              </div>
+            </li>
+          </ol>
         </div>
       </div>
+    </section>
 
-      <!-- Manage Subscription -->
-      <div class="support-card">
-        <h2 lang="en">Manage Your Subscription</h2>
-        <h2 lang="de">Abonnement verwalten</h2>
-        <p lang="en">Subscriptions are managed through Apple. To change or cancel your subscription:</p>
-        <p lang="de">Abonnements werden &uuml;ber Apple verwaltet. Um dein Abonnement zu &auml;ndern oder zu k&uuml;ndigen:</p>
-        <p lang="en">Open <strong>Settings &gt; Apple ID &gt; Subscriptions</strong> on your iPhone, or visit <a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener">Apple Subscription Management</a>.</p>
-        <p lang="de">&Ouml;ffne <strong>Einstellungen &gt; Apple-ID &gt; Abonnements</strong> auf deinem iPhone, oder besuche die <a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener">Apple Abonnementverwaltung</a>.</p>
+    <!-- ============================================ SUBSCRIPTION ============================================ -->
+    <section class="support-block support-subs reveal" id="subscription">
+      <div class="container support-block__grid">
+        <div class="support-block__label">
+          <span class="support-block__num">02</span>
+          <p class="eyebrow" lang="en">Subscriptions</p>
+          <p class="eyebrow" lang="de">Abonnements</p>
+        </div>
+        <div class="support-block__body">
+          <h2 lang="en">All billing handled by <em>Apple.</em></h2>
+          <h2 lang="de">Abrechnung l&auml;uft komplett &uuml;ber <em>Apple.</em></h2>
+          <p lang="en">Upgrades, renewals, and cancellations go through your Apple ID &mdash; so you&rsquo;re always in control. Two ways in:</p>
+          <p lang="de">Upgrades, Verl&auml;ngerungen und K&uuml;ndigungen laufen &uuml;ber deine Apple-ID &mdash; du beh&auml;ltst immer die Kontrolle. Zwei Wege:</p>
+
+          <ol class="sub-steps">
+            <li>
+              <span class="sub-step__num">1</span>
+              <div>
+                <strong lang="en">On your iPhone</strong>
+                <strong lang="de">Auf deinem iPhone</strong>
+                <p lang="en">Open <kbd>Settings</kbd> &rsaquo; <kbd>Apple&nbsp;ID</kbd> &rsaquo; <kbd>Subscriptions</kbd> and choose MusicDrops.</p>
+                <p lang="de">&Ouml;ffne <kbd>Einstellungen</kbd> &rsaquo; <kbd>Apple-ID</kbd> &rsaquo; <kbd>Abonnements</kbd> und w&auml;hle MusicDrops.</p>
+              </div>
+            </li>
+            <li>
+              <span class="sub-step__num">2</span>
+              <div>
+                <strong lang="en">On the web</strong>
+                <strong lang="de">Im Web</strong>
+                <p lang="en">Visit <a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener">Apple Subscription Management &rarr;</a></p>
+                <p lang="de">Besuche die <a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener">Apple Abonnement&shy;verwaltung &rarr;</a></p>
+              </div>
+            </li>
+          </ol>
+
+          <p class="support-microcopy" lang="en">All data stays on your device. Cancelling never deletes your follows &mdash; only the unlimited follow slots beyond 10.</p>
+          <p class="support-microcopy" lang="de">Alle Daten bleiben auf deinem Ger&auml;t. Das K&uuml;ndigen l&ouml;scht keine gefolgten K&uuml;nstler &mdash; nur die unbegrenzten Folgepl&auml;tze &uuml;ber 10 hinaus.</p>
+        </div>
       </div>
+    </section>
 
-    </div>
+    <!-- ============================================ CONTACT ============================================ -->
+    <section class="support-block support-contact reveal" id="contact">
+      <div class="container support-block__grid">
+        <div class="support-block__label">
+          <span class="support-block__num">03</span>
+          <p class="eyebrow" lang="en">By email</p>
+          <p class="eyebrow" lang="de">Per E-Mail</p>
+        </div>
+        <div class="support-block__body">
+          <h2 lang="en">Tell us what&rsquo;s on your mind. <em>We read every one.</em></h2>
+          <h2 lang="de">Erz&auml;hl uns, was dich besch&auml;ftigt. <em>Wir lesen jede Nachricht.</em></h2>
+          <p lang="en">Bug reports, feature ideas, gushing praise &mdash; or just a &ldquo;hey, this artist is missing.&rdquo; Everything lands in the same small inbox. You&rsquo;ll hear back.</p>
+          <p lang="de">Fehlermeldungen, Ideen f&uuml;r Funktionen, nettes Lob &mdash; oder einfach ein &bdquo;hey, dieser K&uuml;nstler fehlt.&ldquo; Alles landet im selben kleinen Postfach. Du h&ouml;rst zur&uuml;ck.</p>
+          <a class="email-button" href="mailto:hello@musicdrops.app">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"/></svg>
+            <span>hello@musicdrops.app</span>
+          </a>
+          <p class="support-microcopy" lang="en">Written &amp; read in Hamburg. German and English are both welcome.</p>
+          <p class="support-microcopy" lang="de">Geschrieben &amp; gelesen in Hamburg. Deutsch und Englisch sind beide willkommen.</p>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <div class="footer-content">
-        <ul class="footer-links">
-          <li><a href="/privacy"><span lang="en">Privacy Policy</span><span lang="de">Datenschutz</span></a></li>
-          <li><a href="/terms"><span lang="en">Terms of Service</span><span lang="de">Nutzungsbedingungen</span></a></li>
-          <li><a href="/impressum"><span lang="en">Legal Notice (Impressum)</span><span lang="de">Impressum</span></a></li>
-          <li><a href="/support">Support</a></li>
-        </ul>
+    <div class="container site-footer__inner">
+      <div class="footer-brand">
+        <img src="/images/app-icon.png" alt="MusicDrops">
+        <div>
+          <strong>Music<em>Drops</em></strong>
+          <span lang="en">A release tracker for people who care.</span>
+          <span lang="de">Ein Release-Tracker f&uuml;r echte Fans.</span>
+        </div>
+      </div>
+      <ul class="footer-links">
+        <li><a href="/"><span lang="en">Home</span><span lang="de">Start</span></a></li>
+        <li><a href="/support">Support</a></li>
+        <li><a href="/privacy"><span lang="en">Privacy</span><span lang="de">Datenschutz</span></a></li>
+        <li><a href="/terms"><span lang="en">Terms</span><span lang="de">Nutzungsbedingungen</span></a></li>
+        <li><a href="/impressum"><span lang="en">Legal Notice</span><span lang="de">Impressum</span></a></li>
+      </ul>
+      <div class="footer-fine">
         <p class="footer-copy">&copy; 2026 MusicDrops. <span lang="en">All rights reserved.</span><span lang="de">Alle Rechte vorbehalten.</span></p>
-        <p class="footer-copy"><span lang="en">Apple, Apple Music, iTunes, and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. MusicDrops is not affiliated with or endorsed by Apple Inc.</span><span lang="de">Apple, Apple Music, iTunes und das Apple-Logo sind Marken der Apple Inc., eingetragen in den USA und anderen L&auml;ndern. MusicDrops ist nicht mit Apple Inc. verbunden oder von Apple Inc. unterst&uuml;tzt.</span></p>
+        <p class="footer-copy footer-copy--tiny"><span lang="en">Apple, Apple Music, iTunes, iPhone, iCloud, Apple ID, App Store, and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. MusicDrops is not affiliated with or endorsed by Apple Inc.</span><span lang="de">Apple, Apple Music, iTunes, iPhone, iCloud, Apple ID, App Store und das Apple-Logo sind Marken der Apple Inc., eingetragen in den USA und anderen L&auml;ndern. MusicDrops ist nicht mit Apple Inc. verbunden oder von Apple Inc. unterst&uuml;tzt.</span></p>
       </div>
     </div>
   </footer>
 
-  <script src="/js/lang.js"></script>
+  <script src="/js/lang.js?v=11"></script>
 </body>
 </html>

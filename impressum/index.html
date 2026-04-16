@@ -8,25 +8,28 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png">
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-  <link rel="stylesheet" href="/css/style.css?v=5">
+  <meta name="theme-color" content="#07070b">
+  <link rel="stylesheet" href="/css/style.css?v=13">
 </head>
 <body>
 
   <header class="site-header">
-    <div class="container">
+    <div class="container site-header__inner">
       <a href="/" class="site-logo">
         <img src="/images/app-icon.png" alt="MusicDrops icon">
-        MusicDrops
+        <span>Music<em>Drops</em></span>
       </a>
-      <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
       <nav>
         <ul class="nav-links">
-          <li><a href="/"><span lang="en">Home</span><span lang="de">Startseite</span></a></li>
+          <li><a href="/"><span lang="en">Home</span><span lang="de">Start</span></a></li>
           <li><a href="/support">Support</a></li>
           <li>
-            <div class="lang-toggle">
-              <button data-lang="en" class="active">EN</button>
-              <button data-lang="de">DE</button>
+            <div class="lang-toggle" role="group" aria-label="Language">
+              <button data-lang="en" class="active" type="button">EN</button>
+              <button data-lang="de" type="button">DE</button>
             </div>
           </li>
         </ul>
@@ -52,7 +55,7 @@
 
         <h2>Contact</h2>
         <p>
-          Email: <a href="mailto:feedback@musicdrops.app">feedback@musicdrops.app</a><br>
+          Email: <a href="mailto:hello@musicdrops.app">hello@musicdrops.app</a><br>
           Phone: <a href="tel:+447933902919">+44 7933 902919</a><br>
           Contact form: <a href="/support">Support page</a>
         </p>
@@ -89,7 +92,7 @@
 
         <h2>Kontakt</h2>
         <p>
-          E-Mail: <a href="mailto:feedback@musicdrops.app">feedback@musicdrops.app</a><br>
+          E-Mail: <a href="mailto:hello@musicdrops.app">hello@musicdrops.app</a><br>
           Telefon: <a href="tel:+447933902919">+44 7933 902919</a><br>
           Kontaktformular: <a href="/support">Support-Seite</a>
         </p>
@@ -115,20 +118,29 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <div class="footer-content">
-        <ul class="footer-links">
-          <li><a href="/privacy"><span lang="en">Privacy Policy</span><span lang="de">Datenschutz</span></a></li>
-          <li><a href="/terms"><span lang="en">Terms of Service</span><span lang="de">Nutzungsbedingungen</span></a></li>
-          <li><a href="/impressum"><span lang="en">Legal Notice (Impressum)</span><span lang="de">Impressum</span></a></li>
-          <li><a href="/support">Support</a></li>
-        </ul>
+    <div class="container site-footer__inner">
+      <div class="footer-brand">
+        <img src="/images/app-icon.png" alt="MusicDrops">
+        <div>
+          <strong>Music<em>Drops</em></strong>
+          <span lang="en">A release tracker for people who care.</span>
+          <span lang="de">Ein Release-Tracker f&uuml;r echte Fans.</span>
+        </div>
+      </div>
+      <ul class="footer-links">
+        <li><a href="/"><span lang="en">Home</span><span lang="de">Start</span></a></li>
+        <li><a href="/support">Support</a></li>
+        <li><a href="/privacy"><span lang="en">Privacy</span><span lang="de">Datenschutz</span></a></li>
+        <li><a href="/terms"><span lang="en">Terms</span><span lang="de">Nutzungsbedingungen</span></a></li>
+        <li><a href="/impressum"><span lang="en">Legal Notice</span><span lang="de">Impressum</span></a></li>
+      </ul>
+      <div class="footer-fine">
         <p class="footer-copy">&copy; 2026 MusicDrops. <span lang="en">All rights reserved.</span><span lang="de">Alle Rechte vorbehalten.</span></p>
-        <p class="footer-copy"><span lang="en">Apple, Apple Music, iTunes, and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. MusicDrops is not affiliated with or endorsed by Apple Inc.</span><span lang="de">Apple, Apple Music, iTunes und das Apple-Logo sind Marken der Apple Inc., eingetragen in den USA und anderen L&auml;ndern. MusicDrops ist nicht mit Apple Inc. verbunden oder von Apple Inc. unterst&uuml;tzt.</span></p>
+        <p class="footer-copy footer-copy--tiny"><span lang="en">Apple, Apple Music, iTunes, iPhone, iCloud, Apple ID, App Store, and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. MusicDrops is not affiliated with or endorsed by Apple Inc.</span><span lang="de">Apple, Apple Music, iTunes, iPhone, iCloud, Apple ID, App Store und das Apple-Logo sind Marken der Apple Inc., eingetragen in den USA und anderen L&auml;ndern. MusicDrops ist nicht mit Apple Inc. verbunden oder von Apple Inc. unterst&uuml;tzt.</span></p>
       </div>
     </div>
   </footer>
 
-  <script src="/js/lang.js"></script>
+  <script src="/js/lang.js?v=10"></script>
 </body>
 </html>
