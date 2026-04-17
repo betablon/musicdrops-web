@@ -1,0 +1,8 @@
+# Local Claude Code preview / harness config
+.claude/
+
+# macOS file-system noise
+**/.DS_Store
+
+# Local-only image storage (drafts, references, never shipped)
+images/local/
