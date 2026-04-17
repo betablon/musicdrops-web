@@ -619,51 +619,6 @@ em {
   margin-bottom: clamp(28px, 4vh, 44px);
 }
 
-.launch-chip {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 22px 12px 18px;
-  font-size: 0.92rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: var(--drop-cream);
-  border: 1px solid var(--drop);
-  border-radius: 999px;
-  background:
-    radial-gradient(ellipse 80% 60% at 30% 50%, rgba(255, 149, 0, 0.18), transparent 70%),
-    rgba(255, 149, 0, 0.04);
-  box-shadow:
-    0 0 0 1px rgba(255, 149, 0, 0.15) inset,
-    0 12px 40px rgba(255, 149, 0, 0.18);
-}
-.launch-chip .pulse {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: var(--drop);
-  box-shadow: 0 0 12px var(--drop);
-  position: relative;
-}
-.launch-chip .pulse::after {
-  content: "";
-  position: absolute;
-  inset: -6px;
-  border-radius: 50%;
-  background: var(--drop);
-  opacity: 0;
-  animation: pulse-ring 2.2s ease-out infinite;
-}
-@keyframes pulse-ring {
-  0%   { opacity: 0.6; transform: scale(0.4); }
-  80%  { opacity: 0;   transform: scale(2.3); }
-  100% { opacity: 0;   transform: scale(2.3); }
-}
-.launch-chip--lg {
-  padding: 14px 28px 14px 22px;
-  font-size: 1rem;
-}
-
 .ghost-link {
   display: inline-flex;
   align-items: center;
@@ -1152,37 +1107,20 @@ em {
   margin-bottom: 40px;
 }
 
-.badge-appstore {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 20px;
-  background: var(--paper);
-  color: var(--ink);
-  border-radius: 12px;
-  font-family: var(--font-sans);
-  cursor: default;
-  box-shadow: 0 12px 30px rgba(255, 255, 255, 0.1);
+.appstore-badge {
+  display: inline-block;
   transition: transform 0.25s ease;
+  border-radius: 10px;
 }
-.badge-appstore:hover { transform: translateY(-2px); }
-.badge-appstore span {
-  display: flex;
-  flex-direction: column;
-  line-height: 1;
-  text-align: left;
+.appstore-badge:hover { transform: translateY(-2px); }
+.appstore-badge:focus-visible {
+  outline: 2px solid var(--paper);
+  outline-offset: 4px;
 }
-.badge-appstore small {
-  font-size: 0.7rem;
-  font-weight: 500;
-  margin-bottom: 3px;
-  letter-spacing: 0.01em;
-  opacity: 0.75;
-}
-.badge-appstore strong {
-  font-size: 1.1rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+.appstore-badge img {
+  display: block;
+  width: 200px;
+  height: auto;
 }
 
 .final-cta__micro {
@@ -1887,16 +1825,6 @@ body:not(.lang-de) .hero-meta span[lang="en"] { display: inline-flex; }
 body.lang-de .hero-meta span[lang="de"] { display: inline-flex; }
 .hero-meta .dot { display: inline-block !important; }
 
-/* Hero CTA chip inner language spans remain inline */
-.launch-chip span[lang] { display: none; }
-body:not(.lang-de) .launch-chip span[lang="en"] { display: inline; }
-body.lang-de .launch-chip span[lang="de"] { display: inline; }
-
-/* App store badge inner spans */
-.badge-appstore small[lang] { display: none; }
-body:not(.lang-de) .badge-appstore small[lang="en"] { display: inline-block; }
-body.lang-de .badge-appstore small[lang="de"] { display: inline-block; }
-
 /* Footer-brand, drop-widget inline spans */
 .footer-brand span[lang] { display: none; }
 body:not(.lang-de) .footer-brand span[lang="en"] { display: inline; }
@@ -2059,7 +1987,6 @@ body.lang-de .hero-kicker[lang="en"] { display: none; }
   .hero-icon,
   .final-cta__icon { animation: none; }
   .hero-icon-glow { animation: none; opacity: 0.7; }
-  .launch-chip .pulse::after { animation: none; }
   .reveal {
     opacity: 1;
     transform: none;
