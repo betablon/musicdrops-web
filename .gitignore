@@ -6,3 +6,6 @@
 
 # Local-only image storage (drafts, references, never shipped)
 images/local/
+
+# App Store screenshot helper (local dev tool, not shipped)
+appstore-screenshot-notifications.html
