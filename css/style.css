@@ -1369,6 +1369,13 @@ em {
   color: var(--paper);
   text-wrap: balance;
   max-width: 20ch;
+  /* Long single-word German titles (e.g. "Datenschutzerklärung") overflow
+     narrow viewports otherwise. `hyphens: auto` uses the `lang="de"` on
+     the wrapper to hyphenate at proper linguistic boundaries; the
+     overflow-wrap fallback covers browsers / cases where hyphenation
+     dictionaries aren't available. */
+  hyphens: auto;
+  overflow-wrap: break-word;
 }
 .legal-page .last-updated {
   text-align: center;
@@ -1390,6 +1397,27 @@ em {
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--drop) 35%, var(--drop) 65%, transparent);
   margin: 28px auto 0;
+}
+
+/* --- Upcoming-policy callout --- */
+.legal-page .legal-notice {
+  border-left: 2px solid var(--drop);
+  background: var(--hair-warm);
+  border-radius: 0 6px 6px 0;
+  padding: 18px 22px;
+  margin: 0 0 clamp(40px, 6vh, 64px);
+  color: var(--paper-80);
+}
+.legal-page .legal-notice p {
+  margin: 0;
+  font-size: clamp(0.95rem, 0.9rem + 0.15vw, 1.05rem);
+  line-height: 1.55;
+}
+.legal-page .legal-notice strong {
+  color: var(--paper);
+}
+.legal-page .legal-notice a {
+  color: var(--drop-warm);
 }
 
 /* --- Section headings --- */
