@@ -9,3 +9,7 @@ images/local/
 
 # App Store screenshot helper (local dev tool, not shipped)
 appstore-screenshot-notifications.html
+
+# OG card render templates (local dev tools, not shipped)
+og-card-template.html
+og-card-subpage-template.html
