@@ -1347,10 +1347,10 @@ em {
 }
 
 .final-cta__micro {
-  font-size: 0.85rem !important;
-  color: var(--paper-40) !important;
-  font-family: var(--font-serif);
-  font-style: italic;
+  font-size: 1rem !important;
+  color: var(--paper-60) !important;
+  font-family: var(--font-sans);
+  font-style: normal;
 }
 
 /* ============================================
