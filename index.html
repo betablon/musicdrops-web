@@ -23,7 +23,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png">
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-  <link rel="stylesheet" href="css/style.css?v=17">
+  <link rel="stylesheet" href="css/style.css?v=18">
 </head>
 <body>
 
@@ -149,25 +149,60 @@
       </div>
     </section>
 
-    <!-- ============================================ NOW AVAILABLE — Library import (v1.3) ============================================ -->
-    <aside class="upcoming reveal" aria-label="Now available">
+    <!-- ============================================ WHAT'S NEW — v1.4 (coming) + v1.3 import ============================================ -->
+    <aside class="upcoming reveal" aria-label="What&rsquo;s new">
       <div class="container">
-        <div class="upcoming-card">
-          <div class="upcoming-card__glow" aria-hidden="true"></div>
-          <span class="upcoming-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v11"/><path d="m8 10 4 4 4-4"/><path d="M4 16v2a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-2"/></svg>
-          </span>
-          <p class="upcoming-card__date">
-            <span class="upcoming-card__dot" aria-hidden="true"></span>
-            <span lang="en">Now available &middot; v1.3</span>
-            <span lang="de">Jetzt verf&uuml;gbar &middot; v1.3</span>
-          </p>
-          <h2 lang="en">Bring your whole library &mdash; <em>in one tap.</em></h2>
-          <h2 lang="de">Deine ganze Bibliothek &mdash; <em>mit einem Tippen.</em></h2>
-          <p class="upcoming-card__body" lang="en">Import every artist from your Apple Music or iTunes library at once &mdash; no more following them one by one.</p>
-          <p class="upcoming-card__body" lang="de">Importiere alle K&uuml;nstler aus deiner Apple&nbsp;Music- oder iTunes-Mediathek auf einmal &mdash; kein einzelnes Folgen mehr.</p>
-          <p class="upcoming-card__note" lang="en">Read on-device. Your library never leaves your iPhone.</p>
-          <p class="upcoming-card__note" lang="de">Wird lokal gelesen. Deine Mediathek verl&auml;sst dein iPhone nie.</p>
+        <div class="upcoming-grid">
+
+          <!-- v1.4 — coming next (primary) -->
+          <div class="upcoming-card upcoming-card--feature">
+            <div class="upcoming-card__glow" aria-hidden="true"></div>
+            <span class="upcoming-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2.5" width="16" height="19" rx="2.4"/><line x1="10" y1="18.4" x2="14" y2="18.4"/></svg>
+            </span>
+            <p class="upcoming-card__date">
+              <span class="upcoming-card__dot" aria-hidden="true"></span>
+              <span lang="en">Coming next &middot; v1.4</span>
+              <span lang="de">Als N&auml;chstes &middot; v1.4</span>
+            </p>
+            <h2 lang="en">Now on iPad. <em>Built for it, not just bigger.</em></h2>
+            <h2 lang="de">Jetzt auf dem iPad. <em>Daf&uuml;r gemacht, nicht nur gr&ouml;&szlig;er.</em></h2>
+            <p class="upcoming-card__body" lang="en">One universal app for iPhone and iPad. On iPad, a native layout built for the extra room &mdash; more of your music at a glance, not a stretched-out phone screen.</p>
+            <p class="upcoming-card__body" lang="de">Eine App f&uuml;r iPhone und iPad. Auf dem iPad ein natives Layout, das den zus&auml;tzlichen Platz wirklich nutzt &mdash; mehr Musik auf einen Blick, kein aufgeblasener iPhone-Bildschirm.</p>
+
+            <p class="upcoming-card__more" lang="en">Also in v1.4</p>
+            <p class="upcoming-card__more" lang="de">Ebenfalls in v1.4</p>
+            <ul class="upcoming-list">
+              <li lang="en"><span class="bullet"></span>A redesigned Following view &mdash; your artists as a wall of artwork, not a plain list</li>
+              <li lang="de"><span class="bullet"></span>Neu gestaltete &bdquo;Folge ich&ldquo;-Ansicht &mdash; deine K&uuml;nstler als Wand aus Artwork statt schlichter Liste</li>
+              <li lang="en"><span class="bullet"></span>Discographies that load in an instant &mdash; a huge speed-up on every artist page</li>
+              <li lang="de"><span class="bullet"></span>Diskografien, die sofort laden &mdash; enorm schneller auf jeder K&uuml;nstlerseite</li>
+              <li lang="en"><span class="bullet"></span>Faster, more reliable drop alerts and a steadier timeline</li>
+              <li lang="de"><span class="bullet"></span>Schnellere, zuverl&auml;ssigere Drop-Alarme und eine stabilere Timeline</li>
+              <li lang="en"><span class="bullet"></span>Quicker library import &mdash; plus countless fixes and refinements</li>
+              <li lang="de"><span class="bullet"></span>Schnellerer Bibliotheks-Import &mdash; dazu unz&auml;hlige Fixes und Feinschliff</li>
+            </ul>
+          </div>
+
+          <!-- v1.3 — now available (companion) -->
+          <div class="upcoming-card upcoming-card--muted">
+            <div class="upcoming-card__glow" aria-hidden="true"></div>
+            <span class="upcoming-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v11"/><path d="m8 10 4 4 4-4"/><path d="M4 16v2a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-2"/></svg>
+            </span>
+            <p class="upcoming-card__date">
+              <span class="upcoming-card__dot" aria-hidden="true"></span>
+              <span lang="en">Now available &middot; v1.3</span>
+              <span lang="de">Jetzt verf&uuml;gbar &middot; v1.3</span>
+            </p>
+            <h2 lang="en">Bring your whole library &mdash; <em>in one tap.</em></h2>
+            <h2 lang="de">Deine ganze Bibliothek &mdash; <em>mit einem Tippen.</em></h2>
+            <p class="upcoming-card__body" lang="en">Import every artist from your Apple Music or iTunes library at once &mdash; no more following them one by one.</p>
+            <p class="upcoming-card__body" lang="de">Importiere alle K&uuml;nstler aus deiner Apple&nbsp;Music- oder iTunes-Mediathek auf einmal &mdash; kein einzelnes Folgen mehr.</p>
+            <p class="upcoming-card__note" lang="en">Read on-device &mdash; it never leaves your iPhone.</p>
+            <p class="upcoming-card__note" lang="de">Wird lokal gelesen &mdash; deine Mediathek verl&auml;sst dein iPhone nie.</p>
+          </div>
+
         </div>
       </div>
     </aside>
