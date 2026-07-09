@@ -516,6 +516,16 @@ em {
   text-align: center;
   width: 100%;
 }
+/* Focused darken behind the copy so text stays legible over bright artwork */
+.hero-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 78% 56% at 50% 60%, rgba(7, 7, 11, 0.58), transparent 72%);
+}
 .hero-content > .container {
   display: flex;
   flex-direction: column;
@@ -608,6 +618,7 @@ em {
   max-width: 56ch;
   margin: 0 auto clamp(28px, 4vh, 40px);
   text-wrap: pretty;
+  text-shadow: 0 1px 18px rgba(7, 7, 11, 0.45);
 }
 
 .hero-cta {
@@ -1386,13 +1397,28 @@ em {
 
 .appstore-badge {
   display: inline-block;
-  transition: transform 0.25s ease;
+  transition: transform 0.25s ease, filter 0.25s ease;
   border-radius: 10px;
 }
-.appstore-badge:hover { transform: translateY(-2px); }
+.appstore-badge:hover {
+  transform: translateY(-3px);
+  filter: drop-shadow(0 12px 26px rgba(255, 149, 0, 0.28));
+}
 .appstore-badge:focus-visible {
   outline: 2px solid var(--paper);
   outline-offset: 4px;
+}
+
+/* Keyboard focus states for interactive elements */
+.nav-links a:focus-visible,
+.lang-toggle button:focus-visible,
+.nav-toggle:focus-visible,
+.site-logo:focus-visible,
+.footer-links a:focus-visible,
+.footer-brand a:focus-visible {
+  outline: 2px solid var(--drop-warm);
+  outline-offset: 3px;
+  border-radius: 6px;
 }
 .appstore-badge img {
   display: block;
@@ -2167,6 +2193,29 @@ body.lang-de .hero-kicker[lang="en"] { display: none; }
   transform: translateY(0);
 }
 
+/* Bullet lists cascade in when their card / section reveals.
+   Delays are paired (n+3, n+5, n+7) so the interleaved EN/DE
+   <li> items stagger identically in either language. */
+.showcase-list li,
+.upcoming-list li {
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.55s cubic-bezier(0.2, 0.7, 0.3, 1),
+    transform 0.55s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+.reveal.is-visible .showcase-list li,
+.reveal.is-visible .upcoming-list li {
+  opacity: 1;
+  transform: none;
+}
+.reveal.is-visible .showcase-list li:nth-child(n+3),
+.reveal.is-visible .upcoming-list li:nth-child(n+3) { transition-delay: 0.07s; }
+.reveal.is-visible .showcase-list li:nth-child(n+5),
+.reveal.is-visible .upcoming-list li:nth-child(n+5) { transition-delay: 0.14s; }
+.reveal.is-visible .showcase-list li:nth-child(n+7),
+.reveal.is-visible .upcoming-list li:nth-child(n+7) { transition-delay: 0.21s; }
+
 /* ============================================
    RESPONSIVE
    ============================================ */
@@ -2300,6 +2349,12 @@ body.lang-de .hero-kicker[lang="en"] { display: none; }
   .hero-icon-glow { animation: none; opacity: 0.7; }
   .ios-notif { opacity: 1; transform: none; }
   .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .showcase-list li,
+  .upcoming-list li {
     opacity: 1;
     transform: none;
     transition: none;
