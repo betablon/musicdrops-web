@@ -841,78 +841,51 @@ em {
 }
 
 /* ============================================
-   BUILT FOR IPAD — landscape showcase band
+   IN-SHOWCASE DEVICES — landscape iPad + iPhone-on-iPad duo
+   (raw grabs; the dark border draws the device bezel, the inner
+   radius clips the screenshot corners)
    ============================================ */
-.ipad-band {
-  position: relative;
-  padding: clamp(64px, 11vh, 140px) 0;
-  border-top: 1px solid var(--hair);
-  overflow: hidden;
+
+/* Single landscape iPad in a showcase media cell (artist block).
+   Overrides the base .showcase-phone img portrait bezel. */
+.showcase-phone--pad img {
+  width: min(500px, 100%);
+  border: 8px solid #0e0e12;
+  border-radius: 24px;
 }
-.ipad-band__glow {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse 62% 48% at 50% 8%, rgba(255, 149, 0, 0.10), transparent 62%),
-    radial-gradient(ellipse 70% 50% at 50% 108%, rgba(255, 149, 0, 0.06), transparent 66%);
-}
-.ipad-band__inner {
+
+/* iPhone + iPad together (timeline block): iPad behind, iPhone in front. */
+.showcase-phone--duo { padding: 20px 20px 38px; }
+.device-duo {
   position: relative;
   z-index: 1;
-  text-align: center;
-}
-.ipad-band__head {
-  max-width: 760px;
-  margin: 0 auto clamp(38px, 6vh, 66px);
-}
-.ipad-band__head h2 {
-  font-family: var(--font-sans);
-  font-weight: 800;
-  font-size: var(--fs-h2);
-  line-height: 1.02;
-  letter-spacing: -0.035em;
-  color: var(--paper);
-  margin: 16px 0 18px;
-  text-wrap: balance;
-}
-.ipad-band__head h2 em {
-  font-size: 1.02em;
-  color: var(--accent);
-}
-.ipad-band__lede {
-  font-size: var(--fs-lede);
-  color: var(--paper-60);
-  line-height: 1.5;
-  max-width: 56ch;
+  width: min(500px, 100%);
   margin: 0 auto;
-  text-wrap: pretty;
 }
-.ipad-band__frames {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(20px, 3vw, 44px);
-  align-items: start;
-}
-/* Raw landscape grabs — dark border draws the iPad bezel */
-.ipad-frame img {
+.showcase-phone--duo .device-duo__pad {
   width: 100%;
-  border: 9px solid #0e0e12;
+  border: 8px solid #0e0e12;
+  border-radius: 22px;
+  background: #0e0e12;
+  box-shadow: var(--shadow-lg), 0 6px 18px rgba(255, 149, 0, 0.10);
+}
+.showcase-phone--duo .device-duo__phone {
+  position: absolute;
+  left: -5%;
+  bottom: -11%;
+  width: 30%;
+  z-index: 2;
+  border: 5px solid #0e0e12;
   border-radius: 26px;
   background: #0e0e12;
-  box-shadow:
-    var(--shadow-lg),
-    0 6px 18px rgba(255, 149, 0, 0.10);
+  box-shadow: var(--shadow-lg), 0 4px 14px rgba(255, 149, 0, 0.12);
 }
-@media (max-width: 860px) {
-  .ipad-band__frames {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    max-width: 640px;
-    margin: 0 auto;
+@media (max-width: 480px) {
+  .showcase-phone--pad img { border-width: 6px; border-radius: 20px; }
+  .showcase-phone--duo .device-duo__phone {
+    left: -3%; bottom: -8%; width: 32%;
+    border-width: 4px; border-radius: 20px;
   }
-  .ipad-frame img { border-width: 7px; border-radius: 22px; }
 }
 
 /* ============================================
@@ -920,16 +893,6 @@ em {
    ============================================ */
 .upcoming {
   padding: clamp(8px, 2vh, 24px) 0 clamp(28px, 5vh, 64px);
-}
-.upcoming-grid {
-  display: grid;
-  gap: clamp(16px, 2vw, 22px);
-}
-@media (min-width: 880px) {
-  .upcoming-grid {
-    grid-template-columns: 1.35fr 1fr;
-    align-items: stretch;
-  }
 }
 .upcoming-card {
   position: relative;
@@ -940,7 +903,7 @@ em {
   text-align: left;
   border: 1px solid var(--hair-warm);
   border-radius: var(--radius-lg);
-  padding: clamp(26px, 3.4vw, 46px);
+  padding: clamp(24px, 2.8vw, 38px);
   background:
     linear-gradient(180deg, var(--ink-3), var(--ink-2));
   box-shadow: var(--shadow-md);
@@ -957,21 +920,6 @@ em {
 }
 .upcoming-card--muted .upcoming-card__glow { opacity: 0.45; }
 .upcoming-card > *:not(.upcoming-card__glow) { position: relative; z-index: 1; }
-
-.upcoming-card__icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
-  margin: 0 0 16px;
-  border-radius: 15px;
-  color: var(--accent);
-  background: linear-gradient(180deg, rgba(255, 149, 0, 0.16), rgba(255, 149, 0, 0.04));
-  box-shadow:
-    0 0 0 1px rgba(255, 149, 0, 0.20) inset,
-    0 8px 24px rgba(255, 149, 0, 0.14);
-}
 
 .upcoming-card__date {
   display: inline-flex;
@@ -1014,49 +962,28 @@ em {
   max-width: 46ch;
   margin: 0;
 }
-.upcoming-card__note {
-  margin-top: auto;
-  padding-top: 18px;
-  font-size: 0.88rem;
-  color: var(--paper-40);
-  letter-spacing: 0.01em;
-}
 
-.upcoming-card__more {
-  width: 100%;
-  margin: 22px 0 12px;
-  padding-top: 18px;
-  border-top: 1px solid var(--hair);
-  font-size: var(--fs-eyebrow);
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--paper-40);
-}
-.upcoming-list {
+/* Compact chip row for the "also in this release" items */
+.upcoming-tags {
   list-style: none;
   display: flex;
-  flex-direction: column;
-  gap: 9px;
+  flex-wrap: wrap;
+  gap: 8px;
   width: 100%;
+  margin: clamp(16px, 2vw, 22px) 0 0;
+  padding-top: clamp(16px, 2vw, 22px);
+  border-top: 1px solid var(--hair);
 }
-.upcoming-list li {
-  position: relative;
-  padding-left: 22px;
-  color: var(--paper-80);
-  font-size: 0.95rem;
-  line-height: 1.45;
-}
-.upcoming-list .bullet {
-  position: absolute;
-  left: 0;
-  top: 0.5em;
-  width: 9px;
-  height: 9px;
+.upcoming-tags li {
+  padding: 5px 12px;
+  border: 1px solid var(--hair-warm);
   border-radius: 999px;
-  background:
-    radial-gradient(circle at 35% 35%, var(--drop-warm), var(--drop-deep));
-  box-shadow: 0 0 0 2px rgba(255, 149, 0, 0.15), 0 0 10px var(--drop-glow);
+  background: rgba(255, 149, 0, 0.06);
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.005em;
+  color: var(--paper-80);
 }
 
 /* ============================================
@@ -2115,25 +2042,20 @@ body.lang-de .footer-brand span[lang="de"] { display: inline; }
 /* Bullet lists cascade in when their card / section reveals.
    Delays are paired (n+3, n+5, n+7) so the interleaved EN/DE
    <li> items stagger identically in either language. */
-.showcase-list li,
-.upcoming-list li {
+.showcase-list li {
   opacity: 0;
   transform: translateY(8px);
   transition:
     opacity 0.55s cubic-bezier(0.2, 0.7, 0.3, 1),
     transform 0.55s cubic-bezier(0.2, 0.7, 0.3, 1);
 }
-.reveal.is-visible .showcase-list li,
-.reveal.is-visible .upcoming-list li {
+.reveal.is-visible .showcase-list li {
   opacity: 1;
   transform: none;
 }
-.reveal.is-visible .showcase-list li:nth-child(n+3),
-.reveal.is-visible .upcoming-list li:nth-child(n+3) { transition-delay: 0.07s; }
-.reveal.is-visible .showcase-list li:nth-child(n+5),
-.reveal.is-visible .upcoming-list li:nth-child(n+5) { transition-delay: 0.14s; }
-.reveal.is-visible .showcase-list li:nth-child(n+7),
-.reveal.is-visible .upcoming-list li:nth-child(n+7) { transition-delay: 0.21s; }
+.reveal.is-visible .showcase-list li:nth-child(n+3) { transition-delay: 0.07s; }
+.reveal.is-visible .showcase-list li:nth-child(n+5) { transition-delay: 0.14s; }
+.reveal.is-visible .showcase-list li:nth-child(n+7) { transition-delay: 0.21s; }
 
 /* ============================================
    RESPONSIVE
@@ -2239,8 +2161,7 @@ body.lang-de .footer-brand span[lang="de"] { display: inline; }
     transform: none;
     transition: none;
   }
-  .showcase-list li,
-  .upcoming-list li {
+  .showcase-list li {
     opacity: 1;
     transform: none;
     transition: none;
