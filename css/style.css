@@ -707,13 +707,6 @@ em {
   font-size: 1.02em;
   color: var(--accent);
 }
-.manifesto__body {
-  font-size: var(--fs-lede);
-  color: var(--ink-60);
-  line-height: 1.5;
-  max-width: 58ch;
-  text-wrap: pretty;
-}
 
 /* ============================================
    SHOWCASE (large alternating feature blocks)
@@ -906,7 +899,6 @@ em {
     linear-gradient(180deg, var(--paper-3), var(--paper-2));
   box-shadow: var(--shadow-md);
 }
-.upcoming-card--muted { border-color: var(--hair); }
 .upcoming-card__glow {
   position: absolute;
   inset: 0;
@@ -916,7 +908,6 @@ em {
     radial-gradient(120% 130% at 0% 0%, rgba(255, 149, 0, 0.12), transparent 52%),
     radial-gradient(120% 130% at 100% 100%, rgba(255, 149, 0, 0.07), transparent 55%);
 }
-.upcoming-card--muted .upcoming-card__glow { opacity: 0.45; }
 .upcoming-card > *:not(.upcoming-card__glow) { position: relative; z-index: 1; }
 
 .upcoming-card__date {

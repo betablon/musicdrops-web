@@ -67,7 +67,7 @@
       var i = parentIndex.get(p) || 0;
       parentIndex.set(p, i + 1);
       // Only cascade feature-grid cards and multi-sibling revealers
-      if (p && (p.classList.contains("features-grid") || p.classList.contains("showcase") || p.classList.contains("upcoming-grid"))) {
+      if (p && (p.classList.contains("features-grid") || p.classList.contains("showcase"))) {
         el.style.setProperty("--reveal-delay", (i * 60) + "ms");
       }
     });
