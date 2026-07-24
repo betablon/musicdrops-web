@@ -13,3 +13,7 @@ appstore-screenshot-notifications.html
 # OG card render templates (local dev tools, not shipped)
 og-card-template.html
 og-card-subpage-template.html
+
+# App Store event image render templates (local dev tools, not shipped)
+event-card-template.html
+event-details-template.html
