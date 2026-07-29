@@ -23,7 +23,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png">
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-  <link rel="stylesheet" href="css/style.css?v=25">
+  <link rel="stylesheet" href="css/style.css?v=26">
 </head>
 <body>
 
@@ -55,6 +55,31 @@
   </header>
 
   <main>
+
+    <!-- ============================================ PROMO BANNER ============================================ -->
+    <div class="container" data-promo-expires="2026-07-31">
+      <a class="promo-banner" href="https://apps.apple.com/redeem?ctx=offercodes&amp;id=6759535792&amp;code=INDIEAPPSALES2026" target="_blank" rel="noopener">
+        <span class="promo-banner__tag" lang="en">Limited time</span>
+        <span class="promo-banner__tag" lang="de">Zeitlich begrenzt</span>
+        <span class="promo-banner__text" lang="en">Unlimited Lifetime is <strong>up to 33% off</strong> &mdash; only through this link, until <strong>July&nbsp;30</strong>.</span>
+        <span class="promo-banner__text" lang="de">Unlimited Lebenslang ist <strong>bis zu 33%&nbsp;g&uuml;nstiger</strong> &mdash; nur &uuml;ber diesen Link, bis zum <strong>30.&nbsp;Juli</strong>.</span>
+        <span class="promo-banner__cta">
+          <span lang="en">Get the deal</span>
+          <span lang="de">Zum Angebot</span>
+          <span aria-hidden="true">&rarr;</span>
+        </span>
+      </a>
+    </div>
+    <script>
+      (function () {
+        var el = document.currentScript.previousElementSibling;
+        var expires = el && el.dataset.promoExpires;
+        if (!expires) return;
+        var parts = expires.split("-");
+        var cutoff = new Date(+parts[0], +parts[1] - 1, +parts[2]);
+        if (new Date() >= cutoff) { el.remove(); }
+      })();
+    </script>
 
     <!-- ============================================ HERO ============================================ -->
     <section class="hero" id="top">
