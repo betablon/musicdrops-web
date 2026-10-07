@@ -3,7 +3,9 @@
 
 Looks the app up in the public iTunes lookup for each storefront below, pools
 the ratings into one average, and rewrites the block in index.html between
-<!-- rating:start --> and <!-- rating:end -->.
+<!-- rating:start --> and <!-- rating:end -->. The same numbers go into the
+aggregateRating of the page's structured data (<script id="app-ld">), which
+search engines only accept while the rating is also visible on the page.
 
 The line only appears once there are MIN_RATINGS ratings, and only names the
 count from SHOW_COUNT on, so an early handful of ratings never reads as thin.
@@ -75,6 +77,26 @@ def render(average, count):
     )
 
 
+LD = re.compile(r'(<script type="application/ld\+json" id="app-ld">\n)(.*?)(\n *</script>)', re.S)
+
+
+def with_structured_rating(page, average, count):
+    match = LD.search(page)
+    if not match:
+        return page
+    data = json.loads(match.group(2))
+    data.pop("aggregateRating", None)
+    if count >= MIN_RATINGS:
+        data["aggregateRating"] = {
+            "@type": "AggregateRating",
+            "ratingValue": f"{average:.1f}",
+            "ratingCount": str(count),
+            "bestRating": "5",
+        }
+    body = json.dumps(data, indent=2, ensure_ascii=False)
+    return page[: match.start(2)] + body + page[match.end(2):]
+
+
 def main():
     with open(PAGE, encoding="utf-8") as f:
         page = f.read()
@@ -106,12 +128,13 @@ def main():
 
     html = render(average, total)
     block = f"{indent}{html}\n" if html else ""
-    if match.group(2) == block:
+    updated = page[: match.start(2)] + block + page[match.end(2):]
+    updated = with_structured_rating(updated, average, total)
+    if updated == page:
         log("No change.")
         return 0
-    page = page[: match.start(2)] + block + page[match.end(2):]
     with open(PAGE, "w", encoding="utf-8") as f:
-        f.write(page)
+        f.write(updated)
     log("Rating line updated." if html else f"Fewer than {MIN_RATINGS} ratings; rating line hidden.")
     return 0
 

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MusicDrops: Never miss another drop</title>
-  <meta name="description" content="Follow the artists you love. MusicDrops tells you when their new music comes out. For iPhone, iPad and iPhone Duo.">
+  <title>MusicDrops: New music release alerts for iPhone and iPad</title>
+  <meta name="description" content="Get a notification when the artists you follow release new music, and see upcoming albums before they drop. For iPhone, iPad and iPhone Duo. Free for 10 artists.">
   <link rel="canonical" href="https://musicdrops.app/">
   <meta name="apple-itunes-app" content="app-id=6759535792">
   <meta name="theme-color" content="#fbfaf6" media="(prefers-color-scheme: light)">
@@ -27,7 +27,43 @@
   <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png">
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
   <link rel="preload" href="/fonts/instrument-serif-400-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/css/style.css?v=30">
+  <link rel="stylesheet" href="/css/style.css?v=31">
+  <script type="application/ld+json" id="app-ld">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "MusicDrops",
+  "description": "Get a notification when the artists you follow release new music, and see upcoming albums before they drop.",
+  "url": "https://musicdrops.app/",
+  "downloadUrl": "https://apps.apple.com/app/id6759535792",
+  "image": "https://musicdrops.app/images/app-icon-1024.png",
+  "applicationCategory": "MusicApplication",
+  "operatingSystem": "iOS 26.1 or later, iPadOS 26.1 or later",
+  "inLanguage": [
+    "en",
+    "de",
+    "fr",
+    "it",
+    "es",
+    "ja"
+  ],
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "David Cox"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "ratingCount": "15",
+    "bestRating": "5"
+  }
+}
+  </script>
 </head>
 <body>
 
@@ -69,8 +105,12 @@
           <p class="hero__sub" lang="de">Folge den K&uuml;nstlern, die du liebst. MusicDrops sagt dir, wenn ihre neue Musik erscheint.</p>
           <div class="hero__cta">
             <a class="appstore-badge" href="https://apps.apple.com/us/app/music-drops/id6759535792" target="_blank" rel="noopener">
-              <img src="/images/app-store-badge.svg" alt="Download on the App Store" width="156" height="52">
+              <img lang="en" src="/images/app-store-badge.svg" alt="Download on the App Store" width="156" height="52"><img lang="de" src="/images/app-store-badge-de.svg" alt="Laden im App Store" width="156" height="52">
             </a>
+            <div class="qr" aria-hidden="true">
+              <img src="/images/qr-app-store.svg" alt="" width="58" height="58">
+              <p><span lang="en">On a computer?<br>Scan with your iPhone.</span><span lang="de">Am Computer?<br>Mit dem iPhone scannen.</span></p>
+            </div>
             <p class="hero__note" lang="en">Free for up to 10 artists.<br>No Apple Music subscription needed.</p>
             <p class="hero__note" lang="de">Kostenlos f&uuml;r bis zu 10 K&uuml;nstler.<br>Kein Apple-Music-Abo n&ouml;tig.</p>
           </div>
@@ -269,13 +309,13 @@
       </div>
       <div>
         <h3 lang="en">Other versions</h3><h3 lang="de">Andere Versionen</h3>
-        <p lang="en">Deluxe, remastered and iTunes-only editions, linked.</p>
-        <p lang="de">Deluxe-, Remaster- und reine iTunes-Editionen, verkn&uuml;pft.</p>
+        <p lang="en">Deluxe and remastered editions, and ones sold only on iTunes, all linked.</p>
+        <p lang="de">Deluxe- und Remaster-Editionen, auch solche, die es nur bei iTunes gibt, alle verkn&uuml;pft.</p>
       </div>
       <div>
         <h3 lang="en">Ratings and reviews</h3><h3 lang="de">Bewertungen und Rezensionen</h3>
-        <p lang="en">From the iTunes Stores you choose, translated on device.</p>
-        <p lang="de">Aus den iTunes Stores deiner Wahl, auf dem Ger&auml;t &uuml;bersetzt.</p>
+        <p lang="en">From the countries you pick, translated right on your device.</p>
+        <p lang="de">Aus den L&auml;ndern deiner Wahl, direkt auf dem Ger&auml;t &uuml;bersetzt.</p>
       </div>
       <div>
         <h3 lang="en">Hide remixes</h3><h3 lang="de">Remixe ausblenden</h3>
@@ -309,6 +349,7 @@
           <h3 lang="en">Up to 10 artists</h3><h3 lang="de">Bis zu 10 K&uuml;nstler</h3>
           <p lang="en">Try it with the artists you care about most.</p>
           <p lang="de">Probier es mit den K&uuml;nstlern aus, die dir am wichtigsten sind.</p>
+          <a class="button plans__cta" href="https://apps.apple.com/us/app/music-drops/id6759535792" target="_blank" rel="noopener"><span lang="en">Get it free</span><span lang="de">Kostenlos laden</span></a>
         </div>
         <div>
           <p class="plans__kind">Unlimited</p>
@@ -383,7 +424,7 @@
         <h2 lang="en">The next drop is already <em>on its way.</em></h2>
         <h2 lang="de">Der n&auml;chste Drop ist schon <em>unterwegs.</em></h2>
         <a class="appstore-badge" href="https://apps.apple.com/us/app/music-drops/id6759535792" target="_blank" rel="noopener">
-          <img src="/images/app-store-badge.svg" alt="Download on the App Store" width="156" height="52">
+          <img lang="en" src="/images/app-store-badge.svg" alt="Download on the App Store" width="156" height="52"><img lang="de" src="/images/app-store-badge-de.svg" alt="Laden im App Store" width="156" height="52">
         </a>
       </section>
     </div>
@@ -407,6 +448,6 @@
     </div>
   </footer>
 
-  <script src="/js/lang.js?v=14"></script>
+  <script src="/js/lang.js?v=15"></script>
 </body>
 </html>

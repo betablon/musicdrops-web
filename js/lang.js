@@ -86,14 +86,18 @@
   };
   var EUROZONE = /^(AT|BE|CY|DE|EE|ES|FI|FR|GR|HR|IE|IT|LT|LU|LV|MT|NL|PT|SI|SK)$/;
   var REGION_CURRENCY = { GB: "GBP", CA: "CAD", AU: "AUD", CH: "CHF", LI: "CHF" };
-  var currency = (function () {
+  // The visitor's country, from the first browser language that names one,
+  // else from a bare language that mostly means one country.
+  var BARE_LANGUAGE = { de: "DE", fr: "FR", it: "IT", es: "ES", nl: "NL", fi: "FI", el: "GR", ja: "JP" };
+  var region = (function () {
     var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || "en"];
     for (var i = 0; i < langs.length; i++) {
-      var region = (langs[i].split("-")[1] || "").toUpperCase();
-      if (region) return EUROZONE.test(region) ? "EUR" : REGION_CURRENCY[region] || "USD";
+      var r = langs[i].split("-")[1];
+      if (r && /^[a-z]{2}$/i.test(r)) return r.toUpperCase();
     }
-    return /^(de|fr|it|es|nl|fi|el|sk|sl|et|lv|lt|mt|hr)\b/i.test(langs[0]) ? "EUR" : "USD";
+    return BARE_LANGUAGE[langs[0].split("-")[0].toLowerCase()] || null;
   })();
+  var currency = !region ? "USD" : EUROZONE.test(region) ? "EUR" : REGION_CURRENCY[region] || "USD";
   document.querySelectorAll("[data-price]").forEach(function (el) {
     var amount = PRICES[currency][el.dataset.price];
     var holder = el.closest("[lang]");
@@ -102,6 +106,14 @@
       el.textContent = new Intl.NumberFormat(holder.lang, { style: "currency", currency: currency }).format(amount);
     } catch (e) { /* keep the price written in the page */ }
   });
+
+  // ---------- App Store links: the visitor's own storefront ----------
+  // apps.apple.com sends country-less links to the US store, so name the country.
+  if (region) {
+    document.querySelectorAll('a[href^="https://apps.apple.com/us/app/"]').forEach(function (a) {
+      a.href = a.href.replace("/us/app/", "/" + region.toLowerCase() + "/app/");
+    });
+  }
 
   // ---------- Header hairline once scrolled ----------
   var header = document.querySelector(".site-header");
