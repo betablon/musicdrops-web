@@ -34,7 +34,9 @@
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
   <link rel="preload" href="/fonts/instrument-serif-400-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
   <script>try{var t=localStorage.getItem("musicdrops-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t;var l=localStorage.getItem("musicdrops-lang");if(!/^\/de\//.test(location.pathname)&&(l==="de"||(!l&&/^de\b/i.test(navigator.language||""))))location.replace("/de"+location.pathname+location.search+location.hash)}catch(e){}</script>
-  <link rel="stylesheet" href="/css/style.css?v=39">
+  <link rel="expect" href="#prefs" blocking="render">
+  <script src="/js/lang-switch.js?v=2"></script>
+  <link rel="stylesheet" href="/css/style.css?v=42">
   <script type="application/ld+json" id="app-ld">
 {
   "@context": "https://schema.org",
@@ -83,7 +85,7 @@
           <li><a href="/de/support/">Support</a></li>
           <li><a href="/de/press/"><span lang="de">Presse</span></a></li>
           <li>
-            <div class="nav-prefs">
+            <div class="nav-prefs" id="prefs">
               <div class="lang-toggle" role="group" aria-label="Sprache">
                 <a data-lang="en" href="/" hreflang="en">EN</a>
                 <a data-lang="de" class="active" aria-current="true" href="/de/" hreflang="de">DE</a>
