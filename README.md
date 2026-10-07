@@ -1,4 +1,5 @@
 # musicdrops-web
+
 ## German pages
 
 The pages at the root hold both languages (`lang="en"` and `lang="de"` side by
