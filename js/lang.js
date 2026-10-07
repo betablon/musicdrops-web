@@ -43,6 +43,34 @@
     });
   }
 
+  // ---------- Notification mockups: wording relative to today ----------
+  // scripts/update_notifications.py writes real releases with their date;
+  // this turns that date into "now", "yesterday" or "Coming tomorrow".
+  var today = new Date();
+  today.setHours(0, 0, 0, 0);
+  document.querySelectorAll(".notif[data-date]").forEach(function (n) {
+    var p = n.dataset.date.split("-");
+    var days = Math.round((new Date(+p[0], p[1] - 1, +p[2]) - today) / 864e5);
+    var set = function (sel, en, de) {
+      var el = n.querySelector(sel);
+      if (!el) return;
+      el.querySelector('[lang="en"]').textContent = en;
+      el.querySelector('[lang="de"]').textContent = de;
+    };
+    if (n.dataset.notif === "just" || days <= 0) {
+      var ago = Math.max(0, -days);
+      set(".notif__title", "Just dropped", "Gerade erschienen");
+      var weekday = function (lang) {
+        return new Date(+p[0], p[1] - 1, +p[2]).toLocaleDateString(lang, { weekday: "short" });
+      };
+      set(".notif__time",
+        ago === 0 ? "now" : ago === 1 ? "yesterday" : weekday("en"),
+        ago === 0 ? "jetzt" : ago === 1 ? "gestern" : weekday("de"));
+    } else if (days === 1) {
+      set(".notif__title", "Coming tomorrow", "Erscheint morgen");
+    }
+  });
+
   // ---------- Header hairline once scrolled ----------
   var header = document.querySelector(".site-header");
   if (header) {

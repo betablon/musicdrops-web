@@ -1,0 +1,50 @@
+# Keeps the homepage notification mockups on real, recent releases.
+# Runs daily, and by hand from Actions > Refresh notification mockups > Run workflow.
+# On a branch whose index.html has no notif markers, the script exits at once.
+name: Refresh notification mockups
+
+on:
+  schedule:
+    - cron: "17 5 * * *"   # 05:17 UTC daily, after most new releases have gone live worldwide
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: refresh-notifications-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Look up releases and update index.html
+        run: python3 scripts/update_notifications.py
+
+      - name: Commit if anything changed
+        id: commit
+        run: |
+          if [ -n "$(git status --porcelain -- index.html images/notif-art/live)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A index.html images/notif-art/live
+            git commit -m "Refresh notification mockups"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "No change."
+          fi
+
+      - name: Ask GitHub Pages to publish
+        if: steps.commit.outputs.changed == 'true' && github.ref == 'refs/heads/main'
+        continue-on-error: true
+        run: |
+          curl -sf -X POST \
+            -H "Authorization: Bearer ${{ github.token }}" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/pages/builds"
