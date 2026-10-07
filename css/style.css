@@ -245,7 +245,7 @@ body.lang-de [lang="en"] { display: none !important; }
 .hero__sub { margin-top: 24px; max-width: 470px; font-size: clamp(18px, 1.9vw, 22px); line-height: 1.4; color: var(--ink-2); }
 .hero__cta { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; margin-top: 32px; }
 .hero__note { font-size: 14px; line-height: 1.45; color: var(--ink-3); }
-.hero__visual { position: relative; height: 640px; overflow: hidden; }
+.hero__visual { position: relative; height: 640px; clip-path: inset(-100vmax -100vmax 0); } /* crop the phone's bottom only, so the glow can spill sideways */
 .hero__visual::before { /* the page's one soft wash */
   content: ""; position: absolute; left: 50%; top: 52%; width: 640px; height: 640px; transform: translate(-50%, -50%); border-radius: 50%;
   background: radial-gradient(closest-side, color-mix(in srgb, var(--glow) 18%, transparent), transparent);
@@ -264,9 +264,10 @@ body.lang-de [lang="en"] { display: none !important; }
 .chapter__text h2, .center h2, .closing h2, .privacy h2 { font-size: clamp(38px, 5vw, 58px); line-height: 1.02; letter-spacing: -.04em; }
 .chapter__text p, .center > p { margin-top: 20px; font-size: clamp(17px, 1.6vw, 20px); line-height: 1.45; color: var(--ink-2); max-width: 420px; }
 
-.know { display: flex; flex-wrap: wrap; align-items: center; gap: 20px; }
+.know { display: grid; gap: 20px; width: min(100%, 370px); }
+.know .ios-list { width: 100%; }
 .know__stack { display: grid; gap: 12px; }
-.know__stack .notif { width: 290px; }
+.know__stack .notif { width: 100%; font-size: 15px; }
 
 .pair { position: relative; height: 580px; max-width: 520px; }
 .pair .device { position: absolute; width: 260px; }
@@ -358,7 +359,6 @@ body.lang-de [lang="en"] { display: none !important; }
   .hero__visual .device { left: 70px; width: 300px; }
   .hero__visual .notif { width: 300px; }
   .chapter__grid, .chapter__grid--flip { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; }
-  .know__stack { display: none; }
   .pair .device { width: 240px; }
   .pair .device:last-child { left: 220px; }
   .shapes { gap: 28px; }
