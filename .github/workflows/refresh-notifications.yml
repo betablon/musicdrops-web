@@ -1,4 +1,5 @@
-# Keeps the homepage notification mockups on real, recent releases.
+# Keeps the homepage notification mockups on real, recent releases,
+# and the App Store rating line current.
 # Runs every Friday at 17:00 German time (new music lands on Fridays), and by hand
 # from Actions > Refresh notification mockups > Run workflow.
 # On a branch whose index.html has no notif markers, the script exits at once.
@@ -21,12 +22,15 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
 
       - name: Look up releases and update index.html
         run: python3 scripts/update_notifications.py
+
+      - name: Look up the App Store rating and update index.html
+        run: python3 scripts/update_rating.py
 
       - name: Commit if anything changed
         id: commit
