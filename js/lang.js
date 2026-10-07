@@ -73,6 +73,36 @@
     }
   });
 
+  // ---------- Prices in the visitor's currency ----------
+  // The App Store's live prices (checked 2026-10-07), by storefront currency.
+  // Anywhere else sees dollars; the copy around them says the App Store shows yours.
+  var PRICES = {
+    USD: { monthly: 1.99, yearly: 12.99, lifetime: 39.99 },
+    EUR: { monthly: 1.99, yearly: 14.99, lifetime: 44.99 },
+    GBP: { monthly: 1.99, yearly: 12.99, lifetime: 39.99 },
+    CAD: { monthly: 2.99, yearly: 17.99, lifetime: 49.99 },
+    AUD: { monthly: 2.99, yearly: 19.99, lifetime: 59.99 },
+    CHF: { monthly: 2, yearly: 10, lifetime: 35 }
+  };
+  var EUROZONE = /^(AT|BE|CY|DE|EE|ES|FI|FR|GR|HR|IE|IT|LT|LU|LV|MT|NL|PT|SI|SK)$/;
+  var REGION_CURRENCY = { GB: "GBP", CA: "CAD", AU: "AUD", CH: "CHF", LI: "CHF" };
+  var currency = (function () {
+    var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || "en"];
+    for (var i = 0; i < langs.length; i++) {
+      var region = (langs[i].split("-")[1] || "").toUpperCase();
+      if (region) return EUROZONE.test(region) ? "EUR" : REGION_CURRENCY[region] || "USD";
+    }
+    return /^(de|fr|it|es|nl|fi|el|sk|sl|et|lv|lt|mt|hr)\b/i.test(langs[0]) ? "EUR" : "USD";
+  })();
+  document.querySelectorAll("[data-price]").forEach(function (el) {
+    var amount = PRICES[currency][el.dataset.price];
+    var holder = el.closest("[lang]");
+    if (amount == null || !holder) return;
+    try {
+      el.textContent = new Intl.NumberFormat(holder.lang, { style: "currency", currency: currency }).format(amount);
+    } catch (e) { /* keep the price written in the page */ }
+  });
+
   // ---------- Header hairline once scrolled ----------
   var header = document.querySelector(".site-header");
   if (header) {
