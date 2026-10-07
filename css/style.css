@@ -210,15 +210,25 @@ body.lang-de [lang="en"] { display: none !important; }
 .button svg { width: 18px; height: 18px; flex: none; }
 
 /* ---------- Devices & screenshot placeholders ---------- */
-.device { position: relative; background: var(--bezel); box-shadow: var(--shadow-device); overflow: hidden; }
-.device__screen { position: relative; overflow: hidden; background: var(--shot); }
+/* Corner radii are the real devices', measured from Xcode's simulator screen masks and
+   given as a share of the screen width (cqw: .device is the size container), so they hold
+   at every size. The bezel is ::before, its radius the screen's plus the bezel width. */
+.device {
+  --bw: 9px; --r: 0px; --r-tl: var(--r); --r-tr: var(--r); --r-br: var(--r); --r-bl: var(--r);
+  position: relative; padding: var(--bw); container-type: inline-size;
+}
+.device::before {
+  content: ""; position: absolute; inset: 0; background: var(--bezel); box-shadow: var(--shadow-device);
+  border-radius: calc(var(--r-tl) + var(--bw)) calc(var(--r-tr) + var(--bw)) calc(var(--r-br) + var(--bw)) calc(var(--r-bl) + var(--bw));
+}
+.device__screen { position: relative; overflow: hidden; background: var(--shot); border-radius: var(--r-tl) var(--r-tr) var(--r-br) var(--r-bl); }
 .device__screen img { width: 100%; height: 100%; object-fit: cover; filter: var(--shot-dim, none); }
-.device--phone { width: 300px; max-width: 100%; padding: 9px; border-radius: 54px; }
-.device--phone .device__screen { aspect-ratio: 1320 / 2868; border-radius: 45px; }
-.device--pad { width: 520px; max-width: 100%; padding: 12px; border-radius: 30px; }
-.device--pad .device__screen { aspect-ratio: 2752 / 2064; border-radius: 18px; }
-.device--duo { width: 460px; max-width: 100%; padding: 10px; border-radius: 30px; }
-.device--duo .device__screen { aspect-ratio: 951 / 669; border-radius: 20px; }
+.device--phone { --r: 14.2cqw; width: 300px; max-width: 100%; }          /* iPhone 17 Pro Max */
+.device--phone .device__screen { aspect-ratio: 1320 / 2868; }
+.device--pad { --bw: 12px; --r: 2.2cqw; width: 520px; max-width: 100%; } /* iPad Pro 13", landscape */
+.device--pad .device__screen { aspect-ratio: 2752 / 2064; }
+.device--duo { --bw: 10px; --r: 5.7cqw; width: 460px; max-width: 100%; }  /* iPhone Duo inner display, landscape */
+.device--duo .device__screen { aspect-ratio: 951 / 669; }
 .shot {
   position: absolute; inset: 0;
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
@@ -322,8 +332,7 @@ body.lang-de [lang="en"] { display: none !important; }
 .shapes figure { display: flex; flex-direction: column; align-items: center; gap: 16px; }
 .shapes figcaption { font-size: 14px; color: var(--ink-3); }
 .shapes .device--pad { width: 500px; }
-.shapes .device--phone { width: 170px; padding: 7px; border-radius: 34px; }
-.shapes .device--phone .device__screen { border-radius: 27px; }
+.shapes .device--phone { --bw: 7px; width: 170px; }
 .shapes .device--phone .shot { font-size: 11px; padding: 8px; }
 
 /* iPhone Duo: the one dark stage on the page */
@@ -347,26 +356,23 @@ body.lang-de [lang="en"] { display: none !important; }
 .duo-poses { display: flex; justify-content: center; align-items: flex-end; gap: 56px; margin-top: 72px; }
 .duo-poses figure { display: flex; flex-direction: column; align-items: center; gap: 18px; }
 .duo-poses figcaption { font-size: 14px; color: var(--stage-ink-2); }
-.duo-poses .device { box-shadow: 0 40px 70px -30px rgba(0, 0, 0, .7), 0 0 0 1px rgba(255, 255, 255, .08); }
+.duo-poses .device::before { box-shadow: 0 40px 70px -30px rgba(0, 0, 0, .7), 0 0 0 1px rgba(255, 255, 255, .08); }
 .duo-poses .shot { font-size: 11px; padding: 8px; }
 .duo-poses .shot b { color: #cfc8bd; font-size: 13px; }
 /* closed: the outer display, square-ish on the hinge side */
-.device--duo-closed { width: 180px; padding: 8px; border-radius: 14px 42px 42px 14px; }
-.device--duo-closed .device__screen { aspect-ratio: 466 / 678; border-radius: 8px 34px 34px 8px; }
+.device--duo-closed { --bw: 8px; --r-tl: 1.8cqw; --r-bl: 1.8cqw; --r-tr: 12.8cqw; --r-br: 12.8cqw; width: 180px; }
+.device--duo-closed .device__screen { aspect-ratio: 466 / 678; }
 /* book: two halves of the inner display, spine away from the viewer */
 .book { display: flex; perspective: 900px; padding: 0 8px; }
-.book__half { width: 172px; padding: 8px; }
+.book__half { --bw: 8px; width: 172px; }
 .book__half .device__screen { aspect-ratio: 475 / 669; }
-.book__half--left { padding-right: 0; border-radius: 26px 0 0 26px; transform-origin: right center; transform: rotateY(28deg); }
-.book__half--left .device__screen { border-radius: 18px 0 0 18px; }
-.book__half--right { padding-left: 0; border-radius: 0 26px 26px 0; transform-origin: left center; transform: rotateY(-28deg); }
-.book__half--right .device__screen { border-radius: 0 18px 18px 0; }
-.duo-poses .book__half { box-shadow: 0 40px 70px -30px rgba(0, 0, 0, .7); } /* no outline: it would draw a line at the spine */
+.book__half--left { --r-tl: 11.3cqw; --r-bl: 11.3cqw; padding-right: 0; transform-origin: right center; transform: rotateY(28deg); }
+.book__half--right { --r-tr: 11.3cqw; --r-br: 11.3cqw; padding-left: 0; transform-origin: left center; transform: rotateY(-28deg); }
+.duo-poses .book__half::before { box-shadow: 0 40px 70px -30px rgba(0, 0, 0, .7); } /* no outline: it would draw a line at the spine */
 .book__half .device__screen::after { content: ""; position: absolute; inset: 0; pointer-events: none; }
 .book__half--left .device__screen::after { background: linear-gradient(90deg, transparent 60%, rgba(0, 0, 0, .28)); }
 .book__half--right .device__screen::after { background: linear-gradient(270deg, transparent 60%, rgba(0, 0, 0, .18)); }
-.duo-poses .device--duo { width: 360px; padding: 9px; border-radius: 28px; }
-.duo-poses .device--duo .device__screen { border-radius: 20px; }
+.duo-poses .device--duo { --bw: 9px; width: 360px; }
 
 .details { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 56px; padding-top: var(--gap-section); }
 .details h2 { grid-column: 1 / -1; font-size: clamp(28px, 3vw, 34px); letter-spacing: -.03em; }
@@ -421,8 +427,7 @@ body.lang-de [lang="en"] { display: none !important; }
   .hero__copy { padding-bottom: 0; }
   .hero__visual { height: 440px; margin-top: 40px; }
   .hero__visual::before { width: min(440px, 100%); height: auto; aspect-ratio: 1; }
-  .hero__visual .device { left: 50%; transform: translateX(-50%); width: 250px; padding: 7px; border-radius: 42px; }
-  .hero__visual .device .device__screen { border-radius: 35px; }
+  .hero__visual .device { --bw: 7px; left: 50%; transform: translateX(-50%); width: 250px; }
   .hero__visual .notif { left: 50%; margin-left: -150px; top: 0; width: 300px; font-size: 13px; }
   .chapter__grid, .chapter__grid--flip { grid-template-columns: 1fr; gap: 36px; }
   .chapter__grid--flip .chapter__text { order: 0; }
@@ -434,8 +439,7 @@ body.lang-de [lang="en"] { display: none !important; }
   .wash .chapter__grid { height: auto; padding-top: 72px; }
   .wash .chapter__text { padding-bottom: 0; }
   .wash__devices { height: 400px; gap: 14px; justify-content: center; }
-  .wash__devices .device { width: min(46%, 190px); padding: 7px; border-radius: 36px; }
-  .wash__devices .device .device__screen { border-radius: 30px; }
+  .wash__devices .device { --bw: 7px; width: min(46%, 190px); }
   .wash__devices .device + .device { margin-top: 40px; }
   .pill { border-radius: 18px; font-size: 13px; }
   .shapes { flex-direction: column; align-items: center; gap: 36px; }
@@ -531,13 +535,10 @@ kbd { font-family: inherit; font-size: .9em; background: var(--surface); box-sha
 .press-shots figure { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
 .press-shots figcaption { font-size: 14px; color: var(--ink-3); }
 .press-shots figcaption b { display: block; color: var(--ink); font-weight: 600; }
-.press-shots .device { box-shadow: 0 0 0 1px var(--line); }
-.press-shots .device--phone { width: 150px; padding: 6px; border-radius: 32px; }
-.press-shots .device--phone .device__screen { border-radius: 26px; }
-.press-shots .device--pad { width: 300px; padding: 8px; border-radius: 20px; }
-.press-shots .device--pad .device__screen { border-radius: 12px; }
-.press-shots .device--duo { width: 300px; padding: 8px; border-radius: 22px; }
-.press-shots .device--duo .device__screen { border-radius: 14px; }
+.press-shots .device::before { box-shadow: 0 0 0 1px var(--line); }
+.press-shots .device--phone { --bw: 6px; width: 150px; }
+.press-shots .device--pad { --bw: 8px; width: 300px; }
+.press-shots .device--duo { --bw: 8px; width: 300px; }
 .press-shots .shot { font-size: 11px; padding: 8px; }
 
 .usage { margin: 28px auto 0; max-width: 680px; }
