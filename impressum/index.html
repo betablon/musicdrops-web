@@ -6,7 +6,12 @@
   <title>Impressum | MusicDrops</title>
   <meta name="description" content="MusicDrops Impressum: legal notice.">
   <link rel="canonical" href="https://musicdrops.app/impressum/">
+  <link rel="alternate" hreflang="en" href="https://musicdrops.app/impressum/">
+  <link rel="alternate" hreflang="de" href="https://musicdrops.app/de/impressum/">
+  <link rel="alternate" hreflang="x-default" href="https://musicdrops.app/impressum/">
   <meta property="og:site_name" content="MusicDrops">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="de_DE">
   <meta property="og:title" content="Impressum | MusicDrops">
   <meta property="og:description" content="MusicDrops legal notice.">
   <meta property="og:type" content="website">
@@ -14,7 +19,7 @@
   <meta property="og:image" content="https://musicdrops.app/images/og-card-2-0-impressum.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="MusicDrops: Never miss another drop">
+  <meta property="og:image:alt" content="MusicDrops: Legal notice">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Impressum | MusicDrops">
   <meta name="twitter:description" content="MusicDrops legal notice.">
@@ -26,8 +31,8 @@
   <meta name="theme-color" content="#fbfaf6" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0f0e0d" media="(prefers-color-scheme: dark)">
   <link rel="preload" href="/fonts/instrument-serif-400-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <script>try{var t=localStorage.getItem("musicdrops-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
-  <link rel="stylesheet" href="/css/style.css?v=37">
+  <script>try{var t=localStorage.getItem("musicdrops-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t;var l=localStorage.getItem("musicdrops-lang");if(!/^\/de\//.test(location.pathname)&&(l==="de"||(!l&&/^de\b/i.test(navigator.language||""))))location.replace("/de"+location.pathname+location.search+location.hash)}catch(e){}</script>
+  <link rel="stylesheet" href="/css/style.css?v=38">
 </head>
 <body>
 
@@ -42,8 +47,8 @@
           <li>
             <div class="nav-prefs">
               <div class="lang-toggle" role="group" aria-label="Language">
-                <button data-lang="en" class="active" type="button">EN</button>
-                <button data-lang="de" type="button">DE</button>
+                <a data-lang="en" class="active" aria-current="true" href="/impressum/" hreflang="en">EN</a>
+                <a data-lang="de" href="/de/impressum/" hreflang="de">DE</a>
               </div>
               <button class="theme-toggle" type="button" aria-label="Switch to dark mode">
                 <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7Z"/></svg>
@@ -154,6 +159,6 @@
     </div>
   </footer>
 
-  <script src="/js/lang.js?v=18"></script>
+  <script src="/js/lang.js?v=19"></script>
 </body>
 </html>

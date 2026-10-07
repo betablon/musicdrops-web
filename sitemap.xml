@@ -1,9 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://musicdrops.app/</loc><lastmod>2026-10-07</lastmod></url>
-  <url><loc>https://musicdrops.app/press/</loc><lastmod>2026-10-07</lastmod></url>
-  <url><loc>https://musicdrops.app/support/</loc><lastmod>2026-10-07</lastmod></url>
-  <url><loc>https://musicdrops.app/privacy/</loc><lastmod>2026-10-07</lastmod></url>
-  <url><loc>https://musicdrops.app/terms/</loc><lastmod>2026-10-07</lastmod></url>
-  <url><loc>https://musicdrops.app/impressum/</loc><lastmod>2026-10-07</lastmod></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://musicdrops.app/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://musicdrops.app/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://musicdrops.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musicdrops.app/"/>
+  </url>
+  <url>
+    <loc>https://musicdrops.app/de/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://musicdrops.app/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://musicdrops.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musicdrops.app/"/>
+  </url>
+  <url>
+    <loc>https://musicdrops.app/press/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://musicdrops.app/press/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://musicdrops.app/de/press/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musicdrops.app/press/"/>
+  </url>
+  <url>
+    <loc>https://musicdrops.app/de/press/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://musicdrops.app/press/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://musicdrops.app/de/press/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musicdrops.app/press/"/>
+  </url>
+  <url>
+    <loc>https://musicdrops.app/support/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://musicdrops.app/support/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://musicdrops.app/de/support/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musicdrops.app/support/"/>
+  </url>
+  <url>
+    <loc>https://musicdrops.app/de/support/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://musicdrops.app/support/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://musicdrops.app/de/support/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musicdrops.app/support/"/>
+  </url>
+  <url>
+    <loc>https://musicdrops.app/privacy/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://musicdrops.app/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://musicdrops.app/de/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musicdrops.app/privacy/"/>
+  </url>
+  <url>
+    <loc>https://musicdrops.app/de/privacy/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://musicdrops.app/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://musicdrops.app/de/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musicdrops.app/privacy/"/>
+  </url>
+  <url>
+    <loc>https://musicdrops.app/terms/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://musicdrops.app/terms/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://musicdrops.app/de/terms/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musicdrops.app/terms/"/>
+  </url>
+  <url>
+    <loc>https://musicdrops.app/de/terms/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://musicdrops.app/terms/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://musicdrops.app/de/terms/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musicdrops.app/terms/"/>
+  </url>
+  <url>
+    <loc>https://musicdrops.app/impressum/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://musicdrops.app/impressum/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://musicdrops.app/de/impressum/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musicdrops.app/impressum/"/>
+  </url>
+  <url>
+    <loc>https://musicdrops.app/de/impressum/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://musicdrops.app/impressum/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://musicdrops.app/de/impressum/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://musicdrops.app/impressum/"/>
+  </url>
 </urlset>

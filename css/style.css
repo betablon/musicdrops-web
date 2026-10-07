@@ -158,9 +158,9 @@ body.lang-de [lang="en"] { display: none !important; }
 .nav-get { background: var(--ink); color: var(--paper) !important; font-weight: 600; font-size: 13px; padding: 7px 15px; border-radius: 99px; }
 .nav-get:hover { opacity: .88; }
 .lang-toggle { display: flex; gap: 2px; font-size: 12px; letter-spacing: .04em; }
-.lang-toggle button { font: inherit; font-weight: 600; color: var(--ink-3); background: none; border: 0; padding: 4px 6px; border-radius: 6px; cursor: pointer; }
-.lang-toggle button.active { color: var(--ink); }
-.lang-toggle button:hover { color: var(--ink); }
+.lang-toggle a { font: inherit; font-weight: 600; color: var(--ink-3); background: none; border: 0; padding: 4px 6px; border-radius: 6px; cursor: pointer; }
+.lang-toggle a.active { color: var(--ink); }
+.lang-toggle a:hover { color: var(--ink); text-decoration: none; }
 .nav-prefs { display: flex; align-items: center; gap: 10px; }
 .theme-toggle { display: grid; place-items: center; width: 30px; height: 30px; margin: -4px 0; color: var(--ink-3); background: none; border: 0; border-radius: 8px; cursor: pointer; }
 .theme-toggle:hover { color: var(--ink); }

@@ -1,0 +1,53 @@
+# Keeps the German pages under /de/ in step with the bilingual pages at the root.
+# scripts/build_german_pages.py writes them; this runs it after every push to main
+# and commits the result, so an edit to a root page never leaves /de/ behind.
+# (The weekly refresh rebuilds them itself: its pushes don't start other workflows.)
+name: Build German pages
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "de/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: build-german-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build de/ from the root pages
+        run: python3 scripts/build_german_pages.py
+
+      - name: Commit if anything changed
+        id: commit
+        run: |
+          if [ -n "$(git status --porcelain -- de)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A de
+            git commit -m "Rebuild the German pages"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "German pages already up to date."
+          fi
+
+      - name: Ask GitHub Pages to publish
+        if: steps.commit.outputs.changed == 'true'
+        continue-on-error: true
+        run: |
+          curl -sf -X POST \
+            -H "Authorization: Bearer ${{ github.token }}" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/pages/builds"

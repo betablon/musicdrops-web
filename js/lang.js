@@ -3,22 +3,6 @@
 (function () {
   var STORAGE_KEY = "musicdrops-lang";
 
-  // ---------- Language ----------
-  function setLang(lang) {
-    document.body.classList.toggle("lang-de", lang === "de");
-    document.querySelectorAll(".lang-toggle button").forEach(function (btn) {
-      var on = btn.dataset.lang === lang;
-      btn.classList.toggle("active", on);
-      btn.setAttribute("aria-pressed", on ? "true" : "false");
-    });
-    try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) { /* no-op */ }
-    document.documentElement.lang = lang;
-    updateThemeUI();
-  }
-  function getSavedLang() {
-    try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
-  }
-
   // ---------- Theme: the system's, unless the visitor picked the other one ----------
   // A choice is kept (in localStorage, like the language) only while it differs
   // from the system; switching back to match the system forgets it. The inline
@@ -77,13 +61,26 @@
     else if (systemDark.addListener) systemDark.addListener(onSystemChange);
   }
 
-  var saved = getSavedLang();
-  var initial = saved || (navigator.language && navigator.language.toLowerCase().startsWith("de") ? "de" : "en");
-  setLang(initial);
-
-  document.querySelectorAll(".lang-toggle button").forEach(function (btn) {
-    btn.addEventListener("click", function () { setLang(btn.dataset.lang); });
+  // ---------- Language: English at /, German at /de/ ----------
+  // Every page is in one language and EN/DE link between the two. A pick is
+  // remembered, so the inline script in <head> can send later visits to it.
+  // 404.html answers for every missing address, so it reads its language
+  // from the path and switches its own text.
+  if (document.querySelector(".not-found") && /^\/de\//.test(location.pathname)) {
+    document.body.classList.add("lang-de");
+    root.lang = "de";
+    document.querySelectorAll(".lang-toggle a").forEach(function (a) {
+      var on = a.dataset.lang === "de";
+      a.classList.toggle("active", on);
+      if (on) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current");
+    });
+  }
+  document.querySelectorAll(".lang-toggle a").forEach(function (a) {
+    a.addEventListener("click", function () {
+      try { localStorage.setItem(STORAGE_KEY, a.dataset.lang); } catch (e) { /* no-op */ }
+    });
   });
+  updateThemeUI();
 
   // ---------- Mobile nav ----------
   var toggle = document.querySelector(".nav-toggle");
@@ -113,8 +110,10 @@
     var set = function (sel, en, de) {
       var el = n.querySelector(sel);
       if (!el) return;
-      el.querySelector('[lang="en"]').textContent = en;
-      el.querySelector('[lang="de"]').textContent = de;
+      // German pages carry only the German text, English ones both.
+      var enEl = el.querySelector('[lang="en"]'), deEl = el.querySelector('[lang="de"]');
+      if (enEl) enEl.textContent = en;
+      if (deEl) deEl.textContent = de;
     };
     if (n.dataset.notif === "just" || days <= 0) {
       var ago = Math.max(0, -days);

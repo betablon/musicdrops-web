@@ -6,10 +6,15 @@
   <title>MusicDrops: New music release alerts for iPhone and iPad</title>
   <meta name="description" content="Get a notification when the artists you follow release new music, and see upcoming albums before they drop. For iPhone, iPad and iPhone Duo. Free for 10 artists.">
   <link rel="canonical" href="https://musicdrops.app/">
+  <link rel="alternate" hreflang="en" href="https://musicdrops.app/">
+  <link rel="alternate" hreflang="de" href="https://musicdrops.app/de/">
+  <link rel="alternate" hreflang="x-default" href="https://musicdrops.app/">
   <meta name="apple-itunes-app" content="app-id=6759535792">
   <meta name="theme-color" content="#fbfaf6" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0f0e0d" media="(prefers-color-scheme: dark)">
   <meta property="og:site_name" content="MusicDrops">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="de_DE">
   <meta property="og:title" content="MusicDrops: Never miss another drop">
   <meta property="og:description" content="Follow the artists you love. MusicDrops tells you when their new music comes out.">
   <meta property="og:type" content="website">
@@ -27,8 +32,8 @@
   <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png">
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
   <link rel="preload" href="/fonts/instrument-serif-400-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <script>try{var t=localStorage.getItem("musicdrops-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
-  <link rel="stylesheet" href="/css/style.css?v=37">
+  <script>try{var t=localStorage.getItem("musicdrops-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t;var l=localStorage.getItem("musicdrops-lang");if(!/^\/de\//.test(location.pathname)&&(l==="de"||(!l&&/^de\b/i.test(navigator.language||""))))location.replace("/de"+location.pathname+location.search+location.hash)}catch(e){}</script>
+  <link rel="stylesheet" href="/css/style.css?v=38">
   <script type="application/ld+json" id="app-ld">
 {
   "@context": "https://schema.org",
@@ -79,8 +84,8 @@
           <li>
             <div class="nav-prefs">
               <div class="lang-toggle" role="group" aria-label="Language">
-                <button data-lang="en" class="active" type="button">EN</button>
-                <button data-lang="de" type="button">DE</button>
+                <a data-lang="en" class="active" aria-current="true" href="/" hreflang="en">EN</a>
+                <a data-lang="de" href="/de/" hreflang="de">DE</a>
               </div>
               <button class="theme-toggle" type="button" aria-label="Switch to dark mode">
                 <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7Z"/></svg>
@@ -455,6 +460,6 @@
     </div>
   </footer>
 
-  <script src="/js/lang.js?v=18"></script>
+  <script src="/js/lang.js?v=19"></script>
 </body>
 </html>

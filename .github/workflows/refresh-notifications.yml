@@ -33,13 +33,16 @@ jobs:
       - name: Look up the App Store rating and update index.html
         run: python3 scripts/update_rating.py
 
+      - name: Rebuild the German pages from the updated index.html
+        run: python3 scripts/build_german_pages.py
+
       - name: Commit if anything changed
         id: commit
         run: |
-          if [ -n "$(git status --porcelain -- index.html images/notif-art/live)" ]; then
+          if [ -n "$(git status --porcelain -- index.html de images/notif-art/live)" ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add -A index.html images/notif-art/live
+            git add -A index.html de images/notif-art/live
             git commit -m "Refresh notification mockups"
             git push
             echo "changed=true" >> "$GITHUB_OUTPUT"
