@@ -1,11 +1,13 @@
 # Keeps the homepage notification mockups on real, recent releases.
-# Runs daily, and by hand from Actions > Refresh notification mockups > Run workflow.
+# Runs every Friday at 17:00 German time (new music lands on Fridays), and by hand
+# from Actions > Refresh notification mockups > Run workflow.
 # On a branch whose index.html has no notif markers, the script exits at once.
 name: Refresh notification mockups
 
 on:
   schedule:
-    - cron: "17 5 * * *"   # 05:17 UTC daily, after most new releases have gone live worldwide
+    - cron: "0 17 * * 5"
+      timezone: "Europe/Berlin"   # follows summer and winter time
   workflow_dispatch:
 
 permissions:
