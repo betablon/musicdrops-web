@@ -37,6 +37,10 @@
   --shot: #e4e1db;
   --shot-ink: #9a948a;
   --header: rgba(251, 250, 246, .78);
+  --stage: #16130f;
+  --stage-ink: #f3f0ea;
+  --stage-ink-2: #b5aea3;
+  --stage-accent: #ff9f0a;
   --shadow-device: 0 40px 70px -32px rgba(50, 30, 5, .42), 0 0 0 1px rgba(0, 0, 0, .06);
   --shadow-card: 0 0 0 1px rgba(0, 0, 0, .05), 0 22px 44px -28px rgba(40, 25, 5, .35);
 
@@ -65,6 +69,7 @@
     --shot: #2a2826;
     --shot-ink: #77716a;
     --header: rgba(15, 14, 13, .74);
+    --stage: #1d1b18;
     --shadow-device: 0 40px 70px -30px rgba(0, 0, 0, .8), 0 0 0 1px rgba(255, 255, 255, .1);
     --shadow-card: 0 0 0 1px rgba(255, 255, 255, .08), 0 22px 44px -28px rgba(0, 0, 0, .7);
     color-scheme: dark;
@@ -280,11 +285,52 @@ body.lang-de [lang="en"] { display: none !important; }
 .shapes { display: flex; justify-content: center; align-items: flex-end; gap: 44px; margin-top: 64px; }
 .shapes figure { display: flex; flex-direction: column; align-items: center; gap: 16px; }
 .shapes figcaption { font-size: 14px; color: var(--ink-3); }
-.shapes .device--pad { width: 440px; }
-.shapes .device--duo { width: 420px; }
-.shapes .device--phone { width: 150px; padding: 6px; border-radius: 30px; }
-.shapes .device--phone .device__screen { border-radius: 24px; }
+.shapes .device--pad { width: 500px; }
+.shapes .device--phone { width: 170px; padding: 7px; border-radius: 34px; }
+.shapes .device--phone .device__screen { border-radius: 27px; }
 .shapes .device--phone .shot { font-size: 11px; padding: 8px; }
+
+/* iPhone Duo: the one dark stage on the page */
+.duo-band {
+  --shot: #2a2825; --shot-ink: #918a80; --bezel: #33302c; --paper: #3a3733;
+  position: relative; overflow: hidden;
+  margin-top: var(--gap-section); padding: 104px 0 112px;
+  background: var(--stage); color: var(--stage-ink); text-align: center;
+  box-shadow: inset 0 1px rgba(255, 255, 255, .06), inset 0 -1px rgba(255, 255, 255, .06);
+}
+.duo-band::before { /* soft light from below the devices */
+  content: ""; position: absolute; left: 50%; bottom: -260px; width: 1100px; height: 560px; transform: translateX(-50%); border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(255, 149, 0, .16), transparent); pointer-events: none;
+}
+.duo-band .wrap { position: relative; }
+.duo-band__tag { display: inline-flex; align-items: center; gap: 9px; font-size: 14px; color: var(--stage-ink-2); background: rgba(255, 255, 255, .07); border-radius: 99px; padding: 6px 14px 6px 7px; }
+.duo-band__tag b { background: var(--stage-accent); color: #16130f; font-size: 11px; letter-spacing: .05em; text-transform: uppercase; border-radius: 99px; padding: 3px 9px; }
+.duo-band h2 { margin-top: 22px; font-size: clamp(42px, 6vw, 72px); line-height: 1; letter-spacing: -.045em; }
+.duo-band h2 em { color: var(--stage-accent); }
+.duo-band > .wrap > p { margin: 20px auto 0; max-width: 540px; font-size: clamp(17px, 1.6vw, 20px); line-height: 1.45; color: var(--stage-ink-2); }
+.duo-poses { display: flex; justify-content: center; align-items: flex-end; gap: 56px; margin-top: 72px; }
+.duo-poses figure { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+.duo-poses figcaption { font-size: 14px; color: var(--stage-ink-2); }
+.duo-poses .device { box-shadow: 0 40px 70px -30px rgba(0, 0, 0, .7), 0 0 0 1px rgba(255, 255, 255, .08); }
+.duo-poses .shot { font-size: 11px; padding: 8px; }
+.duo-poses .shot b { color: #cfc8bd; font-size: 13px; }
+/* closed: the outer display, square-ish on the hinge side */
+.device--duo-closed { width: 180px; padding: 8px; border-radius: 14px 42px 42px 14px; }
+.device--duo-closed .device__screen { aspect-ratio: 466 / 678; border-radius: 8px 34px 34px 8px; }
+/* book: two halves of the inner display, spine away from the viewer */
+.book { display: flex; perspective: 900px; padding: 0 8px; }
+.book__half { width: 172px; padding: 8px; }
+.book__half .device__screen { aspect-ratio: 475 / 669; }
+.book__half--left { border-radius: 26px 4px 4px 26px; transform-origin: right center; transform: rotateY(28deg); }
+.book__half--left .device__screen { border-radius: 18px 2px 2px 18px; }
+.book__half--right { border-radius: 4px 26px 26px 4px; transform-origin: left center; transform: rotateY(-28deg); }
+.book__half--right .device__screen { border-radius: 2px 18px 18px 2px; }
+.book__half .device__screen::after { content: ""; position: absolute; inset: 0; pointer-events: none; }
+.book__half--left .device__screen::after { background: linear-gradient(90deg, transparent 60%, rgba(0, 0, 0, .28)); }
+.book__half--right .device__screen::after { background: linear-gradient(270deg, transparent 60%, rgba(0, 0, 0, .18)); }
+.duo-poses .device--duo { width: 360px; padding: 9px; border-radius: 28px; }
+.duo-poses .device--duo .device__screen { border-radius: 20px; }
+.duo-poses .device--duo::after { opacity: .45; }
 
 .details { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 56px; padding-top: var(--gap-section); }
 .details h2 { grid-column: 1 / -1; font-size: clamp(28px, 3vw, 34px); letter-spacing: -.03em; }
@@ -316,9 +362,12 @@ body.lang-de [lang="en"] { display: none !important; }
   .pair .device { width: 240px; }
   .pair .device:last-child { left: 220px; }
   .shapes { gap: 28px; }
-  .shapes .device--pad { width: 340px; }
-  .shapes .device--duo { width: 320px; }
-  .shapes .device--phone { width: 120px; }
+  .shapes .device--pad { width: 400px; }
+  .shapes .device--phone { width: 140px; }
+  .duo-poses { gap: 28px; }
+  .device--duo-closed { width: 140px; }
+  .book__half { width: 128px; }
+  .duo-poses .device--duo { width: 270px; }
 }
 @media (max-width: 760px) {
   .hero__grid { grid-template-columns: 1fr; gap: 0; }
@@ -344,8 +393,14 @@ body.lang-de [lang="en"] { display: none !important; }
   .pill { border-radius: 18px; font-size: 13px; }
   .shapes { flex-direction: column; align-items: center; gap: 36px; }
   .shapes figure { width: 100%; }
-  .shapes .device--pad, .shapes .device--duo { width: 100%; max-width: 380px; }
+  .shapes .device--pad { width: 100%; max-width: 380px; }
   .shapes .device--phone { width: 150px; }
+  .duo-band { padding: 80px 0 88px; }
+  .duo-poses { flex-direction: column; align-items: center; gap: 44px; margin-top: 52px; }
+  .duo-poses figure { width: 100%; }
+  .device--duo-closed { width: 170px; }
+  .book__half { width: 140px; }
+  .duo-poses .device--duo { width: 100%; max-width: 360px; }
   .details { grid-template-columns: 1fr; gap: 24px; }
   .privacy { padding: 56px 0; }
   .plans { grid-template-columns: 1fr; margin-top: 88px; }
