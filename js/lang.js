@@ -1,5 +1,5 @@
 // MusicDrops — site interactions
-// Language toggle, mobile nav, header state
+// Language and theme toggles, mobile nav, header state
 (function () {
   var STORAGE_KEY = "musicdrops-lang";
 
@@ -13,9 +13,68 @@
     });
     try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) { /* no-op */ }
     document.documentElement.lang = lang;
+    updateThemeUI();
   }
   function getSavedLang() {
     try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
+  }
+
+  // ---------- Theme: the system's, unless the visitor picked the other one ----------
+  // A choice is kept (in localStorage, like the language) only while it differs
+  // from the system; switching back to match the system forgets it. The inline
+  // script in each page's <head> applies a kept choice before the first paint.
+  var THEME_KEY = "musicdrops-theme";
+  var root = document.documentElement;
+  var systemDark = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+  var themeMetas = document.querySelectorAll('meta[name="theme-color"]');
+  var themeMetaDefaults = Array.prototype.map.call(themeMetas, function (m) { return m.content; });
+  function systemTheme() { return systemDark && systemDark.matches ? "dark" : "light"; }
+  function currentTheme() { return root.dataset.theme || systemTheme(); }
+  function updateThemeUI() {
+    var dark = currentTheme() === "dark";
+    var de = document.body.classList.contains("lang-de");
+    document.querySelectorAll(".theme-toggle").forEach(function (btn) {
+      btn.classList.toggle("is-dark", dark);
+      btn.setAttribute("aria-label", dark
+        ? (de ? "Zum hellen Modus wechseln" : "Switch to light mode")
+        : (de ? "Zum dunklen Modus wechseln" : "Switch to dark mode"));
+      btn.title = btn.getAttribute("aria-label");
+    });
+    // The browser chrome follows the page, not the system, once a theme is picked.
+    themeMetas.forEach(function (m, i) {
+      m.content = root.dataset.theme ? (dark ? "#0f0e0d" : "#fbfaf6") : themeMetaDefaults[i];
+    });
+  }
+  function setTheme(theme) {
+    if (theme === systemTheme()) {
+      delete root.dataset.theme;
+      try { localStorage.removeItem(THEME_KEY); } catch (e) { /* no-op */ }
+    } else {
+      root.dataset.theme = theme;
+      try { localStorage.setItem(THEME_KEY, theme); } catch (e) { /* no-op */ }
+    }
+    updateThemeUI();
+  }
+  document.querySelectorAll(".theme-toggle").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var next = currentTheme() === "dark" ? "light" : "dark";
+      // Crossfade the whole page where the browser can; otherwise switch at once.
+      var calm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!document.startViewTransition || calm) { setTheme(next); return; }
+      // If the browser can't animate (a hidden tab, say), it skips the fade
+      // but still runs the switch; don't report that as an error.
+      var fade = document.startViewTransition(function () { setTheme(next); });
+      fade.ready.catch(function () {});
+      fade.finished.catch(function () {});
+    });
+  });
+  if (systemDark) {
+    var onSystemChange = function () {
+      // A kept choice that now matches the system is no longer a choice.
+      if (root.dataset.theme === systemTheme()) setTheme(systemTheme()); else updateThemeUI();
+    };
+    if (systemDark.addEventListener) systemDark.addEventListener("change", onSystemChange);
+    else if (systemDark.addListener) systemDark.addListener(onSystemChange);
   }
 
   var saved = getSavedLang();

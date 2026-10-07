@@ -54,8 +54,9 @@
   color-scheme: light;
 }
 
+/* Dark: follows the system unless the visitor picked a theme (data-theme on <html>, set by js/lang.js) */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --paper: #0f0e0d;
     --surface: #1a1917;
     --ink: #f3f0ea;
@@ -75,6 +76,26 @@
     --shot-dim: brightness(.8); /* the captures are light-mode; tone them down on a dark page */
     color-scheme: dark;
   }
+}
+:root[data-theme="dark"] {
+  --paper: #0f0e0d;
+  --surface: #1a1917;
+  --ink: #f3f0ea;
+  --ink-2: #b5aea3;
+  --ink-3: #8a8378;
+  --line: rgba(255, 255, 255, .1);
+  --accent: #ff9f0a;
+  --wash-a: #262214;
+  --wash-b: #15130e;
+  --bezel: #000000;
+  --shot: #2a2826;
+  --shot-ink: #77716a;
+  --header: rgba(15, 14, 13, .74);
+  --stage: #1d1b18;
+  --shadow-device: 0 40px 70px -30px rgba(0, 0, 0, .8), 0 0 0 1px rgba(255, 255, 255, .1);
+  --shadow-card: 0 0 0 1px rgba(255, 255, 255, .08), 0 22px 44px -28px rgba(0, 0, 0, .7);
+  --shot-dim: brightness(.8); /* the captures are light-mode; tone them down on a dark page */
+  color-scheme: dark;
 }
 
 /* ---------- Base ---------- */
@@ -140,6 +161,15 @@ body.lang-de [lang="en"] { display: none !important; }
 .lang-toggle button { font: inherit; font-weight: 600; color: var(--ink-3); background: none; border: 0; padding: 4px 6px; border-radius: 6px; cursor: pointer; }
 .lang-toggle button.active { color: var(--ink); }
 .lang-toggle button:hover { color: var(--ink); }
+.nav-prefs { display: flex; align-items: center; gap: 10px; }
+.theme-toggle { display: grid; place-items: center; width: 30px; height: 30px; margin: -4px 0; color: var(--ink-3); background: none; border: 0; border-radius: 8px; cursor: pointer; }
+.theme-toggle:hover { color: var(--ink); }
+.theme-toggle svg { width: 17px; height: 17px; }
+/* The theme switch crossfades the page (js/lang.js uses a view transition) */
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: .45s; animation-timing-function: ease-in-out; }
+.theme-toggle .sun { display: none; }
+.theme-toggle.is-dark .sun { display: block; }
+.theme-toggle.is-dark .moon { display: none; }
 .nav-toggle { display: none; width: 40px; height: 40px; margin-right: -8px; background: none; border: 0; cursor: pointer; flex-direction: column; justify-content: center; align-items: center; gap: 5px; }
 .nav-toggle span { display: block; width: 20px; height: 2px; background: var(--ink); border-radius: 2px; transition: transform .2s, opacity .2s; }
 .nav-toggle span:nth-child(2) { display: none; }
