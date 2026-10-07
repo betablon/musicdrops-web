@@ -1,5 +1,6 @@
 # Keeps the homepage notification mockups on real, recent releases,
-# and the App Store rating line current.
+# and the App Store rating line current. Also checks the website's prices
+# against the App Store and fails the run (GitHub emails you) if they differ.
 # Runs every Friday at 17:00 German time (new music lands on Fridays), and by hand
 # from Actions > Refresh notification mockups > Run workflow.
 # On a branch whose index.html has no notif markers, the script exits at once.
@@ -54,3 +55,7 @@ jobs:
             -H "Authorization: Bearer ${{ github.token }}" \
             -H "Accept: application/vnd.github+json" \
             "https://api.github.com/repos/${{ github.repository }}/pages/builds"
+
+      # Last, so a price mismatch never holds back the refresh above.
+      - name: Check website prices against the App Store
+        run: python3 scripts/check_prices.py
