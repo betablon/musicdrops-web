@@ -358,6 +358,7 @@ body.lang-de [lang="en"] { display: none !important; }
 .plans > div { padding: 40px; }
 .plans > div + div { border-left: 1px solid var(--line); }
 .plans__kind { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); font-weight: 700; }
+.plans-note { margin-top: 14px; text-align: center; font-size: 13px; line-height: 1.45; color: var(--ink-3); }
 .plans h3 { margin-top: 8px; font-size: 30px; letter-spacing: -.03em; }
 .plans p { margin-top: 10px; font-size: 17px; line-height: 1.45; color: var(--ink-2); }
 
