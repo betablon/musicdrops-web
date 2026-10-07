@@ -1,0 +1,402 @@
+{
+  "_about": "Artists whose real releases can appear in the homepage notification mockups. Order matters: earlier artists win ties. Ids are iTunes artist ids (https://itunes.apple.com/lookup?id=ID). Edit freely; scripts/update_notifications.py reads this file.",
+  "groups": [
+    {
+      "group": "Pop",
+      "artists": [
+        {
+          "name": "Taylor Swift",
+          "id": 159260351
+        },
+        {
+          "name": "Billie Eilish",
+          "id": 1065981054
+        },
+        {
+          "name": "Dua Lipa",
+          "id": 1031397873
+        },
+        {
+          "name": "Ed Sheeran",
+          "id": 183313439
+        },
+        {
+          "name": "Ariana Grande",
+          "id": 412778295
+        },
+        {
+          "name": "Sabrina Carpenter",
+          "id": 390647681
+        },
+        {
+          "name": "Olivia Rodrigo",
+          "id": 979458609
+        },
+        {
+          "name": "Harry Styles",
+          "id": 471260289
+        },
+        {
+          "name": "The Weeknd",
+          "id": 479756766
+        },
+        {
+          "name": "Lady Gaga",
+          "id": 277293880
+        },
+        {
+          "name": "Bruno Mars",
+          "id": 278873078
+        },
+        {
+          "name": "Miley Cyrus",
+          "id": 137057909
+        },
+        {
+          "name": "Lorde",
+          "id": 602767352
+        },
+        {
+          "name": "Charli xcx",
+          "id": 432942256
+        },
+        {
+          "name": "Tate McRae",
+          "id": 1446365464
+        },
+        {
+          "name": "Chappell Roan",
+          "id": 1264818718
+        },
+        {
+          "name": "Benson Boone",
+          "id": 1587414058
+        },
+        {
+          "name": "Gracie Abrams",
+          "id": 1450554836
+        },
+        {
+          "name": "Zara Larsson",
+          "id": 570372593
+        },
+        {
+          "name": "Lana Del Rey",
+          "id": 464296584
+        },
+        {
+          "name": "Adele",
+          "id": 262836961
+        },
+        {
+          "name": "Sam Smith",
+          "id": 156488786
+        },
+        {
+          "name": "Lewis Capaldi",
+          "id": 1213405916
+        },
+        {
+          "name": "RAYE",
+          "id": 261686
+        },
+        {
+          "name": "Shawn Mendes",
+          "id": 890403665
+        }
+      ]
+    },
+    {
+      "group": "R&B and hip-hop",
+      "artists": [
+        {
+          "name": "Beyoncé",
+          "id": 1419227
+        },
+        {
+          "name": "SZA",
+          "id": 605800394
+        },
+        {
+          "name": "Doja Cat",
+          "id": 830588310
+        },
+        {
+          "name": "Kendrick Lamar",
+          "id": 368183298
+        },
+        {
+          "name": "Bad Bunny",
+          "id": 1126808565
+        },
+        {
+          "name": "Tyler, The Creator",
+          "id": 420368335
+        },
+        {
+          "name": "Post Malone",
+          "id": 966309175
+        }
+      ]
+    },
+    {
+      "group": "Rock and indie",
+      "artists": [
+        {
+          "name": "Coldplay",
+          "id": 471744
+        },
+        {
+          "name": "Imagine Dragons",
+          "id": 358714030
+        },
+        {
+          "name": "Arctic Monkeys",
+          "id": 62820413
+        },
+        {
+          "name": "Foo Fighters",
+          "id": 6906197
+        },
+        {
+          "name": "LINKIN PARK",
+          "id": 148662
+        },
+        {
+          "name": "The Killers",
+          "id": 6483093
+        },
+        {
+          "name": "Florence + the Machine",
+          "id": 281070699
+        },
+        {
+          "name": "Hozier",
+          "id": 342260741
+        },
+        {
+          "name": "Tame Impala",
+          "id": 290242959
+        },
+        {
+          "name": "Muse",
+          "id": 1093360
+        },
+        {
+          "name": "twenty one pilots",
+          "id": 349736311
+        },
+        {
+          "name": "Mumford & Sons",
+          "id": 307699986
+        }
+      ]
+    },
+    {
+      "group": "Country",
+      "artists": [
+        {
+          "name": "Morgan Wallen",
+          "id": 829142092
+        },
+        {
+          "name": "Zach Bryan",
+          "id": 1436413980
+        },
+        {
+          "name": "Kacey Musgraves",
+          "id": 466044182
+        },
+        {
+          "name": "Luke Combs",
+          "id": 815635315
+        },
+        {
+          "name": "Shaboozey",
+          "id": 914125510
+        }
+      ]
+    },
+    {
+      "group": "Latin",
+      "artists": [
+        {
+          "name": "KAROL G",
+          "id": 290814601
+        },
+        {
+          "name": "Shakira",
+          "id": 889327
+        },
+        {
+          "name": "ROSALÍA",
+          "id": 313845115
+        },
+        {
+          "name": "J Balvin",
+          "id": 444520760
+        },
+        {
+          "name": "Peso Pluma",
+          "id": 1500139475
+        },
+        {
+          "name": "Aitana",
+          "id": 1302824608
+        },
+        {
+          "name": "Rauw Alejandro",
+          "id": 1107186883
+        }
+      ]
+    },
+    {
+      "group": "K-pop and J-pop",
+      "artists": [
+        {
+          "name": "BTS",
+          "id": 883131348
+        },
+        {
+          "name": "BLACKPINK",
+          "id": 1141774019
+        },
+        {
+          "name": "Stray Kids",
+          "id": 1304823362
+        },
+        {
+          "name": "LE SSERAFIM",
+          "id": 1616740364
+        },
+        {
+          "name": "NewJeans",
+          "id": 1635469693
+        },
+        {
+          "name": "Jung Kook",
+          "id": 785052275
+        },
+        {
+          "name": "YOASOBI",
+          "id": 1490256993
+        },
+        {
+          "name": "Kenshi Yonezu",
+          "id": 530814268
+        },
+        {
+          "name": "Fujii Kaze",
+          "id": 1486113150
+        },
+        {
+          "name": "Ado",
+          "id": 1492604670
+        }
+      ]
+    },
+    {
+      "group": "Electronic",
+      "artists": [
+        {
+          "name": "Calvin Harris",
+          "id": 201955086
+        },
+        {
+          "name": "David Guetta",
+          "id": 5557599
+        },
+        {
+          "name": "Fred again..",
+          "id": 1455262408
+        },
+        {
+          "name": "Kygo",
+          "id": 635806094
+        },
+        {
+          "name": "Martin Garrix",
+          "id": 430932944
+        },
+        {
+          "name": "Bicep",
+          "id": 406148755
+        },
+        {
+          "name": "Disclosure",
+          "id": 520848228
+        }
+      ]
+    },
+    {
+      "group": "German",
+      "artists": [
+        {
+          "name": "Helene Fischer",
+          "id": 120785706
+        },
+        {
+          "name": "AnnenMayKantereit",
+          "id": 1043301610
+        },
+        {
+          "name": "Kraftklub",
+          "id": 1445610005
+        },
+        {
+          "name": "Rammstein",
+          "id": 408932
+        },
+        {
+          "name": "Peter Fox",
+          "id": 123051403
+        },
+        {
+          "name": "Nina Chuba",
+          "id": 1438242979
+        },
+        {
+          "name": "Apache 207",
+          "id": 1394262961
+        },
+        {
+          "name": "CRO",
+          "id": 469647548
+        },
+        {
+          "name": "Herbert Grönemeyer",
+          "id": 15034745
+        }
+      ]
+    },
+    {
+      "group": "French and Italian",
+      "artists": [
+        {
+          "name": "Stromae",
+          "id": 270954369
+        },
+        {
+          "name": "Aya Nakamura",
+          "id": 1042004371
+        },
+        {
+          "name": "Angèle",
+          "id": 1373339414
+        },
+        {
+          "name": "Måneskin",
+          "id": 1312874741
+        },
+        {
+          "name": "Mahmood",
+          "id": 1374872852
+        },
+        {
+          "name": "Laura Pausini",
+          "id": 882634
+        }
+      ]
+    }
+  ]
+}
