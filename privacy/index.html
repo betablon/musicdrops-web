@@ -22,24 +22,20 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png">
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-  <meta name="theme-color" content="#fbfaf5">
-  <link rel="stylesheet" href="/css/style.css?v=25">
+  <meta name="apple-itunes-app" content="app-id=6759535792">
+  <meta name="theme-color" content="#fbfaf6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f0e0d" media="(prefers-color-scheme: dark)">
+  <link rel="preload" href="/fonts/instrument-serif-400-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/style.css?v=27">
 </head>
 <body>
 
   <header class="site-header">
-    <div class="container site-header__inner">
-      <a href="/" class="site-logo">
-        <img src="/images/app-icon.png" alt="MusicDrops icon">
-        <span>Music<em>Drops</em></span>
-      </a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <nav>
+    <div class="wrap site-header__inner">
+      <a href="/" class="site-logo"><img src="/images/app-icon.png" alt="" width="28" height="28"><span>Music<em>Drops</em></span></a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav aria-label="Main">
         <ul class="nav-links">
-          <li><a href="/#showcase"><span lang="en">The app</span><span lang="de">Die App</span></a></li>
-          <li><a href="/#features"><span lang="en">Features</span><span lang="de">Funktionen</span></a></li>
           <li><a href="/support/">Support</a></li>
           <li><a href="/press/"><span lang="en">Press</span><span lang="de">Presse</span></a></li>
           <li>
@@ -48,13 +44,14 @@
               <button data-lang="de" type="button">DE</button>
             </div>
           </li>
+          <li><a class="nav-get" href="https://apps.apple.com/us/app/music-drops/id6759535792" target="_blank" rel="noopener"><span lang="en">Get the app</span><span lang="de">App laden</span></a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main class="legal-page">
-    <div class="container">
+  <main>
+    <div class="wrap legal">
 
       <!-- English -->
       <div lang="en">
@@ -340,17 +337,9 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container site-footer__inner">
-      <div class="footer-brand">
-        <img src="/images/app-icon.png" alt="MusicDrops">
-        <div>
-          <strong>Music<em>Drops</em></strong>
-          <span lang="en">A release tracker for people who care.</span>
-          <span lang="de">Ein Release-Tracker f&uuml;r echte Fans.</span>
-        </div>
-      </div>
+    <div class="wrap site-footer__inner">
+      <a href="/" class="site-logo"><img src="/images/app-icon.png" alt="" width="28" height="28"><span>Music<em>Drops</em></span></a>
       <ul class="footer-links">
-        <li><a href="/"><span lang="en">Home</span><span lang="de">Start</span></a></li>
         <li><a href="/support/">Support</a></li>
         <li><a href="/press/"><span lang="en">Press</span><span lang="de">Presse</span></a></li>
         <li><a href="/privacy/"><span lang="en">Privacy</span><span lang="de">Datenschutz</span></a></li>
@@ -358,12 +347,12 @@
         <li><a href="/impressum/"><span lang="en">Legal Notice</span><span lang="de">Impressum</span></a></li>
       </ul>
       <div class="footer-fine">
-        <p class="footer-copy">&copy; 2026 MusicDrops. <span lang="en">All rights reserved.</span><span lang="de">Alle Rechte vorbehalten.</span></p>
-        <p class="footer-copy footer-copy--tiny"><span lang="en">Apple, Apple Music, iTunes, iPhone, iCloud, Apple ID, App Store, and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. MusicDrops is not affiliated with or endorsed by Apple Inc.</span><span lang="de">Apple, Apple Music, iTunes, iPhone, iCloud, Apple ID, App Store und das Apple-Logo sind Marken der Apple Inc., eingetragen in den USA und anderen L&auml;ndern. MusicDrops ist nicht mit Apple Inc. verbunden oder von Apple Inc. unterst&uuml;tzt.</span></p>
+        <p>&copy; 2026 MusicDrops. <span lang="en">All rights reserved.</span><span lang="de">Alle Rechte vorbehalten.</span></p>
+        <p><span lang="en">Apple, Apple Music, iTunes, iPhone, iPad, iCloud, App Store, and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. MusicDrops is not affiliated with or endorsed by Apple Inc.</span><span lang="de">Apple, Apple Music, iTunes, iPhone, iPad, iCloud, App Store und das Apple-Logo sind Marken der Apple Inc., eingetragen in den USA und anderen L&auml;ndern. MusicDrops ist nicht mit Apple Inc. verbunden oder von Apple Inc. unterst&uuml;tzt.</span></p>
       </div>
     </div>
   </footer>
 
-  <script src="/js/lang.js?v=12"></script>
+  <script src="/js/lang.js?v=13"></script>
 </body>
 </html>
