@@ -60,8 +60,10 @@
     if (n.dataset.notif === "just" || days <= 0) {
       var ago = Math.max(0, -days);
       set(".notif__title", "Just dropped", "Gerade erschienen");
+      // A weekday reads as "this week"; past six days, name the date instead.
       var weekday = function (lang) {
-        return new Date(+p[0], p[1] - 1, +p[2]).toLocaleDateString(lang, { weekday: "short" });
+        return new Date(+p[0], p[1] - 1, +p[2]).toLocaleDateString(lang,
+          ago > 6 ? { month: "short", day: "numeric" } : { weekday: "short" });
       };
       set(".notif__time",
         ago === 0 ? "now" : ago === 1 ? "yesterday" : weekday("en"),
