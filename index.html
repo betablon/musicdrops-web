@@ -35,7 +35,7 @@
   <script>try{var t=localStorage.getItem("musicdrops-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t;var l=localStorage.getItem("musicdrops-lang");if(!/^\/de\//.test(location.pathname)&&(l==="de"||(!l&&/^de\b/i.test(navigator.language||""))))location.replace("/de"+location.pathname+location.search+location.hash)}catch(e){}</script>
   <link rel="expect" href="#prefs" blocking="render">
   <script src="/js/lang-switch.js?v=2"></script>
-  <link rel="stylesheet" href="/css/style.css?v=42">
+  <link rel="stylesheet" href="/css/style.css?v=43">
   <script type="application/ld+json" id="app-ld">
 {
   "@context": "https://schema.org",
@@ -287,27 +287,42 @@
     <!-- ============ IPHONE DUO ============ -->
     <section class="duo-band" id="iphone-duo">
       <div class="wrap">
-        <p class="duo-band__tag"><b lang="en">New</b><b lang="de">Neu</b><span>iPhone Duo</span></p>
-        <h2 lang="en">Made for <em>iPhone Duo.</em></h2>
-        <h2 lang="de">Gemacht f&uuml;r <em>iPhone Duo.</em></h2>
-        <p lang="en">Closed, folded like a book, or open flat. MusicDrops lays itself out for every pose and keeps the fold clear.</p>
-        <p lang="de">Zugeklappt, wie ein Buch gefaltet oder ganz offen. MusicDrops passt sich jeder Haltung an und h&auml;lt den Falz frei.</p>
-        <div class="duo-poses">
-          <figure>
-            <div class="device device--duo-closed"><div class="device__screen"><img src="/images/screenshots/v2-0/duo-outer-timeline.webp" alt="The Drops timeline on iPhone Duo’s outer display" width="400" height="582" decoding="async" loading="lazy"></div></div>
-            <figcaption lang="en">Closed</figcaption><figcaption lang="de">Zugeklappt</figcaption>
-          </figure>
-          <figure>
-            <div class="book" role="img" aria-label="An artist page on iPhone Duo folded like a book: the artist on one half, their records on the other">
-              <div class="device book__half book__half--left"><div class="device__screen"><img src="/images/screenshots/v2-0/duo-book-artist-left.webp" alt="" width="380" height="535" decoding="async" loading="lazy"></div></div>
-              <div class="device book__half book__half--right"><div class="device__screen"><img src="/images/screenshots/v2-0/duo-book-artist-right.webp" alt="" width="380" height="535" decoding="async" loading="lazy"></div></div>
+        <!-- One device that unfolds as you scroll, pinned with its heading (js/lang.js). Without JS it stands folded like a book. -->
+        <div class="duo-show">
+          <div class="duo-show__pin">
+          <p class="duo-band__tag"><b lang="en">New</b><b lang="de">Neu</b><span>iPhone Duo</span></p>
+          <h2 lang="en">Made for <em>iPhone Duo.</em></h2>
+          <h2 lang="de">Gemacht f&uuml;r <em>iPhone Duo.</em></h2>
+          <p class="duo-band__lede" lang="en">Closed, folded like a book, or open flat. MusicDrops lays itself out for every pose and keeps the fold clear.</p>
+          <p class="duo-band__lede" lang="de">Zugeklappt, wie ein Buch gefaltet oder ganz offen. MusicDrops passt sich jeder Haltung an und h&auml;lt den Falz frei.</p>
+          <div class="duo-stage">
+            <div class="duo">
+              <div class="duo__half duo__half--left">
+                <div class="device duo__inner"><div class="device__screen">
+                  <img class="duo__shot duo__shot--book" src="/images/screenshots/v2-0/duo-book-artist-left.webp" alt="An artist page on iPhone Duo folded like a book: the artist on one half, their records on the other" width="380" height="535" decoding="async" loading="lazy">
+                  <img class="duo__shot duo__shot--flat" src="/images/screenshots/v2-0/duo-flat-release.webp" alt="A release page and its track list side by side on iPhone Duo’s inner display" width="780" height="549" decoding="async" loading="lazy">
+                </div></div>
+                <div class="device duo__cover"><div class="device__screen">
+                  <img src="/images/screenshots/v2-0/duo-outer-timeline.webp" alt="The Drops timeline on iPhone Duo’s outer display" width="400" height="582" decoding="async" loading="lazy">
+                </div></div>
+              </div>
+              <div class="duo__half duo__half--right">
+                <div class="device duo__inner"><div class="device__screen">
+                  <img class="duo__shot duo__shot--book" src="/images/screenshots/v2-0/duo-book-artist-right.webp" alt="" width="380" height="535" decoding="async" loading="lazy">
+                  <img class="duo__shot duo__shot--flat" src="/images/screenshots/v2-0/duo-flat-release.webp" alt="" width="780" height="549" decoding="async" loading="lazy">
+                </div></div>
+              </div>
+              <div class="device duo__whole" aria-hidden="true"><div class="device__screen">
+                <img src="/images/screenshots/v2-0/duo-flat-release.webp" alt="" width="780" height="549" decoding="async" loading="lazy">
+              </div></div>
             </div>
-            <figcaption lang="en">Folded like a book</figcaption><figcaption lang="de">Wie ein Buch</figcaption>
-          </figure>
-          <figure>
-            <div class="device device--duo"><div class="device__screen"><img src="/images/screenshots/v2-0/duo-flat-release.webp" alt="A release page and its track list side by side on iPhone Duo’s inner display" width="780" height="549" decoding="async" loading="lazy"></div></div>
-            <figcaption lang="en">Open flat</figcaption><figcaption lang="de">Ganz offen</figcaption>
-          </figure>
+          </div>
+          <p class="duo-show__caption">
+            <span data-pose="closed"><span lang="en">Closed</span><span lang="de">Zugeklappt</span></span>
+            <span data-pose="book"><span lang="en">Folded like a book</span><span lang="de">Wie ein Buch</span></span>
+            <span data-pose="flat"><span lang="en">Open flat</span><span lang="de">Ganz offen</span></span>
+          </p>
+          </div>
         </div>
       </div>
     </section>
@@ -462,6 +477,6 @@
     </div>
   </footer>
 
-  <script src="/js/lang.js?v=19"></script>
+  <script src="/js/lang.js?v=20"></script>
 </body>
 </html>

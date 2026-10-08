@@ -173,6 +173,46 @@
     });
   }
 
+  // ---------- iPhone Duo: one device that unfolds as you scroll ----------
+  // The device pins below the header and turns with the scroll: closed, then
+  // opening to a book, then flat. Reduced motion steps between the three poses
+  // instead of turning through them.
+  var duo = document.querySelector(".duo-show");
+  if (duo) {
+    var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var pin = duo.querySelector(".duo-show__pin");
+    var ease = function (t) { return t <= 0 ? 0 : t >= 1 ? 1 : t * t * (3 - 2 * t); };
+    var stage = function (p, from, to) {
+      var t = (p - from) / (to - from);
+      return still ? (t < 0.5 ? 0 : 1) : ease(t);
+    };
+    var ticking = false;
+    var render = function () {
+      ticking = false;
+      var rect = duo.getBoundingClientRect();
+      var range = rect.height - pin.offsetHeight;
+      var p = range > 0 ? (parseFloat(getComputedStyle(pin).top) - rect.top) / range : 1;
+      var open = stage(p, 0.08, 0.42);    // closed -> book
+      var flatten = stage(p, 0.55, 0.85); // book -> flat
+      var s = duo.style;
+      s.setProperty("--l", (180 - 152 * open - 28 * flatten) + "deg");
+      s.setProperty("--r", (28 * flatten - 28 * open) + "deg");
+      s.setProperty("--x", (-25 * (1 - open)) + "%");
+      s.setProperty("--z", (-3 * (1 - open)) + "px");
+      s.setProperty("--shade", open - flatten);
+      s.setProperty("--flat", Math.min(1, Math.max(0, (flatten - 0.35) / 0.5)));
+      duo.classList.toggle("is-flat", flatten >= 1);
+      duo.dataset.pose = p < 0.25 ? "closed" : p < 0.7 ? "book" : "flat";
+    };
+    var onScroll = function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(render); }
+    };
+    duo.classList.add("duo-show--scroll");
+    render();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+  }
+
   // ---------- Header hairline once scrolled ----------
   var header = document.querySelector(".site-header");
   if (header) {

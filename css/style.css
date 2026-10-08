@@ -373,7 +373,7 @@ html.lang-drop::view-transition { animation: lang-dim 900ms cubic-bezier(.4, 0, 
 /* iPhone Duo: the one dark stage on the page */
 .duo-band {
   --shot: #2a2825; --shot-ink: #918a80; --bezel: #33302c; --paper: #3a3733;
-  position: relative; overflow: hidden;
+  position: relative; overflow: hidden; overflow: clip; /* clip, not hidden: hidden would stop the Duo from pinning */
   margin-top: var(--gap-section); padding: 104px 0 112px;
   background: var(--stage); color: var(--stage-ink); text-align: center;
   box-shadow: inset 0 1px rgba(255, 255, 255, .06), inset 0 -1px rgba(255, 255, 255, .06);
@@ -387,27 +387,53 @@ html.lang-drop::view-transition { animation: lang-dim 900ms cubic-bezier(.4, 0, 
 .duo-band__tag b { background: var(--stage-accent); color: #16130f; font-size: 11px; letter-spacing: .05em; text-transform: uppercase; border-radius: 99px; padding: 3px 9px; }
 .duo-band h2 { margin-top: 22px; font-size: clamp(42px, 6vw, 72px); line-height: 1; letter-spacing: -.045em; }
 .duo-band h2 em { color: var(--stage-accent); }
-.duo-band > .wrap > p { margin: 20px auto 0; max-width: 540px; font-size: clamp(17px, 1.6vw, 20px); line-height: 1.45; color: var(--stage-ink-2); }
-.duo-poses { display: flex; justify-content: center; align-items: flex-end; gap: 56px; margin-top: 72px; }
-.duo-poses figure { display: flex; flex-direction: column; align-items: center; gap: 18px; }
-.duo-poses figcaption { font-size: 14px; color: var(--stage-ink-2); }
-.duo-poses .device::before { box-shadow: 0 40px 70px -30px rgba(0, 0, 0, .7), 0 0 0 1px rgba(255, 255, 255, .08); }
-.duo-poses .shot { font-size: 11px; padding: 8px; }
-.duo-poses .shot b { color: #cfc8bd; font-size: 13px; }
-/* closed: the outer display, square-ish on the hinge side */
-.device--duo-closed { --bw: 8px; --r-tl: 1.8cqw; --r-bl: 1.8cqw; --r-tr: 12.8cqw; --r-br: 12.8cqw; width: 180px; }
-.device--duo-closed .device__screen { aspect-ratio: 466 / 678; }
-/* book: two halves of the inner display, spine away from the viewer */
-.book { display: flex; perspective: 900px; padding: 0 8px; }
-.book__half { --bw: 8px; width: 172px; }
-.book__half .device__screen { aspect-ratio: 475 / 669; }
-.book__half--left { --r-tl: 11.3cqw; --r-bl: 11.3cqw; padding-right: 0; transform-origin: right center; transform: rotateY(28deg); }
-.book__half--right { --r-tr: 11.3cqw; --r-br: 11.3cqw; padding-left: 0; transform-origin: left center; transform: rotateY(-28deg); }
-.duo-poses .book__half::before { box-shadow: 0 40px 70px -30px rgba(0, 0, 0, .7); } /* no outline: it would draw a line at the spine */
-.book__half .device__screen::after { content: ""; position: absolute; inset: 0; pointer-events: none; }
-.book__half--left .device__screen::after { background: linear-gradient(90deg, transparent 60%, rgba(0, 0, 0, .28)); }
-.book__half--right .device__screen::after { background: linear-gradient(270deg, transparent 60%, rgba(0, 0, 0, .18)); }
-.duo-poses .device--duo { --bw: 9px; width: 360px; }
+.duo-band__lede { margin: 20px auto 0; max-width: 540px; font-size: clamp(17px, 1.6vw, 20px); line-height: 1.45; color: var(--stage-ink-2); }
+/* One iPhone Duo in 3D that unfolds as you scroll. Two halves turn about the hinge in
+   the middle; the outer display is the back of the left half, so closed, the left half
+   lies over the right and faces the viewer, hinge on the left. js/lang.js pins the device
+   (.duo-show--scroll) and sets the pose variables from the scroll position; without JS
+   the device stands folded like a book. Fully flat, one whole device takes over from the
+   two halves, so no line shows at the hinge. */
+.duo-show { --l: 28deg; --r: -28deg; --x: 0%; --z: 0px; --shade: 1; --flat: 0; }
+.duo-show--scroll { height: 260vh; }
+.duo-show--scroll .duo-show__pin { /* below the site header, heading and device together */
+  position: sticky; top: 64px; height: calc(100vh - 64px); height: calc(100svh - 64px);
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+}
+.duo-show--scroll .duo { width: min(560px, 100%, (100vh - 420px) * 1.36); width: min(560px, 100%, (100svh - 420px) * 1.36); } /* fits beside the heading on short screens */
+.duo-stage { display: flex; justify-content: center; width: 100%; margin-top: 56px; perspective: 1700px; }
+.duo { position: relative; display: flex; width: 560px; max-width: 100%; transform-style: preserve-3d; transform: translateX(var(--x)); }
+.duo__half { position: relative; flex: 1; min-width: 0; transform-style: preserve-3d; }
+/* translateZ lifts the closed half off the other, so they don't flicker */
+.duo__half--left { transform-origin: right center; transform: rotateY(var(--l)) translateZ(var(--z)); }
+.duo__half--right { transform-origin: left center; transform: rotateY(var(--r)); }
+.duo .device { --bw: 10px; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.duo .device::before { box-shadow: 0 40px 70px -30px rgba(0, 0, 0, .7); } /* no outline: it would draw a line at the hinge */
+/* inner display: two halves meeting at the hinge, no bezel between them */
+.duo__inner .device__screen { aspect-ratio: 475 / 669; }
+.duo__half--left .duo__inner { --r-tl: 11.3cqw; --r-bl: 11.3cqw; padding-right: 0; }
+.duo__half--right .duo__inner { --r-tr: 11.3cqw; --r-br: 11.3cqw; padding-left: 0; }
+.duo__shot { position: absolute; top: 0; left: 0; }
+.duo .duo__shot--flat { width: 200%; max-width: none; opacity: var(--flat); } /* the flat shot spans both halves */
+.duo__half--right .duo__shot--flat { left: auto; right: 0; }
+.duo__inner .device__screen::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: var(--shade); }
+.duo__half--left .duo__inner .device__screen::after { background: linear-gradient(90deg, transparent 60%, rgba(0, 0, 0, .28)); }
+.duo__half--right .duo__inner .device__screen::after { background: linear-gradient(270deg, transparent 60%, rgba(0, 0, 0, .18)); }
+/* outer display: the back of the left half, square-ish on the hinge side */
+.duo .duo__cover { position: absolute; inset: 0; transform: rotateY(180deg); --r-tl: 1.8cqw; --r-bl: 1.8cqw; --r-tr: 12.8cqw; --r-br: 12.8cqw; }
+.duo .duo__cover::before { box-shadow: 0 40px 70px -30px rgba(0, 0, 0, .7), 0 0 0 1px rgba(255, 255, 255, .08); }
+.duo__cover .device__screen { height: 100%; aspect-ratio: 466 / 678; }
+/* fully flat: the whole inner display in one piece (5.65cqw is the halves' 11.3cqw, at twice the width) */
+.duo .duo__whole { position: absolute; inset: 0; display: none; --r: 5.65cqw; }
+.duo__whole .device__screen { height: 100%; }
+.duo-show.is-flat .duo__whole { display: block; }
+.duo-show.is-flat .duo__half { visibility: hidden; }
+.duo-show__caption { margin-top: 28px; font-size: 14px; color: var(--stage-ink-2); }
+.duo-show__caption > span { display: none; }
+.duo-show:not([data-pose]) .duo-show__caption > [data-pose="book"],
+.duo-show[data-pose="closed"] .duo-show__caption > [data-pose="closed"],
+.duo-show[data-pose="book"] .duo-show__caption > [data-pose="book"],
+.duo-show[data-pose="flat"] .duo-show__caption > [data-pose="flat"] { display: inline; }
 
 .details { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 56px; padding-top: var(--gap-section); }
 .details h2 { grid-column: 1 / -1; font-size: clamp(28px, 3vw, 34px); letter-spacing: -.03em; }
@@ -452,10 +478,7 @@ html.lang-drop::view-transition { animation: lang-dim 900ms cubic-bezier(.4, 0, 
   .shapes { gap: 28px; }
   .shapes .device--pad { width: 400px; }
   .shapes .device--phone { width: 140px; }
-  .duo-poses { gap: 28px; }
-  .device--duo-closed { width: 140px; }
-  .book__half { width: 128px; }
-  .duo-poses .device--duo { width: 270px; }
+  .duo-show:not(.duo-show--scroll) .duo { width: 480px; }
 }
 @media (max-width: 760px) {
   .hero__grid { grid-template-columns: 1fr; gap: 0; }
@@ -482,11 +505,10 @@ html.lang-drop::view-transition { animation: lang-dim 900ms cubic-bezier(.4, 0, 
   .shapes .device--pad { width: 100%; max-width: 380px; }
   .shapes .device--phone { width: 150px; }
   .duo-band { padding: 80px 0 88px; }
-  .duo-poses { flex-direction: column; align-items: center; gap: 44px; margin-top: 52px; }
-  .duo-poses figure { width: 100%; }
-  .device--duo-closed { width: 170px; }
-  .book__half { width: 140px; }
-  .duo-poses .device--duo { width: 100%; max-width: 360px; }
+  .duo-stage { margin-top: 40px; }
+  .duo-show--scroll .duo { width: min(100%, (100vh - 470px) * 1.36); width: min(100%, (100svh - 470px) * 1.36); }
+  .duo .device { --bw: 7px; }
+  .duo-show__caption { margin-top: 22px; }
   .details { grid-template-columns: 1fr; gap: 24px; }
   .versus__points { grid-template-columns: 1fr; gap: 28px; margin-top: 44px; }
   .privacy { padding: 56px 0; }
