@@ -6,161 +6,83 @@
   <title>Press Kit | MusicDrops</title>
   <meta name="description" content="MusicDrops press kit: the facts, boilerplate copy, app icon, and screenshots for writers and reviewers.">
   <link rel="canonical" href="https://musicdrops.app/press/">
+  <link rel="alternate" hreflang="en" href="https://musicdrops.app/press/">
+  <link rel="alternate" hreflang="de" href="https://musicdrops.app/de/press/">
+  <link rel="alternate" hreflang="x-default" href="https://musicdrops.app/press/">
   <meta property="og:site_name" content="MusicDrops">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="de_DE">
   <meta property="og:title" content="Press Kit | MusicDrops">
   <meta property="og:description" content="The facts, boilerplate copy, app icon, and screenshots for writers and reviewers.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://musicdrops.app/press/">
-  <meta property="og:image" content="https://musicdrops.app/images/og-card-press.png">
+  <meta property="og:image" content="https://musicdrops.app/images/og-card-2-0-press.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="MusicDrops: Never miss another drop">
+  <meta property="og:image:alt" content="MusicDrops: Press kit">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Press Kit | MusicDrops">
   <meta name="twitter:description" content="The facts, boilerplate copy, app icon, and screenshots for writers and reviewers.">
-  <meta name="twitter:image" content="https://musicdrops.app/images/og-card-press.png">
+  <meta name="twitter:image" content="https://musicdrops.app/images/og-card-2-0-press.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png">
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-  <meta name="theme-color" content="#fbfaf5">
-  <link rel="stylesheet" href="/css/style.css?v=25">
-  <style>
-    /* ============================================================
-       Press page: scoped styles. Reuses site tokens/classes where
-       possible (container, eyebrow, support-block, site-header/footer).
-       ============================================================ */
-    .press-hero { position: relative; padding: clamp(3.5rem, 8vw, 6rem) 0 clamp(2rem, 4vw, 3rem); overflow: hidden; }
-    .press-hero__glow { position: absolute; inset: 0; z-index: 0; pointer-events: none;
-      background: radial-gradient(ellipse 50% 60% at 78% 12%, rgba(255,149,0,.16), transparent 62%); }
-    .press-hero .container { position: relative; z-index: 1; }
-    .press-hero__title { font-weight: 800; letter-spacing: -.045em; line-height: .98;
-      font-size: clamp(2.6rem, 7vw, 4.5rem); color: #0e0e13; margin: .3rem 0 0; }
-    .press-hero__title em { font-family: "Fraunces","Instrument Serif",serif; font-style: italic; font-weight: 500; color: #C56E00; }
-    .press-hero__lede { max-width: 44ch; margin: 1.1rem 0 0; font-size: clamp(1.05rem, 2.2vw, 1.28rem);
-      line-height: 1.5; color: rgba(28,26,21,.66); }
-    .press-hero__actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.8rem; }
-
-    .press-btn { display: inline-flex; align-items: center; gap: .55rem; font-weight: 600; font-size: .98rem;
-      padding: .8rem 1.3rem; border-radius: 999px; text-decoration: none; border: 1px solid transparent;
-      transition: transform .15s ease, box-shadow .15s ease, background .15s ease; }
-    .press-btn svg { width: 18px; height: 18px; }
-    .press-btn--primary { background: #C56E00; color: #fff; box-shadow: 0 10px 26px rgba(197,110,0,.28); }
-    .press-btn--primary:hover { transform: translateY(-1px); box-shadow: 0 14px 32px rgba(197,110,0,.34); }
-    .press-btn--ghost { background: rgba(17,15,11,.04); color: #0e0e13; border-color: rgba(17,15,11,.1); }
-    .press-btn--ghost:hover { background: rgba(17,15,11,.07); }
-
-    /* Fact sheet */
-    .press-facts { list-style: none; margin: 1.4rem 0 0; padding: 0;
-      border-top: 1px solid rgba(17,15,11,.09); }
-    .press-facts li { display: grid; grid-template-columns: minmax(120px, 200px) 1fr; gap: 1rem;
-      padding: .85rem 0; border-bottom: 1px solid rgba(17,15,11,.09); align-items: baseline; }
-    .press-facts dt, .press-facts .k { font-weight: 600; color: rgba(28,26,21,.55); font-size: .82rem;
-      letter-spacing: .04em; text-transform: uppercase; }
-    .press-facts .v { color: #1c1a15; font-size: 1rem; line-height: 1.45; }
-    .press-facts .v a { color: #C56E00; }
-
-    /* Copy blocks */
-    .press-copyblock { position: relative; background: rgba(17,15,11,.035); border: 1px solid rgba(17,15,11,.08);
-      border-radius: 16px; padding: 1.1rem 1.2rem; margin-top: 1rem; }
-    .press-copyblock + .press-copyblock { margin-top: .9rem; }
-    .press-copyblock__head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: .5rem; }
-    .press-copyblock__label { font-weight: 600; font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; color: rgba(28,26,21,.5); }
-    .press-copyblock p { margin: 0; color: #1c1a15; line-height: 1.55; }
-    .press-copy-btn { display: inline-flex; align-items: center; gap: .4rem; font: inherit; font-size: .82rem; font-weight: 600;
-      color: #C56E00; background: none; border: 1px solid rgba(197,110,0,.35); border-radius: 999px;
-      padding: .3rem .7rem; cursor: pointer; transition: background .15s ease; }
-    .press-copy-btn:hover { background: rgba(197,110,0,.08); }
-    .press-copy-btn.is-done { color: #2e7d32; border-color: rgba(46,125,50,.4); }
-
-    /* Asset grids */
-    .press-assets { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; margin-top: 1.3rem; }
-    .press-asset { background: #fff; border: 1px solid rgba(17,15,11,.08); border-radius: 16px; padding: 1rem;
-      display: flex; flex-direction: column; align-items: center; text-align: center; gap: .7rem;
-      box-shadow: 0 6px 20px rgba(60,40,10,.05); }
-    .press-asset__preview { width: 84px; height: 84px; border-radius: 22%; display: block;
-      box-shadow: 0 6px 16px rgba(60,40,10,.14), 0 4px 12px rgba(255,149,0,.18); }
-    .press-asset__name { font-weight: 600; font-size: .9rem; color: #1c1a15; }
-    .press-asset__meta { font-size: .78rem; color: rgba(28,26,21,.5); }
-    .press-asset__dl { margin-top: auto; font-size: .82rem; font-weight: 600; color: #C56E00; text-decoration: none; }
-    .press-asset__dl:hover { text-decoration: underline; }
-
-    .press-shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1.4rem; margin-top: 1.3rem; }
-    .press-shot { display: flex; flex-direction: column; gap: .7rem; }
-    .press-shot__frame { border-radius: 20px; overflow: hidden; background: #f1efe8;
-      border: 1px solid rgba(17,15,11,.06); box-shadow: 0 12px 30px rgba(60,40,10,.1); }
-    .press-shot__frame img { width: 100%; height: auto; display: block; }
-    .press-shot__cap { display: flex; align-items: center; justify-content: space-between; gap: .6rem; }
-    .press-shot__name { font-weight: 600; font-size: .88rem; color: #1c1a15; }
-    .press-shot__links { font-size: .8rem; }
-    .press-shot__links a { color: #C56E00; text-decoration: none; font-weight: 600; }
-    .press-shot__links a:hover { text-decoration: underline; }
-    .press-shot__links span { color: rgba(28,26,21,.3); margin: 0 .35rem; }
-
-    .press-usage { margin: 1rem 0 0; padding: 0; list-style: none; }
-    .press-usage li { position: relative; padding: .55rem 0 .55rem 1.7rem; line-height: 1.55; color: #1c1a15;
-      border-bottom: 1px solid rgba(17,15,11,.07); }
-    .press-usage li::before { content: ""; position: absolute; left: 0; top: .95rem; width: 8px; height: 8px;
-      border-radius: 50%; background: #C56E00; }
-    .press-usage li.no::before { background: rgba(28,26,21,.25); }
-
-    .press-note { font-size: .9rem; line-height: 1.55; color: rgba(28,26,21,.62); margin-top: 1rem;
-      padding: .9rem 1rem; background: rgba(17,15,11,.03); border-left: 3px solid rgba(197,110,0,.5); border-radius: 0 12px 12px 0; }
-
-    @media (max-width: 560px) {
-      .press-facts li { grid-template-columns: 1fr; gap: .2rem; }
-    }
-  </style>
+  <meta name="apple-itunes-app" content="app-id=6759535792">
+  <meta name="theme-color" content="#fbfaf6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f0e0d" media="(prefers-color-scheme: dark)">
+  <link rel="preload" href="/fonts/instrument-serif-400-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script>try{var t=localStorage.getItem("musicdrops-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t;var l=localStorage.getItem("musicdrops-lang");if(!/^\/de\//.test(location.pathname)&&(l==="de"||(!l&&/^de\b/i.test(navigator.language||""))))location.replace("/de"+location.pathname+location.search+location.hash)}catch(e){}</script>
+  <link rel="expect" href="#prefs" blocking="render">
+  <script src="/js/lang-switch.js?v=2"></script>
+  <link rel="stylesheet" href="/css/style.css?v=42">
 </head>
 <body>
 
   <header class="site-header">
-    <div class="container site-header__inner">
-      <a href="/" class="site-logo">
-        <img src="/images/app-icon.png" alt="MusicDrops icon">
-        <span>Music<em>Drops</em></span>
-      </a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <nav>
+    <div class="wrap site-header__inner">
+      <a href="/" class="site-logo"><img src="/images/app-icon.png" alt="" width="28" height="28"><span>Music<em>Drops</em></span></a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav aria-label="Main">
         <ul class="nav-links">
-          <li><a href="/#showcase"><span lang="en">The app</span><span lang="de">Die App</span></a></li>
-          <li><a href="/#features"><span lang="en">Features</span><span lang="de">Funktionen</span></a></li>
           <li><a href="/support/">Support</a></li>
-          <li><a href="/press/"><span lang="en">Press</span><span lang="de">Presse</span></a></li>
+          <li><a href="/press/" aria-current="page"><span lang="en">Press</span><span lang="de">Presse</span></a></li>
           <li>
-            <div class="lang-toggle" role="group" aria-label="Language">
-              <button data-lang="en" class="active" type="button">EN</button>
-              <button data-lang="de" type="button">DE</button>
+            <div class="nav-prefs" id="prefs">
+              <div class="lang-toggle" role="group" aria-label="Language">
+                <a data-lang="en" class="active" aria-current="true" href="/press/" hreflang="en">EN</a>
+                <a data-lang="de" href="/de/press/" hreflang="de">DE</a>
+              </div>
+              <button class="theme-toggle" type="button" aria-label="Switch to dark mode">
+                <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7Z"/></svg>
+                <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></svg>
+              </button>
             </div>
           </li>
+          <li><a class="nav-get" href="https://apps.apple.com/us/app/music-drops/id6759535792" target="_blank" rel="noopener"><span lang="en">Get the app</span><span lang="de">App laden</span></a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main class="support-page">
+  <main>
 
     <!-- ============================================ HERO ============================================ -->
-    <section class="press-hero">
-      <div class="press-hero__glow" aria-hidden="true"></div>
-      <div class="container">
-        <p class="eyebrow" lang="en">Press &amp; media</p>
-        <p class="eyebrow" lang="de">Presse &amp; Medien</p>
+    <section class="page-hero">
+      <div class="wrap">
 
-        <h1 class="press-hero__title" lang="en">Press <em>kit.</em></h1>
-        <h1 class="press-hero__title" lang="de">Presse<em>kit.</em></h1>
+        <h1 lang="en">Press <em>kit.</em></h1>
+        <h1 lang="de">Presse<em>kit.</em></h1>
 
-        <p class="press-hero__lede" lang="en">Everything you need to write about MusicDrops: the facts, ready-to-paste copy, the app icon, and a set of screenshots.</p>
-        <p class="press-hero__lede" lang="de">Alles, was du &uuml;ber MusicDrops schreiben m&ouml;chtest: die Fakten, fertige Texte zum Einf&uuml;gen, das App-Icon und eine Auswahl an Screenshots.</p>
+        <p lang="en">Everything you need to write about MusicDrops: the facts, ready-to-paste copy, the app icon, and a set of screenshots.</p>
+        <p lang="de">Alles, was du &uuml;ber MusicDrops schreiben m&ouml;chtest: die Fakten, fertige Texte zum Einf&uuml;gen, das App-Icon und eine Auswahl an Screenshots.</p>
 
-        <div class="press-hero__actions">
-          <a class="press-btn press-btn--primary" href="/press/musicdrops-press-kit.zip" download>
+        <div class="page-hero__actions">
+          <a class="button" href="/press/musicdrops-press-kit.zip" download>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3a1 1 0 0 1 1 1v9.59l3.3-3.3a1 1 0 0 1 1.4 1.42l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 1.4-1.42l3.3 3.3V4a1 1 0 0 1 1-1Zm-7 15a1 1 0 0 1 1 1v1h12v-1a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1Z"/></svg>
-            <span lang="en">Download the kit</span>
-            <span lang="de">Kit herunterladen</span>
+            <span lang="en">Download the kit &middot; 22&nbsp;MB</span>
+            <span lang="de">Kit herunterladen &middot; 22&nbsp;MB</span>
           </a>
-          <a class="press-btn press-btn--ghost" href="mailto:hello@musicdrops.app?subject=MusicDrops%20press%20enquiry">
+          <a class="button button--quiet" href="mailto:hello@musicdrops.app?subject=MusicDrops%20press%20enquiry">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"/></svg>
             <span lang="en">Press enquiries</span>
             <span lang="de">Presseanfragen</span>
@@ -169,62 +91,51 @@
       </div>
     </section>
 
+    <div class="wrap">
+
     <!-- ============================================ AT A GLANCE ============================================ -->
-    <section class="support-block reveal" id="facts">
-      <div class="container support-block__grid">
-        <div class="support-block__label">
-          <span class="support-block__num">01</span>
-          <p class="eyebrow" lang="en">At a glance</p>
-          <p class="eyebrow" lang="de">Auf einen Blick</p>
-        </div>
-        <div class="support-block__body">
+    <section class="block" id="facts">
+        <div class="block__body">
           <h2 lang="en">The <em>facts.</em></h2>
           <h2 lang="de">Die <em>Fakten.</em></h2>
 
-          <dl class="press-facts" lang="en">
-            <li><dt class="k">Name</dt><dd class="v">MusicDrops</dd></li>
-            <li><dt class="k">What it is</dt><dd class="v">A music release tracker for iPhone and iPad</dd></li>
-            <li><dt class="k">Category</dt><dd class="v">Music</dd></li>
-            <li><dt class="k">Platform</dt><dd class="v">iOS &amp; iPadOS. One universal app, with a native iPad layout.</dd></li>
-            <li><dt class="k">Latest version</dt><dd class="v">1.5</dd></li>
-            <li><dt class="k">Price</dt><dd class="v">Free to follow up to 10 artists. Unlimited via monthly or yearly subscription, or a one-time Lifetime purchase.</dd></li>
-            <li><dt class="k">Requires</dt><dd class="v">No account. Works with or without an Apple Music subscription. Optional private iCloud sync.</dd></li>
-            <li><dt class="k">Languages</dt><dd class="v">English, German, French, Italian, Spanish, Chinese, Japanese, Korean</dd></li>
-            <li><dt class="k">Age rating</dt><dd class="v">4+</dd></li>
-            <li><dt class="k">Developer</dt><dd class="v">David Cox, Hamburg, Germany</dd></li>
-            <li><dt class="k">App Store</dt><dd class="v"><a href="https://apps.apple.com/us/app/music-drops/id6759535792" target="_blank" rel="noopener">apps.apple.com &rarr;</a></dd></li>
-            <li><dt class="k">Website</dt><dd class="v"><a href="https://musicdrops.app">musicdrops.app</a></dd></li>
-            <li><dt class="k">Press contact</dt><dd class="v"><a href="mailto:hello@musicdrops.app">hello@musicdrops.app</a></dd></li>
-          </dl>
+          <ul class="facts" lang="en">
+            <li><span class="k">Name</span><span class="v">MusicDrops</span></li>
+            <li><span class="k">What it is</span><span class="v">A music release tracker for iPhone, iPad and iPhone Duo</span></li>
+            <li><span class="k">Category</span><span class="v">Music</span></li>
+            <li><span class="k">Platform</span><span class="v">iOS &amp; iPadOS. One universal app, with layouts made for iPad and iPhone Duo.</span></li>
+            <li><span class="k">Latest version</span><span class="v">2.0</span></li>
+            <li><span class="k">Price</span><span class="v">Free to follow up to 10 artists. Unlimited via monthly or yearly subscription, or a one-time Lifetime purchase. Family Sharing included.</span></li>
+            <li><span class="k">Requires</span><span class="v">No account. Works with or without an Apple Music subscription. Optional private iCloud sync.</span></li>
+            <li><span class="k">Languages</span><span class="v">English, German, French, Italian, Spanish, Japanese</span></li>
+            <li><span class="k">Age rating</span><span class="v">4+</span></li>
+            <li><span class="k">Developer</span><span class="v">David Cox, Hamburg, Germany</span></li>
+            <li><span class="k">App Store</span><span class="v"><a href="https://apps.apple.com/us/app/music-drops/id6759535792" target="_blank" rel="noopener">apps.apple.com &rarr;</a></span></li>
+            <li><span class="k">Website</span><span class="v"><a href="https://musicdrops.app">musicdrops.app</a></span></li>
+            <li><span class="k">Press contact</span><span class="v"><a href="mailto:hello@musicdrops.app">hello@musicdrops.app</a></span></li>
+          </ul>
 
-          <dl class="press-facts" lang="de">
-            <li><dt class="k">Name</dt><dd class="v">MusicDrops</dd></li>
-            <li><dt class="k">Was es ist</dt><dd class="v">Ein Release-Tracker f&uuml;r iPhone und iPad</dd></li>
-            <li><dt class="k">Kategorie</dt><dd class="v">Musik</dd></li>
-            <li><dt class="k">Plattform</dt><dd class="v">iOS &amp; iPadOS. Eine universelle App mit nativem iPad-Layout.</dd></li>
-            <li><dt class="k">Aktuelle Version</dt><dd class="v">1.5</dd></li>
-            <li><dt class="k">Preis</dt><dd class="v">Kostenlos f&uuml;r bis zu 10 K&uuml;nstler. Unbegrenzt per Monats- oder Jahresabo oder einmaligem Lifetime-Kauf.</dd></li>
-            <li><dt class="k">Voraussetzung</dt><dd class="v">Kein Konto. Funktioniert mit oder ohne Apple-Music-Abo. Optionale private iCloud-Sync.</dd></li>
-            <li><dt class="k">Sprachen</dt><dd class="v">Englisch, Deutsch, Franz&ouml;sisch, Italienisch, Spanisch, Chinesisch, Japanisch, Koreanisch</dd></li>
-            <li><dt class="k">Altersfreigabe</dt><dd class="v">4+</dd></li>
-            <li><dt class="k">Entwickler</dt><dd class="v">David Cox, Hamburg, Deutschland</dd></li>
-            <li><dt class="k">App Store</dt><dd class="v"><a href="https://apps.apple.com/us/app/music-drops/id6759535792" target="_blank" rel="noopener">apps.apple.com &rarr;</a></dd></li>
-            <li><dt class="k">Website</dt><dd class="v"><a href="https://musicdrops.app">musicdrops.app</a></dd></li>
-            <li><dt class="k">Pressekontakt</dt><dd class="v"><a href="mailto:hello@musicdrops.app">hello@musicdrops.app</a></dd></li>
-          </dl>
+          <ul class="facts" lang="de">
+            <li><span class="k">Name</span><span class="v">MusicDrops</span></li>
+            <li><span class="k">Was es ist</span><span class="v">Ein Release-Tracker f&uuml;r iPhone, iPad und iPhone Duo</span></li>
+            <li><span class="k">Kategorie</span><span class="v">Musik</span></li>
+            <li><span class="k">Plattform</span><span class="v">iOS &amp; iPadOS. Eine universelle App mit Layouts f&uuml;r iPad und iPhone Duo.</span></li>
+            <li><span class="k">Aktuelle Version</span><span class="v">2.0</span></li>
+            <li><span class="k">Preis</span><span class="v">Kostenlos f&uuml;r bis zu 10 K&uuml;nstler. Unbegrenzt per Monats- oder Jahresabo oder einmaligem Lifetime-Kauf. Familienfreigabe inklusive.</span></li>
+            <li><span class="k">Voraussetzung</span><span class="v">Kein Konto. Funktioniert mit oder ohne Apple-Music-Abo. Optionale private iCloud-Sync.</span></li>
+            <li><span class="k">Sprachen</span><span class="v">Englisch, Deutsch, Franz&ouml;sisch, Italienisch, Spanisch, Japanisch</span></li>
+            <li><span class="k">Altersfreigabe</span><span class="v">4+</span></li>
+            <li><span class="k">Entwickler</span><span class="v">David Cox, Hamburg, Deutschland</span></li>
+            <li><span class="k">App Store</span><span class="v"><a href="https://apps.apple.com/us/app/music-drops/id6759535792" target="_blank" rel="noopener">apps.apple.com &rarr;</a></span></li>
+            <li><span class="k">Website</span><span class="v"><a href="https://musicdrops.app">musicdrops.app</a></span></li>
+            <li><span class="k">Pressekontakt</span><span class="v"><a href="mailto:hello@musicdrops.app">hello@musicdrops.app</a></span></li>
+          </ul>
         </div>
-      </div>
     </section>
 
     <!-- ============================================ BOILERPLATE ============================================ -->
-    <section class="support-block reveal" id="boilerplate">
-      <div class="container support-block__grid">
-        <div class="support-block__label">
-          <span class="support-block__num">02</span>
-          <p class="eyebrow" lang="en">Boilerplate</p>
-          <p class="eyebrow" lang="de">Textbausteine</p>
-        </div>
-        <div class="support-block__body">
+    <section class="block" id="boilerplate">
+        <div class="block__body">
           <h2 lang="en">Copy you can <em>paste.</em></h2>
           <h2 lang="de">Texte zum <em>Einf&uuml;gen.</em></h2>
           <p lang="en">Three lengths, ready to drop into a story. Tap copy.</p>
@@ -232,222 +143,187 @@
 
           <!-- EN -->
           <div lang="en">
-            <div class="press-copyblock">
-              <div class="press-copyblock__head">
-                <span class="press-copyblock__label">One line</span>
-                <button class="press-copy-btn" type="button" data-copy>
+            <div class="copyblock">
+              <div class="copyblock__head">
+                <span class="copyblock__label">One line</span>
+                <button class="copy-btn" type="button" data-copy>
                   <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M16 1H4a2 2 0 0 0-2 2v12h2V3h12V1Zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Zm0 16H8V7h11v14Z"/></svg>
                   <span>Copy</span>
                 </button>
               </div>
-              <p>MusicDrops is a release tracker for iPhone and iPad that tells you the moment your favourite artists drop something new.</p>
+              <p>MusicDrops is a release tracker for iPhone, iPad and iPhone Duo that tells you the moment your favourite artists drop something new.</p>
             </div>
 
-            <div class="press-copyblock">
-              <div class="press-copyblock__head">
-                <span class="press-copyblock__label">Short (~50 words)</span>
-                <button class="press-copy-btn" type="button" data-copy>
+            <div class="copyblock">
+              <div class="copyblock__head">
+                <span class="copyblock__label">Short (~50 words)</span>
+                <button class="copy-btn" type="button" data-copy>
                   <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M16 1H4a2 2 0 0 0-2 2v12h2V3h12V1Zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Zm0 16H8V7h11v14Z"/></svg>
                   <span>Copy</span>
                 </button>
               </div>
-              <p>MusicDrops is a music release tracker for iPhone and iPad. Follow your favourite artists, and the moment a new album, single, or EP lands, you know. It&rsquo;s a fast, native app that keeps everything on your device. No account, no tracking, no feed to scroll. Just the drops you care about.</p>
+              <p>MusicDrops is a music release tracker for iPhone, iPad and iPhone Duo. Follow your favourite artists, and the moment a new album, single, or EP lands, you know. It&rsquo;s a fast, native app that keeps everything on your device. No account, no tracking, no feed to scroll. Just the drops you care about.</p>
             </div>
 
-            <div class="press-copyblock">
-              <div class="press-copyblock__head">
-                <span class="press-copyblock__label">Long (~100 words)</span>
-                <button class="press-copy-btn" type="button" data-copy>
+            <div class="copyblock">
+              <div class="copyblock__head">
+                <span class="copyblock__label">Long (~100 words)</span>
+                <button class="copy-btn" type="button" data-copy>
                   <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M16 1H4a2 2 0 0 0-2 2v12h2V3h12V1Zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Zm0 16H8V7h11v14Z"/></svg>
                   <span>Copy</span>
                 </button>
               </div>
-              <p>Streaming services forgot something obvious: you actually want to know when the music you love comes out. MusicDrops fixes that. Follow your favourite artists, drawing on Apple&rsquo;s music catalogue, and the app tells you the moment a new album, single, or EP drops, with a clean timeline of what just landed and what&rsquo;s coming next. It&rsquo;s one universal app for iPhone and iPad, and version 1.5 adds highlights for the drops that matter most, plus a mini player for previews. It&rsquo;s privacy-first by design: no account, no analytics, nothing stored on a server. Free to follow up to ten artists, unlimited by subscription or a one-time Lifetime purchase. Built solo in Hamburg.</p>
+              <p>Streaming services forgot something obvious: you actually want to know when the music you love comes out. MusicDrops fixes that. Follow your favourite artists, drawing on Apple&rsquo;s music catalogue, and the app tells you the moment a new album, single, or EP drops, with a clean timeline of what just landed and what&rsquo;s coming next. It&rsquo;s one universal app for iPhone, iPad and iPhone Duo, and version 2.0 adds weekly and monthly recaps and lets you choose how notifications arrive. It&rsquo;s privacy-first by design: no account, no analytics, nothing stored on a server. Free to follow up to ten artists, unlimited by subscription or a one-time Lifetime purchase. Built solo in Hamburg.</p>
             </div>
           </div>
 
           <!-- DE -->
           <div lang="de">
-            <div class="press-copyblock">
-              <div class="press-copyblock__head">
-                <span class="press-copyblock__label">Eine Zeile</span>
-                <button class="press-copy-btn" type="button" data-copy>
+            <div class="copyblock">
+              <div class="copyblock__head">
+                <span class="copyblock__label">Eine Zeile</span>
+                <button class="copy-btn" type="button" data-copy>
                   <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M16 1H4a2 2 0 0 0-2 2v12h2V3h12V1Zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Zm0 16H8V7h11v14Z"/></svg>
                   <span>Kopieren</span>
                 </button>
               </div>
-              <p>MusicDrops ist ein Release-Tracker f&uuml;r iPhone und iPad, der dir sofort sagt, wenn deine Lieblingsk&uuml;nstler etwas Neues ver&ouml;ffentlichen.</p>
+              <p>MusicDrops ist ein Release-Tracker f&uuml;r iPhone, iPad und iPhone Duo, der dir sofort sagt, wenn deine Lieblingsk&uuml;nstler etwas Neues ver&ouml;ffentlichen.</p>
             </div>
 
-            <div class="press-copyblock">
-              <div class="press-copyblock__head">
-                <span class="press-copyblock__label">Kurz (~50 W&ouml;rter)</span>
-                <button class="press-copy-btn" type="button" data-copy>
+            <div class="copyblock">
+              <div class="copyblock__head">
+                <span class="copyblock__label">Kurz (~50 W&ouml;rter)</span>
+                <button class="copy-btn" type="button" data-copy>
                   <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M16 1H4a2 2 0 0 0-2 2v12h2V3h12V1Zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Zm0 16H8V7h11v14Z"/></svg>
                   <span>Kopieren</span>
                 </button>
               </div>
-              <p>MusicDrops ist ein Release-Tracker f&uuml;r iPhone und iPad. Folge deinen Lieblingsk&uuml;nstlern, und sobald ein neues Album, eine Single oder EP erscheint, wei&szlig;t du es. Alles in einer schnellen, nativen App, die deine Daten auf dem Ger&auml;t beh&auml;lt. Kein Konto, kein Tracking, kein Feed zum Scrollen. Nur die Drops, die dich interessieren.</p>
+              <p>MusicDrops ist ein Release-Tracker f&uuml;r iPhone, iPad und iPhone Duo. Folge deinen Lieblingsk&uuml;nstlern, und sobald ein neues Album, eine Single oder EP erscheint, wei&szlig;t du es. Alles in einer schnellen, nativen App, die deine Daten auf dem Ger&auml;t beh&auml;lt. Kein Konto, kein Tracking, kein Feed zum Scrollen. Nur die Drops, die dich interessieren.</p>
             </div>
 
-            <div class="press-copyblock">
-              <div class="press-copyblock__head">
-                <span class="press-copyblock__label">Lang (~100 W&ouml;rter)</span>
-                <button class="press-copy-btn" type="button" data-copy>
+            <div class="copyblock">
+              <div class="copyblock__head">
+                <span class="copyblock__label">Lang (~100 W&ouml;rter)</span>
+                <button class="copy-btn" type="button" data-copy>
                   <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M16 1H4a2 2 0 0 0-2 2v12h2V3h12V1Zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Zm0 16H8V7h11v14Z"/></svg>
                   <span>Kopieren</span>
                 </button>
               </div>
-              <p>Streamingdienste haben etwas Offensichtliches vergessen: Du willst wissen, wann die Musik erscheint, die du liebst. Genau das l&ouml;st MusicDrops. Folge deinen Lieblingsk&uuml;nstlern, auf Basis von Apples Musikkatalog, und die App sagt dir sofort, wenn ein neues Album, eine Single oder EP erscheint, mit einer klaren Timeline aus Neuerscheinungen und dem, was als N&auml;chstes kommt. Es ist eine universelle App f&uuml;r iPhone und iPad, und Version 1.5 bringt Highlights f&uuml;r die wichtigsten Drops sowie einen Mini-Player f&uuml;r Vorschauen. Von Grund auf datenschutzfreundlich: kein Konto, keine Analyse, nichts auf einem Server. Kostenlos f&uuml;r bis zu zehn K&uuml;nstler, unbegrenzt per Abo oder einmaligem Lifetime-Kauf. Allein in Hamburg entwickelt.</p>
+              <p>Streamingdienste haben etwas Offensichtliches vergessen: Du willst wissen, wann die Musik erscheint, die du liebst. Genau das l&ouml;st MusicDrops. Folge deinen Lieblingsk&uuml;nstlern, auf Basis von Apples Musikkatalog, und die App sagt dir sofort, wenn ein neues Album, eine Single oder EP erscheint, mit einer klaren Timeline aus Neuerscheinungen und dem, was als N&auml;chstes kommt. Es ist eine universelle App f&uuml;r iPhone, iPad und iPhone Duo, und Version 2.0 bringt w&ouml;chentliche und monatliche R&uuml;ckblicke und l&auml;sst dich w&auml;hlen, wie Benachrichtigungen ankommen. Von Grund auf datenschutzfreundlich: kein Konto, keine Analyse, nichts auf einem Server. Kostenlos f&uuml;r bis zu zehn K&uuml;nstler, unbegrenzt per Abo oder einmaligem Lifetime-Kauf. Allein in Hamburg entwickelt.</p>
             </div>
           </div>
         </div>
-      </div>
     </section>
 
     <!-- ============================================ BRAND ASSETS ============================================ -->
-    <section class="support-block reveal" id="brand">
-      <div class="container support-block__grid">
-        <div class="support-block__label">
-          <span class="support-block__num">03</span>
-          <p class="eyebrow" lang="en">Brand assets</p>
-          <p class="eyebrow" lang="de">Marken-Assets</p>
-        </div>
-        <div class="support-block__body">
+    <section class="block" id="brand">
+        <div class="block__body">
           <h2 lang="en">Icon &amp; <em>wordmark.</em></h2>
           <h2 lang="de">Icon &amp; <em>Wortmarke.</em></h2>
           <p lang="en">The app icon in two sizes. Please use it as-is. Don&rsquo;t recolour, rotate, or add effects.</p>
           <p lang="de">Das App-Icon in zwei Gr&ouml;&szlig;en. Bitte unver&auml;ndert verwenden. Nicht umf&auml;rben, drehen oder mit Effekten versehen.</p>
 
-          <div class="press-assets">
-            <div class="press-asset">
-              <img class="press-asset__preview" src="/images/app-icon-1024.png" alt="MusicDrops app icon">
-              <span class="press-asset__name">App icon</span>
-              <span class="press-asset__meta">PNG &middot; 1024&times;1024</span>
-              <a class="press-asset__dl" href="/images/app-icon-1024.png" download>Download</a>
+          <div class="assets">
+            <div class="asset">
+              <img class="asset__preview" src="/images/app-icon-1024.png" alt="MusicDrops app icon">
+              <span class="asset__name">App icon</span>
+              <span class="asset__meta">PNG &middot; 1024&times;1024</span>
+              <a class="asset__dl" href="/images/app-icon-1024.png" download>Download</a>
             </div>
-            <div class="press-asset">
-              <img class="press-asset__preview" src="/images/app-icon.png" alt="MusicDrops app icon, small">
-              <span class="press-asset__name">App icon</span>
-              <span class="press-asset__meta">PNG &middot; 256&times;256</span>
-              <a class="press-asset__dl" href="/images/app-icon.png" download>Download</a>
+            <div class="asset">
+              <img class="asset__preview" src="/images/app-icon.png" alt="MusicDrops app icon, small">
+              <span class="asset__name">App icon</span>
+              <span class="asset__meta">PNG &middot; 256&times;256</span>
+              <a class="asset__dl" href="/images/app-icon.png" download>Download</a>
             </div>
           </div>
         </div>
-      </div>
     </section>
 
     <!-- ============================================ SCREENSHOTS ============================================ -->
-    <section class="support-block reveal" id="screenshots">
-      <div class="container support-block__grid">
-        <div class="support-block__label">
-          <span class="support-block__num">04</span>
-          <p class="eyebrow" lang="en">Screenshots</p>
-          <p class="eyebrow" lang="de">Screenshots</p>
-        </div>
-        <div class="support-block__body">
+    <section class="block" id="screenshots">
+        <div class="block__body">
           <h2 lang="en">The app, <em>in use.</em></h2>
           <h2 lang="de">Die App, <em>im Einsatz.</em></h2>
-          <p lang="en">iPhone and iPad captures. Each links to the full-resolution file.</p>
-          <p lang="de">iPhone- und iPad-Aufnahmen. Jede verlinkt auf die Datei in voller Aufl&ouml;sung.</p>
+          <p lang="en">MusicDrops 2.0 on iPhone, iPad and iPhone Duo.</p>
+          <p lang="de">MusicDrops 2.0 auf iPhone, iPad und iPhone Duo.</p>
 
           <div class="press-shots">
-            <div class="press-shot">
-              <div class="press-shot__frame"><img src="/images/screenshots/v1-4/iphone69/following.png" alt="MusicDrops Following screen, showing followed artists" loading="lazy"></div>
-              <div class="press-shot__cap">
-                <span class="press-shot__name" lang="en">Following</span>
-                <span class="press-shot__name" lang="de">Folge ich</span>
-                <span class="press-shot__links"><a href="/images/screenshots/v1-4/iphone69/following.png" download>iPhone</a><span>/</span><a href="/images/screenshots/v1-4/ipad13/following.png" download>iPad</a></span>
-              </div>
-            </div>
-            <div class="press-shot">
-              <div class="press-shot__frame"><img src="/images/screenshots/v1-4/iphone69/search.png" alt="MusicDrops Search screen, showing trending artists" loading="lazy"></div>
-              <div class="press-shot__cap">
-                <span class="press-shot__name" lang="en">Search</span>
-                <span class="press-shot__name" lang="de">Suche</span>
-                <span class="press-shot__links"><a href="/images/screenshots/v1-4/iphone69/search.png" download>iPhone</a><span>/</span><a href="/images/screenshots/v1-4/ipad13/search.png" download>iPad</a></span>
-              </div>
-            </div>
-            <div class="press-shot">
-              <div class="press-shot__frame"><img src="/images/screenshots/v1-4/iphone69/timeline.png" alt="MusicDrops Drops timeline, showing upcoming and recent releases" loading="lazy"></div>
-              <div class="press-shot__cap">
-                <span class="press-shot__name" lang="en">Drops timeline</span>
-                <span class="press-shot__name" lang="de">Drops-Timeline</span>
-                <span class="press-shot__links"><a href="/images/screenshots/v1-4/iphone69/timeline.png" download>iPhone</a><span>/</span><a href="/images/screenshots/v1-4/ipad13/timeline.png" download>iPad</a></span>
-              </div>
-            </div>
+            <figure>
+              <div class="device device--phone"><div class="device__screen"><img src="/images/screenshots/v2-0/iphone-timeline.webp" alt="The Drops timeline on iPhone" width="720" height="1564" loading="lazy" decoding="async"></div></div>
+              <figcaption><b>iPhone</b><span lang="en">Drops</span><span lang="de">Drops</span></figcaption>
+            </figure>
+            <figure>
+              <div class="device device--phone"><div class="device__screen"><img src="/images/screenshots/v2-0/iphone-search.webp" alt="Search on iPhone with trending artists and upcoming releases" width="300" height="652" loading="lazy" decoding="async"></div></div>
+              <figcaption><b>iPhone</b><span lang="en">Search</span><span lang="de">Suche</span></figcaption>
+            </figure>
+            <figure>
+              <div class="device device--pad"><div class="device__screen"><img src="/images/screenshots/v2-0/ipad-search.webp" alt="Search on iPad in landscape" width="560" height="420" loading="lazy" decoding="async"></div></div>
+              <figcaption><b>iPad</b><span lang="en">Search</span><span lang="de">Suche</span></figcaption>
+            </figure>
+            <figure>
+              <div class="device device--duo"><div class="device__screen"><img src="/images/screenshots/v2-0/duo-flat-search.webp" alt="Search on iPhone Duo's inner display, open flat" width="560" height="394" loading="lazy" decoding="async"></div></div>
+              <figcaption><b>iPhone Duo</b><span lang="en">Search, open flat</span><span lang="de">Suche, ganz offen</span></figcaption>
+            </figure>
           </div>
         </div>
-      </div>
     </section>
 
     <!-- ============================================ USAGE ============================================ -->
-    <section class="support-block reveal" id="usage">
-      <div class="container support-block__grid">
-        <div class="support-block__label">
-          <span class="support-block__num">05</span>
-          <p class="eyebrow" lang="en">Usage</p>
-          <p class="eyebrow" lang="de">Nutzung</p>
-        </div>
-        <div class="support-block__body">
+    <section class="block" id="usage">
+        <div class="block__body">
           <h2 lang="en">How to use <em>these assets.</em></h2>
           <h2 lang="de">Wie du <em>diese Assets nutzt.</em></h2>
 
-          <ul class="press-usage" lang="en">
+          <ul class="usage" lang="en">
             <li>These assets may be used freely in editorial coverage, reviews, and app round-ups about MusicDrops.</li>
             <li>Please keep the app icon and wordmark as provided: no recolouring, distortion, or added effects.</li>
             <li class="no">Please don&rsquo;t use the name, icon, or screenshots in a way that implies MusicDrops endorses another product or service.</li>
           </ul>
 
-          <ul class="press-usage" lang="de">
+          <ul class="usage" lang="de">
             <li>Diese Assets d&uuml;rfen frei in redaktioneller Berichterstattung, Reviews und App-&Uuml;bersichten &uuml;ber MusicDrops verwendet werden.</li>
             <li>Bitte App-Icon und Wortmarke unver&auml;ndert lassen: kein Umf&auml;rben, Verzerren oder Hinzuf&uuml;gen von Effekten.</li>
             <li class="no">Bitte Name, Icon oder Screenshots nicht so verwenden, dass sie eine Empfehlung von MusicDrops f&uuml;r ein anderes Produkt nahelegen.</li>
           </ul>
 
-          <p class="press-note" lang="en">The screenshots show the MusicDrops interface. Artist names and album artwork shown within are the property of their respective owners and appear only as functional examples of the content the app surfaces from Apple&rsquo;s catalogue.</p>
-          <p class="press-note" lang="de">Die Screenshots zeigen die MusicDrops-Oberfl&auml;che. Darin gezeigte K&uuml;nstlernamen und Albumcover sind Eigentum der jeweiligen Rechteinhaber und erscheinen nur als funktionale Beispiele f&uuml;r die Inhalte, die die App aus Apples Katalog anzeigt.</p>
+          <p class="fine" lang="en">The screenshots show the MusicDrops interface. Artist names and album artwork shown within are the property of their respective owners and appear only as functional examples of the content the app surfaces from Apple&rsquo;s catalogue.</p>
+          <p class="fine" lang="de">Die Screenshots zeigen die MusicDrops-Oberfl&auml;che. Darin gezeigte K&uuml;nstlernamen und Albumcover sind Eigentum der jeweiligen Rechteinhaber und erscheinen nur als funktionale Beispiele f&uuml;r die Inhalte, die die App aus Apples Katalog anzeigt.</p>
         </div>
-      </div>
     </section>
 
     <!-- ============================================ CONTACT ============================================ -->
-    <section class="support-block reveal" id="contact">
-      <div class="container support-block__grid">
-        <div class="support-block__label">
-          <span class="support-block__num">06</span>
-          <p class="eyebrow" lang="en">Get in touch</p>
-          <p class="eyebrow" lang="de">Kontakt</p>
-        </div>
-        <div class="support-block__body">
+    <section class="block" id="contact">
+        <div class="block__body">
           <h2 lang="en">Questions? <em>Just ask.</em></h2>
           <h2 lang="de">Fragen? <em>Frag einfach.</em></h2>
           <p lang="en">Need a specific shot, an interview, or a detail that isn&rsquo;t here? Write to the same small inbox that runs everything else.</p>
           <p lang="de">Du brauchst einen bestimmten Screenshot, ein Interview oder ein Detail, das hier fehlt? Schreib an dasselbe kleine Postfach, das alles andere betreut.</p>
-          <a class="email-button" href="mailto:hello@musicdrops.app?subject=MusicDrops%20press%20enquiry">
+          <a class="mail" href="mailto:hello@musicdrops.app?subject=MusicDrops%20press%20enquiry">
             <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"/></svg>
             <span>hello@musicdrops.app</span>
           </a>
-          <p class="support-microcopy" lang="en">Based in Hamburg. German and English both welcome.</p>
-          <p class="support-microcopy" lang="de">Ans&auml;ssig in Hamburg. Deutsch und Englisch sind beide willkommen.</p>
+          <p class="fine" lang="en">Based in Hamburg. German and English both welcome.</p>
+          <p class="fine" lang="de">Ans&auml;ssig in Hamburg. Deutsch und Englisch sind beide willkommen.</p>
         </div>
-      </div>
     </section>
 
+
+      <section class="closing">
+        <img class="closing__icon" src="/images/app-icon.png" alt="" width="96" height="96">
+        <h2 lang="en">The next drop is already <em>on its way.</em></h2>
+        <h2 lang="de">Der n&auml;chste Drop ist schon <em>unterwegs.</em></h2>
+        <a class="appstore-badge" href="https://apps.apple.com/us/app/music-drops/id6759535792" target="_blank" rel="noopener">
+          <img lang="en" src="/images/app-store-badge.svg" alt="Download on the App Store" width="156" height="52"><img lang="de" src="/images/app-store-badge-de.svg" alt="Laden im App Store" width="156" height="52">
+        </a>
+      </section>
+    </div>
   </main>
 
   <footer class="site-footer">
-    <div class="container site-footer__inner">
-      <div class="footer-brand">
-        <img src="/images/app-icon.png" alt="MusicDrops">
-        <div>
-          <strong>Music<em>Drops</em></strong>
-          <span lang="en">A release tracker for people who care.</span>
-          <span lang="de">Ein Release-Tracker f&uuml;r echte Fans.</span>
-        </div>
-      </div>
+    <div class="wrap site-footer__inner">
+      <a href="/" class="site-logo"><img src="/images/app-icon.png" alt="" width="28" height="28"><span>Music<em>Drops</em></span></a>
       <ul class="footer-links">
-        <li><a href="/"><span lang="en">Home</span><span lang="de">Start</span></a></li>
         <li><a href="/support/">Support</a></li>
         <li><a href="/press/"><span lang="en">Press</span><span lang="de">Presse</span></a></li>
         <li><a href="/privacy/"><span lang="en">Privacy</span><span lang="de">Datenschutz</span></a></li>
@@ -455,18 +331,18 @@
         <li><a href="/impressum/"><span lang="en">Legal Notice</span><span lang="de">Impressum</span></a></li>
       </ul>
       <div class="footer-fine">
-        <p class="footer-copy">&copy; 2026 MusicDrops. <span lang="en">All rights reserved.</span><span lang="de">Alle Rechte vorbehalten.</span></p>
-        <p class="footer-copy footer-copy--tiny"><span lang="en">Apple, Apple Music, iTunes, iPhone, iPad, iCloud, Apple ID, App Store, and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. MusicDrops is not affiliated with or endorsed by Apple Inc.</span><span lang="de">Apple, Apple Music, iTunes, iPhone, iPad, iCloud, Apple ID, App Store und das Apple-Logo sind Marken der Apple Inc., eingetragen in den USA und anderen L&auml;ndern. MusicDrops ist nicht mit Apple Inc. verbunden oder von Apple Inc. unterst&uuml;tzt.</span></p>
+        <p>&copy; 2026 MusicDrops. <span lang="en">All rights reserved.</span><span lang="de">Alle Rechte vorbehalten.</span></p>
+        <p><span lang="en">Apple, Apple Music, iTunes, iPhone, iPad, iCloud, App Store, and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. MusicDrops is not affiliated with or endorsed by Apple Inc.</span><span lang="de">Apple, Apple Music, iTunes, iPhone, iPad, iCloud, App Store und das Apple-Logo sind Marken der Apple Inc., eingetragen in den USA und anderen L&auml;ndern. MusicDrops ist nicht mit Apple Inc. verbunden oder von Apple Inc. unterst&uuml;tzt.</span></p>
       </div>
     </div>
   </footer>
 
-  <script src="/js/lang.js?v=12"></script>
+  <script src="/js/lang.js?v=19"></script>
   <script>
     // Copy-to-clipboard for boilerplate blocks. Copies the visible <p> text.
     document.querySelectorAll('[data-copy]').forEach(function (btn) {
       btn.addEventListener('click', function () {
-        var block = btn.closest('.press-copyblock');
+        var block = btn.closest('.copyblock');
         var p = block && block.querySelector('p');
         if (!p) return;
         var text = p.textContent.trim();

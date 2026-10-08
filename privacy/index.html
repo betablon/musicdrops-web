@@ -6,60 +6,71 @@
   <title>Privacy Policy | MusicDrops</title>
   <meta name="description" content="MusicDrops Privacy Policy: how we handle your data.">
   <link rel="canonical" href="https://musicdrops.app/privacy/">
+  <link rel="alternate" hreflang="en" href="https://musicdrops.app/privacy/">
+  <link rel="alternate" hreflang="de" href="https://musicdrops.app/de/privacy/">
+  <link rel="alternate" hreflang="x-default" href="https://musicdrops.app/privacy/">
   <meta property="og:site_name" content="MusicDrops">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="de_DE">
   <meta property="og:title" content="Privacy Policy | MusicDrops">
   <meta property="og:description" content="How MusicDrops handles your data.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://musicdrops.app/privacy/">
-  <meta property="og:image" content="https://musicdrops.app/images/og-card-privacy.png">
+  <meta property="og:image" content="https://musicdrops.app/images/og-card-2-0-privacy.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="MusicDrops: Never miss another drop">
+  <meta property="og:image:alt" content="MusicDrops: Privacy policy">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Privacy Policy | MusicDrops">
   <meta name="twitter:description" content="How MusicDrops handles your data.">
-  <meta name="twitter:image" content="https://musicdrops.app/images/og-card-privacy.png">
+  <meta name="twitter:image" content="https://musicdrops.app/images/og-card-2-0-privacy.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png">
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-  <meta name="theme-color" content="#fbfaf5">
-  <link rel="stylesheet" href="/css/style.css?v=25">
+  <meta name="apple-itunes-app" content="app-id=6759535792">
+  <meta name="theme-color" content="#fbfaf6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f0e0d" media="(prefers-color-scheme: dark)">
+  <link rel="preload" href="/fonts/instrument-serif-400-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script>try{var t=localStorage.getItem("musicdrops-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t;var l=localStorage.getItem("musicdrops-lang");if(!/^\/de\//.test(location.pathname)&&(l==="de"||(!l&&/^de\b/i.test(navigator.language||""))))location.replace("/de"+location.pathname+location.search+location.hash)}catch(e){}</script>
+  <link rel="expect" href="#prefs" blocking="render">
+  <script src="/js/lang-switch.js?v=2"></script>
+  <link rel="stylesheet" href="/css/style.css?v=42">
 </head>
 <body>
 
   <header class="site-header">
-    <div class="container site-header__inner">
-      <a href="/" class="site-logo">
-        <img src="/images/app-icon.png" alt="MusicDrops icon">
-        <span>Music<em>Drops</em></span>
-      </a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <nav>
+    <div class="wrap site-header__inner">
+      <a href="/" class="site-logo"><img src="/images/app-icon.png" alt="" width="28" height="28"><span>Music<em>Drops</em></span></a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav aria-label="Main">
         <ul class="nav-links">
-          <li><a href="/#showcase"><span lang="en">The app</span><span lang="de">Die App</span></a></li>
-          <li><a href="/#features"><span lang="en">Features</span><span lang="de">Funktionen</span></a></li>
           <li><a href="/support/">Support</a></li>
           <li><a href="/press/"><span lang="en">Press</span><span lang="de">Presse</span></a></li>
           <li>
-            <div class="lang-toggle" role="group" aria-label="Language">
-              <button data-lang="en" class="active" type="button">EN</button>
-              <button data-lang="de" type="button">DE</button>
+            <div class="nav-prefs" id="prefs">
+              <div class="lang-toggle" role="group" aria-label="Language">
+                <a data-lang="en" class="active" aria-current="true" href="/privacy/" hreflang="en">EN</a>
+                <a data-lang="de" href="/de/privacy/" hreflang="de">DE</a>
+              </div>
+              <button class="theme-toggle" type="button" aria-label="Switch to dark mode">
+                <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7Z"/></svg>
+                <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></svg>
+              </button>
             </div>
           </li>
+          <li><a class="nav-get" href="https://apps.apple.com/us/app/music-drops/id6759535792" target="_blank" rel="noopener"><span lang="en">Get the app</span><span lang="de">App laden</span></a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main class="legal-page">
-    <div class="container">
+  <main>
+    <div class="wrap legal">
 
       <!-- English -->
       <div lang="en">
-        <h1>Privacy Policy</h1>
-        <p class="last-updated">Last updated: September 27, 2026</p>
+        <h1>Privacy <em>policy.</em></h1>
+        <p class="last-updated">Last updated: October 7, 2026</p>
 
         <h2>1. Controller</h2>
         <p>The controller responsible for data processing in connection with MusicDrops is:</p>
@@ -171,7 +182,7 @@
         <p>MusicDrops does not make automated decisions about you that produce legal effects or similarly significantly affect you (Art.&nbsp;22 GDPR). Some features rank or personalise what you see based on data you&rsquo;ve chosen to share with the App &mdash; for example your listening activity &mdash; but these run entirely on your device, never produce a binding decision about you, and you can always override or turn them off (see Section&nbsp;5).</p>
 
         <h2>11. Children&rsquo;s Privacy</h2>
-        <p>MusicDrops does not collect personal data from anyone, including children. However, the App requires a minimum age of 16 years or parental consent in accordance with Art. 8 GDPR and &sect; 25 TTDSG (see our <a href="/terms/">Terms of Service</a>).</p>
+        <p>MusicDrops does not collect personal data from anyone, including children. However, the App requires a minimum age of 16 years or parental consent in accordance with Art. 8 GDPR (see our <a href="/terms/">Terms of Service</a>).</p>
 
         <h2>12. This Website</h2>
         <p>This website (musicdrops.app) is a static website. It does not use analytics or tracking of any kind. We do not collect personal data through this website. All page resources (images, stylesheets, scripts) are self-hosted; no external third-party resources are loaded by the website code.</p>
@@ -181,11 +192,11 @@
         <p><strong>Legal basis:</strong> Art. 6(1)(f) GDPR (legitimate interest in providing and securing the website).</p>
 
         <h3>Cloudflare Security Cookies</h3>
-        <p>Cloudflare may set strictly necessary cookies (such as <code>__cf_bm</code>) to distinguish human visitors from automated traffic and to protect the website from malicious requests. These cookies are not used for tracking or advertising and are exempt from consent requirements under &sect; 25(2) TTDSG as they are strictly necessary for the service you requested.</p>
+        <p>Cloudflare may set strictly necessary cookies (such as <code>__cf_bm</code>) to distinguish human visitors from automated traffic and to protect the website from malicious requests. These cookies are not used for tracking or advertising and are exempt from consent requirements under &sect; 25(2) TDDDG as they are strictly necessary for the service you requested.</p>
 
         <h3>Language Preference</h3>
-        <p>The website stores your language preference (English/German) in your browser&rsquo;s local storage to remember your selection across visits. This data never leaves your device.</p>
-        <p><strong>Legal basis:</strong> Art. 6(1)(f) GDPR (legitimate interest) and &sect; 25(2) TTDSG (technically necessary storage).</p>
+        <p>The website stores your language preference (English/German) in your browser&rsquo;s local storage to remember your selection across visits. If you switch between light and dark mode on the website, that choice is stored the same way, and removed again when you switch back to your device&rsquo;s setting. This data never leaves your device.</p>
+        <p><strong>Legal basis:</strong> Art. 6(1)(f) GDPR (legitimate interest) and &sect; 25(2) TDDDG (technically necessary storage).</p>
 
         <h2>13. Changes to This Policy</h2>
         <p>We may update this Privacy Policy from time to time. If we make material changes (for example, introducing new data processing activities or changing legal bases), we will notify you at least 14&nbsp;days before the changes take effect through a notice within the App or via the App Store update notes. Non-material changes (such as clarifications or corrections) will be posted on this page with an updated date.</p>
@@ -198,8 +209,8 @@
 
       <!-- German -->
       <div lang="de">
-        <h1>Datenschutzerkl&auml;rung</h1>
-        <p class="last-updated">Zuletzt aktualisiert: 27. September 2026</p>
+        <h1>Datenschutz&shy;<em>erkl&auml;rung.</em></h1>
+        <p class="last-updated">Zuletzt aktualisiert: 7. Oktober 2026</p>
 
         <h2>1. Verantwortlicher</h2>
         <p>Verantwortlich f&uuml;r die Datenverarbeitung im Zusammenhang mit MusicDrops ist:</p>
@@ -311,7 +322,7 @@
         <p>MusicDrops trifft keine automatisierten Entscheidungen &uuml;ber Sie, die rechtliche Wirkung entfalten oder Sie in &auml;hnlicher Weise erheblich beeintr&auml;chtigen (Art.&nbsp;22 DSGVO). Manche Funktionen ordnen oder personalisieren Ihre Ansicht anhand von Daten, deren Nutzung Sie der App zugestimmt haben &mdash; zum Beispiel Ihr Wiedergabeverhalten. Diese laufen jedoch vollst&auml;ndig auf Ihrem Ger&auml;t, treffen niemals eine bindende Entscheidung &uuml;ber Sie, und Sie k&ouml;nnen sie jederzeit &uuml;bersteuern oder deaktivieren (siehe Abschnitt&nbsp;5).</p>
 
         <h2>11. Datenschutz f&uuml;r Kinder</h2>
-        <p>MusicDrops erhebt keine personenbezogenen Daten von niemandem, einschlie&szlig;lich Kindern. Die App setzt jedoch ein Mindestalter von 16 Jahren oder die Zustimmung der Eltern voraus, gem&auml;&szlig; Art. 8 DSGVO und &sect; 25 TTDSG (siehe unsere <a href="/terms/">Nutzungsbedingungen</a>).</p>
+        <p>MusicDrops erhebt keine personenbezogenen Daten von niemandem, einschlie&szlig;lich Kindern. Die App setzt jedoch ein Mindestalter von 16 Jahren oder die Zustimmung der Eltern voraus, gem&auml;&szlig; Art. 8 DSGVO (siehe unsere <a href="/terms/">Nutzungsbedingungen</a>).</p>
 
         <h2>12. Diese Website</h2>
         <p>Diese Website (musicdrops.app) ist eine statische Website. Sie verwendet keine Analysetools oder Tracking jeglicher Art. Wir erheben keine personenbezogenen Daten &uuml;ber diese Website. Alle Seitenressourcen (Bilder, Stylesheets, Skripte) werden lokal gehostet; es werden keine externen Drittanbieter-Ressourcen durch den Website-Code geladen.</p>
@@ -321,11 +332,11 @@
         <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Bereitstellung und Sicherung der Website).</p>
 
         <h3>Cloudflare-Sicherheits-Cookies</h3>
-        <p>Cloudflare kann streng notwendige Cookies (wie <code>__cf_bm</code>) setzen, um menschliche Besucher von automatisiertem Datenverkehr zu unterscheiden und die Website vor b&ouml;sartigen Anfragen zu sch&uuml;tzen. Diese Cookies werden nicht f&uuml;r Tracking oder Werbung verwendet und sind gem&auml;&szlig; &sect; 25 Abs. 2 TTDSG als streng notwendig von der Einwilligungspflicht ausgenommen.</p>
+        <p>Cloudflare kann streng notwendige Cookies (wie <code>__cf_bm</code>) setzen, um menschliche Besucher von automatisiertem Datenverkehr zu unterscheiden und die Website vor b&ouml;sartigen Anfragen zu sch&uuml;tzen. Diese Cookies werden nicht f&uuml;r Tracking oder Werbung verwendet und sind gem&auml;&szlig; &sect; 25 Abs. 2 TDDDG als streng notwendig von der Einwilligungspflicht ausgenommen.</p>
 
         <h3>Spracheinstellung</h3>
-        <p>Die Website speichert Ihre Sprachpr&auml;ferenz (Englisch/Deutsch) im lokalen Speicher Ihres Browsers, um Ihre Auswahl bei zuk&uuml;nftigen Besuchen zu speichern. Diese Daten verlassen Ihr Ger&auml;t nicht.</p>
-        <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse) und &sect; 25 Abs. 2 TTDSG (technisch notwendige Speicherung).</p>
+        <p>Die Website speichert Ihre Sprachpr&auml;ferenz (Englisch/Deutsch) im lokalen Speicher Ihres Browsers, um Ihre Auswahl bei zuk&uuml;nftigen Besuchen zu speichern. Wenn Sie auf der Website zwischen hellem und dunklem Modus wechseln, wird diese Auswahl ebenso gespeichert und wieder entfernt, sobald Sie zur Einstellung Ihres Ger&auml;ts zur&uuml;ckwechseln. Diese Daten verlassen Ihr Ger&auml;t nicht.</p>
+        <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse) und &sect; 25 Abs. 2 TDDDG (technisch notwendige Speicherung).</p>
 
         <h2>13. &Auml;nderungen dieser Richtlinie</h2>
         <p>Wir k&ouml;nnen diese Datenschutzerkl&auml;rung von Zeit zu Zeit aktualisieren. Bei wesentlichen &Auml;nderungen (etwa der Einf&uuml;hrung neuer Datenverarbeitungen oder der &Auml;nderung von Rechtsgrundlagen) werden wir Sie mindestens 14&nbsp;Tage vor Inkrafttreten der &Auml;nderungen benachrichtigen, beispielsweise durch einen Hinweis in der App oder &uuml;ber die App-Store-Aktualisierungshinweise. Unwesentliche &Auml;nderungen (wie Klarstellungen oder Korrekturen) werden auf dieser Seite mit einem aktualisierten Datum ver&ouml;ffentlicht.</p>
@@ -340,17 +351,9 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container site-footer__inner">
-      <div class="footer-brand">
-        <img src="/images/app-icon.png" alt="MusicDrops">
-        <div>
-          <strong>Music<em>Drops</em></strong>
-          <span lang="en">A release tracker for people who care.</span>
-          <span lang="de">Ein Release-Tracker f&uuml;r echte Fans.</span>
-        </div>
-      </div>
+    <div class="wrap site-footer__inner">
+      <a href="/" class="site-logo"><img src="/images/app-icon.png" alt="" width="28" height="28"><span>Music<em>Drops</em></span></a>
       <ul class="footer-links">
-        <li><a href="/"><span lang="en">Home</span><span lang="de">Start</span></a></li>
         <li><a href="/support/">Support</a></li>
         <li><a href="/press/"><span lang="en">Press</span><span lang="de">Presse</span></a></li>
         <li><a href="/privacy/"><span lang="en">Privacy</span><span lang="de">Datenschutz</span></a></li>
@@ -358,12 +361,12 @@
         <li><a href="/impressum/"><span lang="en">Legal Notice</span><span lang="de">Impressum</span></a></li>
       </ul>
       <div class="footer-fine">
-        <p class="footer-copy">&copy; 2026 MusicDrops. <span lang="en">All rights reserved.</span><span lang="de">Alle Rechte vorbehalten.</span></p>
-        <p class="footer-copy footer-copy--tiny"><span lang="en">Apple, Apple Music, iTunes, iPhone, iCloud, Apple ID, App Store, and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. MusicDrops is not affiliated with or endorsed by Apple Inc.</span><span lang="de">Apple, Apple Music, iTunes, iPhone, iCloud, Apple ID, App Store und das Apple-Logo sind Marken der Apple Inc., eingetragen in den USA und anderen L&auml;ndern. MusicDrops ist nicht mit Apple Inc. verbunden oder von Apple Inc. unterst&uuml;tzt.</span></p>
+        <p>&copy; 2026 MusicDrops. <span lang="en">All rights reserved.</span><span lang="de">Alle Rechte vorbehalten.</span></p>
+        <p><span lang="en">Apple, Apple Music, iTunes, iPhone, iPad, iCloud, App Store, and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. MusicDrops is not affiliated with or endorsed by Apple Inc.</span><span lang="de">Apple, Apple Music, iTunes, iPhone, iPad, iCloud, App Store und das Apple-Logo sind Marken der Apple Inc., eingetragen in den USA und anderen L&auml;ndern. MusicDrops ist nicht mit Apple Inc. verbunden oder von Apple Inc. unterst&uuml;tzt.</span></p>
       </div>
     </div>
   </footer>
 
-  <script src="/js/lang.js?v=12"></script>
+  <script src="/js/lang.js?v=19"></script>
 </body>
 </html>
