@@ -59,9 +59,9 @@ PAGES = {
     # on the effective date, and this entry goes with it.
     "privacy/upcoming/index.html": ("/privacy/upcoming/", {
         "title": "Bevorstehende Datenschutzerklärung | MusicDrops",
-        "description": "Die bevorstehende Datenschutzerklärung von MusicDrops, gültig ab 3. Dezember 2026.",
+        "description": "Die bevorstehende Datenschutzerklärung von MusicDrops, gültig ab 7. Dezember 2026.",
         "og_title": "Bevorstehende Datenschutzerklärung | MusicDrops",
-        "og_description": "Die bevorstehende Datenschutzerklärung von MusicDrops, gültig ab 3. Dezember 2026.",
+        "og_description": "Die bevorstehende Datenschutzerklärung von MusicDrops, gültig ab 7. Dezember 2026.",
         "image_alt": "MusicDrops: Datenschutzerklärung",
     }),
     "terms/index.html": ("/terms/", {
