@@ -616,6 +616,7 @@ kbd { font-family: inherit; font-size: .9em; background: var(--surface); box-sha
 .legal li + li { margin-top: 6px; }
 .legal strong { color: var(--ink); }
 .legal a { overflow-wrap: anywhere; }
+.legal .legal-notice { margin-top: 28px; padding: 6px 22px 18px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
 
 /* 404 */
 .not-found { text-align: center; padding: clamp(96px, 16vw, 180px) 0; }

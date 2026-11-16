@@ -55,6 +55,15 @@ PAGES = {
         "og_description": "Wie MusicDrops mit Daten umgeht.",
         "image_alt": "MusicDrops: Datenschutzerklärung",
     }),
+    # Only while an update is pending: /privacy/upcoming/ becomes a redirect
+    # on the effective date, and this entry goes with it.
+    "privacy/upcoming/index.html": ("/privacy/upcoming/", {
+        "title": "Bevorstehende Datenschutzerklärung | MusicDrops",
+        "description": "Die bevorstehende Datenschutzerklärung von MusicDrops, gültig ab 3. Dezember 2026.",
+        "og_title": "Bevorstehende Datenschutzerklärung | MusicDrops",
+        "og_description": "Die bevorstehende Datenschutzerklärung von MusicDrops, gültig ab 3. Dezember 2026.",
+        "image_alt": "MusicDrops: Datenschutzerklärung",
+    }),
     "terms/index.html": ("/terms/", {
         "title": "Nutzungsbedingungen | MusicDrops",
         "description": "Nutzungsbedingungen von MusicDrops.",
