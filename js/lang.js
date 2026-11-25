@@ -165,6 +165,38 @@
     } catch (e) { /* keep the price written in the page */ }
   });
 
+  // ---------- Black Friday 2026: Lifetime on sale ----------
+  // Must match the temporary price change on Lifetime in App Store Connect.
+  // The line shows from `from` through `until` (whole days, the visitor's
+  // clock), and only to visitors whose country is known and pays in one of
+  // these currencies; the dollar fallback for everyone else never sees it.
+  // scripts/check_prices.py checks the store against these prices while the
+  // window is open. Only prices read off the store go here (2026-11-25); a
+  // currency left out shows no sale. Remove this, the two .plans__sale lines
+  // and the hero's data-sale-pill after the sale.
+  var SALE = {
+    from: "2026-11-25", until: "2026-11-30",
+    lifetime: { USD: 24.99, EUR: 29.99, GBP: 24.99, CAD: 34.99, AUD: 39.99, CHF: 20 }
+  };
+  var saleDay = function (iso, plus) {
+    var p = iso.split("-");
+    return new Date(+p[0], p[1] - 1, +p[2] + (plus || 0));
+  };
+  var now = new Date();
+  var salePrice = SALE.lifetime[currency];
+  var saleStorefront = region === "US" || EUROZONE.test(region || "") || !!REGION_CURRENCY[region];
+  if (salePrice != null && saleStorefront && now >= saleDay(SALE.from) && now < saleDay(SALE.until, 1)) {
+    try {
+      document.querySelectorAll('[data-price="lifetimeSale"]').forEach(function (el) {
+        el.textContent = new Intl.NumberFormat(el.closest("[lang]").lang, { style: "currency", currency: currency }).format(salePrice);
+      });
+      // Shown only once every price is in: no sale line without its price.
+      document.querySelectorAll(".plans__sale").forEach(function (el) { el.hidden = false; });
+      document.querySelectorAll("[data-sale-pill]").forEach(function (el) { el.style.display = ""; });
+      document.querySelectorAll("[data-sale-hides]").forEach(function (el) { el.style.display = "none"; });
+    } catch (e) { /* no price, no sale */ }
+  }
+
   // ---------- App Store links: the visitor's own storefront ----------
   // apps.apple.com sends country-less links to the US store, so name the country.
   if (region) {

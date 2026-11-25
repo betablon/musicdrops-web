@@ -3,7 +3,9 @@
 
 Reads the hand-kept PRICES table in js/lang.js, opens the app's App Store page
 for one storefront per currency, reads the in-app purchase list Apple embeds
-in the page, and compares the two.
+in the page, and compares the two. While a SALE in js/lang.js is running
+(its from..until days, UTC), Lifetime is compared against the sale prices
+instead, so a pass also means the store really charges what the sale line says.
 
 Exits 1 (so the workflow run fails and GitHub sends its failure email) when a
 price differs, or when no storefront could be read at all, since then the
@@ -18,6 +20,7 @@ import os
 import re
 import sys
 import time
+from datetime import date, datetime, timezone
 import urllib.error
 import urllib.request
 
@@ -46,6 +49,19 @@ def site_prices():
         js = f.read()
     rows = re.findall(r"(\b[A-Z]{3}): \{ monthly: ([\d.]+), yearly: ([\d.]+), lifetime: ([\d.]+) \}", js)
     return {cur: {"monthly": float(m), "yearly": float(y), "lifetime": float(l)} for cur, m, y, l in rows}
+
+
+def running_sale():
+    """Lifetime sale prices by currency if js/lang.js has a SALE running today, else None."""
+    with open(LANG_JS, encoding="utf-8") as f:
+        js = f.read()
+    m = re.search(r'var SALE = \{\s*from: "([\d-]+)", until: "([\d-]+)",\s*lifetime: \{([^}]*)\}', js)
+    if not m:
+        return None
+    today = datetime.now(timezone.utc).date()
+    if not date.fromisoformat(m.group(1)) <= today <= date.fromisoformat(m.group(2)):
+        return None
+    return {cur: float(p) for cur, p in re.findall(r"\b([A-Z]{3}): ([\d.]+)", m.group(3))}
 
 
 def amount(text):
@@ -78,6 +94,12 @@ def main():
     if not expected:
         log("::error::Couldn't read the PRICES table in js/lang.js.")
         return 1
+    sale = running_sale()
+    if sale:
+        log("A SALE in js/lang.js is running: Lifetime is checked against its prices.")
+        for cur, price in sale.items():
+            if cur in expected:
+                expected[cur]["lifetime"] = price
 
     mismatches, read = [], 0
     for country, currency in STOREFRONTS.items():
@@ -106,6 +128,8 @@ def main():
     if mismatches:
         for m in mismatches:
             log(f"::error::{m}")
+        if sale:
+            log("During the sale, a Lifetime mismatch means App Store Connect and SALE in js/lang.js disagree.")
         log("Update the PRICES table in js/lang.js (and bump its ?v= on every page).")
         return 1
     log("All website prices match the App Store.")
