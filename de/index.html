@@ -36,7 +36,7 @@
   <script>try{var t=localStorage.getItem("musicdrops-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t;var l=localStorage.getItem("musicdrops-lang");if(!/^\/de\//.test(location.pathname)&&(l==="de"||(!l&&/^de\b/i.test(navigator.language||""))))location.replace("/de"+location.pathname+location.search+location.hash)}catch(e){}</script>
   <link rel="expect" href="#prefs" blocking="render">
   <script src="/js/lang-switch.js?v=2"></script>
-  <link rel="stylesheet" href="/css/style.css?v=44">
+  <link rel="stylesheet" href="/css/style.css?v=45">
   <script type="application/ld+json" id="app-ld">
 {
   "@context": "https://schema.org",
@@ -108,10 +108,10 @@
     <section class="hero">
       <div class="wrap hero__grid">
         <div class="hero__copy">
-          <!-- Launch-season pill: remove a few weeks after 2.0 ships. -->
-          <a class="pill" href="#iphone-duo">
-            <b lang="de">Neu in 2.0</b>
-            <span lang="de">iPhone Duo, R&uuml;ckblicke und mehr &rarr;</span>
+          <!-- Pre-launch pill for 2.1: on release day it becomes "New in 2.1", and goes a few weeks later. -->
+          <a class="pill" href="#on-tour">
+            <b lang="de">Kommt im Dezember</b>
+            <span lang="de">Tourtermine und Ticketverk&auml;ufe &rarr;</span>
           </a>
           <h1 lang="de">Verpasse keinen <em>Drop.</em></h1>
           <p class="hero__sub" lang="de">Folge den K&uuml;nstlern, die du liebst. MusicDrops sagt dir, wenn ihre neue Musik erscheint.</p>
@@ -210,6 +210,72 @@
           <div class="device device--phone">
             <div class="device__screen"><img src="/images/screenshots/v2-0/iphone-release.webp" alt="Eine Release-Seite auf dem iPhone mit Bewertung, Details und der Taste „In Apple Music öffnen“" width="640" height="1391" decoding="async" loading="lazy"></div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ON TOUR (2.1, coming in December) ============ -->
+    <!-- The notifications are real. Billie Eilish, BST Hyde Park, 3 July 2027: BST and Royal
+         Parks presales Tue 24 Nov 2026 10:00 (Ticketmaster UK, data of 2026-11-23); the app
+         groups a row's presales by start time, names sorted by show count, then A-Z.
+         Gracie Abrams announced 9 UK dates on 28 May 2026, presale Tue 2 June 9:00,
+         general sale Fri 5 June 9:00 (Ticketmaster UK).
+         Wording as the app writes them (TourAlertText, SaleReminderText), on a UK phone:
+         en-GB times and lists ("09:00", no serial comma). A sale 2-5 days ahead reads as a
+         weekday, a later one with its date ("Fri 5 Jun"). The settings rows and footer are
+         the app's own (Settings > Notifications); all three are off until switched on.
+         German follows the app's glossary: Vorverkauf/Verkauf, Tourtermine, Konzerte.
+         On release day, drop the "Coming in December" tag and add 2.1 screenshots. -->
+    <section class="chapter tour" id="on-tour">
+      <div class="wrap chapter__grid">
+        <div class="chapter__text">
+          <p class="pill soon"><b lang="de">Kommt im Dezember</b><span>MusicDrops 2.1</span></p>
+          <h2 lang="de">Deine K&uuml;nstler, <em>auf Tour.</em></h2>
+          <p lang="de">Tourtermine und Ticketverk&auml;ufe der K&uuml;nstler, denen du folgst. Erfahre, wenn neue Termine angek&uuml;ndigt werden, und lass dich erinnern, bevor der Ticketverkauf startet.</p>
+          <p class="chapter__note" lang="de">Daten von Ticketmaster, in den L&auml;ndern, die es abdeckt. Kostenlos in jedem Tarif.</p>
+        </div>
+        <div class="know">
+          <div class="ios-list">
+            <p class="ios-list__head"><span lang="de">Konzerte</span></p>
+            <ul>
+              <li><span><span lang="de">Tourtermine</span><small lang="de">Neue und ge&auml;nderte Ticketmaster-Termine f&uuml;r K&uuml;nstler*innen, denen du folgst</small></span><span class="switch" aria-hidden="true"></span></li>
+              <li><span><span lang="de">Neue Ticketverk&auml;ufe</span><small lang="de">Neue Ticketmaster-Vorverk&auml;ufe und allgemeine Verk&auml;ufe f&uuml;r K&uuml;nstler*innen, denen du folgst</small></span><span class="switch" aria-hidden="true"></span></li>
+              <li><span><span lang="de">Erinnerungen an Ticketverk&auml;ufe</span><small lang="de">Vorverk&auml;ufe und allgemeine Verk&auml;ufe, 1 Tag vorher, 30 Min. vorher</small></span><span class="chevron" aria-hidden="true"></span></li>
+            </ul>
+            <p class="ios-list__foot"><span lang="de">F&uuml;r die unter Einstellungen &rsaquo; Konzerte gew&auml;hlten L&auml;nder.</span></p>
+          </div>
+          <div class="know__stack" aria-hidden="true">
+            <div class="notif notif--text">
+              <img class="notif__icon" src="/images/app-icon.png" alt="">
+              <div>
+                <span class="notif__app"><span>MUSICDROPS</span><span class="notif__time">09:30</span></span>
+                <span class="notif__title"><span lang="de">Billie Eilish: Vorverk&auml;ufe starten um 10:00</span></span>
+                <span class="notif__sub"><span lang="de">BST Presale und Royal Parks Presale. Beginnt in 30 Minuten. London.</span></span>
+              </div>
+            </div>
+            <div class="notif notif--text">
+              <img class="notif__icon" src="/images/app-icon.png" alt="">
+              <div>
+                <span class="notif__app"><span>MUSICDROPS</span><span class="notif__time"><span lang="de">Do.</span></span></span>
+                <span class="notif__title">Gracie Abrams</span>
+                <span class="notif__sub"><span lang="de">9 Tourtermine angek&uuml;ndigt: Manchester, Glasgow und London. Vorverkauf ab Di um 09:00, Verkauf ab Fr. 5. Juni um 09:00.</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="wrap points tour__points">
+        <div>
+          <h3 lang="de">Auf K&uuml;nstlerseiten</h3>
+          <p lang="de">Jeder Termin, nach Tour gruppiert, mit dem Start des Ticketverkaufs.</p>
+        </div>
+        <div>
+          <h3 lang="de">In &bdquo;Gefolgt&ldquo;</h3>
+          <p lang="de">Wer auf Tour ist, mit dem n&auml;chsten Konzert jedes K&uuml;nstlers und den Terminen der letzten 30 Tage.</p>
+        </div>
+        <div>
+          <h3 lang="de">In &bdquo;Drops&ldquo;</h3>
+          <p lang="de">Ticketverk&auml;ufe der n&auml;chsten 7 Tage, direkt nach &bdquo;Als N&auml;chstes&ldquo;.</p>
         </div>
       </div>
     </section>
